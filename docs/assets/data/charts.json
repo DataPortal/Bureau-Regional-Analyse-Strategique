@@ -1,0 +1,26 @@
+{
+  "donut": {
+    "labels": [
+      "GiHA (coordination & QA)",
+      "Protection/VBG",
+      "Moyens de subsistance (résilience)",
+      "Données & suivi (accountability)"
+    ],
+    "values": [32, 28, 25, 15]
+  },
+  "bars": {
+    "labels": [
+      "Sous-financement priorités genre",
+      "Accès humanitaire / sécurité",
+      "Normes discriminatoires",
+      "Consultation limitée WLO/WRO",
+      "Gaps de données désagrégées"
+    ],
+    "values": [85, 70, 75, 65, 72]
+  },
+  "trend": {
+    "label": "Signal (illustratif) — intensification / extension",
+    "labels": ["2021", "2022", "2023", "2024", "2025", "2026"],
+    "values": [55, 63, 70, 78, 86, 92]
+  }
+}
