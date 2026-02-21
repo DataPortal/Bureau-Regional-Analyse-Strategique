@@ -1,10 +1,9 @@
 /* =========================================================
-   main.js — WCARO/OCHA HQ Web Brief (ULTRA-PRO)
+   main.js — HQ Brief (Summary-first + Details toggles)
    - Data: kpi.json, charts.json, geo.json, content.json
-   - Render: hero, quote, intro, context, gender, risks,
-             strategy, staffing, M&E, RM, donor, sidebar
-   - Map: Leaflet | Charts: Chart.js
-   - Reveal: IntersectionObserver
+   - UX: résumé stratégique + <details> accordéons
+   - Buttons: open/close all details
+   - Images: placeholders if missing
    ========================================================= */
 
 async function loadJSON(path){
@@ -13,42 +12,10 @@ async function loadJSON(path){
   return r.json();
 }
 
-function el(tag, cls){
-  const e = document.createElement(tag);
-  if(cls) e.className = cls;
-  return e;
-}
-
-function renderHeroMessages(items){
-  const wrap = document.getElementById("heroMessages");
-  wrap.innerHTML = "";
-  items.slice(0,3).forEach(x=>{
-    const card = el("div","heroMsg");
-    card.innerHTML = `
-      <div class="heroMsg__title">${x.title}</div>
-      <p class="heroMsg__text">${x.text}</p>
-    `;
-    wrap.appendChild(card);
-  });
-}
-
-function renderKPIs(kpi){
-  const grid = document.getElementById("kpiGrid");
-  grid.innerHTML = "";
-  kpi.kpis.forEach(k=>{
-    const card = el("div","kpiCard reveal");
-    card.innerHTML = `
-      <div class="kpiLabel">${k.label}</div>
-      <div class="kpiValue">${k.value}</div>
-      <div class="kpiHint">${k.hint || ""}</div>
-    `;
-    grid.appendChild(card);
-  });
-  document.getElementById("kpiNote").textContent = kpi.note || "";
-}
+function $(id){ return document.getElementById(id); }
 
 function renderList(id, items){
-  const ul = document.getElementById(id);
+  const ul = $(id);
   ul.innerHTML = "";
   (items || []).forEach(t=>{
     const li = document.createElement("li");
@@ -57,32 +24,61 @@ function renderList(id, items){
   });
 }
 
-function setText(id, value){
-  const n = document.getElementById(id);
-  if(n) n.textContent = value || "";
-}
-
-function setPrewrapText(id, value){
-  const n = document.getElementById(id);
-  if(n) n.textContent = value || "";
-}
-
-function renderChips(id, items){
-  const wrap = document.getElementById(id);
+function renderKPIs(kpi){
+  const wrap = $("kpiGrid");
   wrap.innerHTML = "";
-  (items || []).forEach(x=>{
-    const chip = el("div","chip");
-    chip.textContent = x;
-    wrap.appendChild(chip);
+  (kpi.kpis || []).forEach(k=>{
+    const card = document.createElement("div");
+    card.className = "kpiCard";
+    card.innerHTML = `
+      <div class="kpiLabel">${k.label}</div>
+      <div class="kpiValue">${k.value}</div>
+      <div class="kpiHint">${k.hint || ""}</div>
+    `;
+    wrap.appendChild(card);
+  });
+}
+
+function renderMicroKpis(items){
+  const wrap = $("microKpis");
+  wrap.innerHTML = "";
+  (items || []).slice(0,3).forEach(x=>{
+    const box = document.createElement("div");
+    box.className = "microKpi";
+    box.innerHTML = `<div class="microKpi__k">${x.k}</div><div class="microKpi__v">${x.v}</div>`;
+    wrap.appendChild(box);
+  });
+}
+
+function renderSignals(items){
+  const wrap = $("heroSignals");
+  wrap.innerHTML = "";
+  (items || []).slice(0,3).forEach(x=>{
+    const c = document.createElement("div");
+    c.className = "signalCard";
+    c.innerHTML = `<p class="signalCard__t">${x.title}</p><p class="signalCard__d">${x.text}</p>`;
+    wrap.appendChild(c);
+  });
+}
+
+function renderKeyMessages(items){
+  const wrap = $("keyMessages");
+  wrap.innerHTML = "";
+  (items || []).slice(0,3).forEach(m=>{
+    const c = document.createElement("div");
+    c.className = "msg";
+    c.innerHTML = `<p class="msg__t">${m.title}</p><p class="msg__d">${m.text}</p>`;
+    wrap.appendChild(c);
   });
 }
 
 function renderRiskMatrix(risks){
-  const wrap = document.getElementById("riskMatrix");
+  const wrap = $("riskMatrix");
   wrap.innerHTML = "";
   (risks || []).forEach(r=>{
-    const cell = el("div","riskCell");
     const tags = (r.tags || []).map(t=>`<span class="tag">${t}</span>`).join("");
+    const cell = document.createElement("div");
+    cell.className = "riskCell";
     cell.innerHTML = `
       <div class="riskCell__title">${r.title}</div>
       <div class="riskCell__text">${r.text}</div>
@@ -93,10 +89,11 @@ function renderRiskMatrix(risks){
 }
 
 function renderAssumptions(assumptions){
-  const wrap = document.getElementById("assumptionsGrid");
+  const wrap = $("assumptionsGrid");
   wrap.innerHTML = "";
   (assumptions || []).forEach(a=>{
-    const box = el("div","assumption");
+    const box = document.createElement("div");
+    box.className = "assumption";
     box.innerHTML = `
       <div class="assumption__t">${a.title}</div>
       <div class="assumption__d">${a.description}</div>
@@ -106,23 +103,14 @@ function renderAssumptions(assumptions){
   });
 }
 
-function renderCrossCut(items){
-  const wrap = document.getElementById("crossCutItems");
+function renderStaff(rows){
+  const wrap = $("staffTable");
   wrap.innerHTML = "";
-  (items || []).forEach(x=>{
-    const c = el("div","crossItem");
-    c.textContent = x;
-    wrap.appendChild(c);
-  });
-}
-
-function renderStaffTable(rows){
-  const wrap = document.getElementById("staffTable");
-  wrap.innerHTML = "";
-  (rows || []).forEach(r=>{
-    const row = el("div","staffRow");
+  (rows || []).slice(0,4).forEach(r=>{
+    const row = document.createElement("div");
+    row.className = "staffRow";
     const status = (r.status || "").toLowerCase();
-    const label = status === "ok" ? "OK" : (status === "?" ? "À confirmer" : (r.status || "—"));
+    const label = status === "ok" ? "OK" : (status.includes("conf") ? "À confirmer" : (r.status || "—"));
     row.innerHTML = `
       <div class="staffRow__head">
         <div class="staffRow__title">${r.title}</div>
@@ -135,23 +123,22 @@ function renderStaffTable(rows){
 }
 
 function renderTimeline(years){
-  const wrap = document.getElementById("timeline");
+  const wrap = $("timeline");
   wrap.innerHTML = "";
   (years || []).forEach(y=>{
-    const card = el("div","year");
-    card.innerHTML = `
-      <div class="year__t">${y.year}</div>
-      <div class="year__d">${y.text}</div>
-    `;
+    const card = document.createElement("div");
+    card.className = "year";
+    card.innerHTML = `<div class="year__t">${y.year}</div><div class="year__d">${y.text}</div>`;
     wrap.appendChild(card);
   });
 }
 
 function renderDonorCards(cards){
-  const wrap = document.getElementById("donorCards");
+  const wrap = $("donorCards");
   wrap.innerHTML = "";
   (cards || []).forEach(c=>{
-    const d = el("div","donorCard");
+    const d = document.createElement("div");
+    d.className = "donorCard";
     d.innerHTML = `
       <div class="donorCard__k">${c.k}</div>
       <div class="donorCard__v">${c.v}</div>
@@ -161,63 +148,80 @@ function renderDonorCards(cards){
   });
 }
 
-function renderSidebar(items){
-  const wrap = document.getElementById("intelSidebarItems");
+function renderIntelDock(items){
+  const wrap = $("intelDock");
   wrap.innerHTML = "";
-  (items || []).forEach(i=>{
-    const row = el("div","intelItem");
-    row.innerHTML = `
-      <div class="intelItem__k">${i.k}</div>
-      <div class="intelItem__v">${i.v}</div>
+  (items || []).slice(0,5).forEach((i, idx)=>{
+    const pill = document.createElement("div");
+    pill.className = "pill " + (idx % 2 === 0 ? "pill--blue" : "pill--orange");
+    pill.innerHTML = `<span>${i.k}</span> <b>${i.v}</b>`;
+    wrap.appendChild(pill);
+  });
+}
+
+function renderIllustrationFrame(targetId, src, captionTargetId, captionText){
+  const frame = $(targetId);
+  if(!frame) return;
+  frame.innerHTML = "";
+  if(src){
+    const img = document.createElement("img");
+    img.src = src;
+    img.alt = captionText || "Illustration";
+    frame.appendChild(img);
+  }else{
+    frame.textContent = "Illustration (à remplacer)";
+  }
+  if(captionTargetId){
+    const cap = $(captionTargetId);
+    if(cap) cap.textContent = captionText || "";
+  }
+}
+
+function renderIllustrationStack(targetId, items){
+  const wrap = $(targetId);
+  wrap.innerHTML = "";
+  (items || []).slice(0,3).forEach(it=>{
+    const card = document.createElement("div");
+    card.className = "illustrationCard";
+    const frameId = `frame_${Math.random().toString(16).slice(2)}`;
+    card.innerHTML = `
+      <div class="illustrationCard__frame" id="${frameId}">Illustration (à remplacer)</div>
+      <div class="illustrationCard__cap">${it.caption || ""}</div>
     `;
-    wrap.appendChild(row);
+    wrap.appendChild(card);
+
+    // load image if provided
+    if(it.src){
+      const f = document.getElementById(frameId);
+      f.innerHTML = "";
+      const img = document.createElement("img");
+      img.src = it.src;
+      img.alt = it.caption || "Illustration";
+      f.appendChild(img);
+    }
   });
 }
 
 /* Charts */
 function makeDonut(canvasId, donut){
-  const ctx = document.getElementById(canvasId);
-  return new Chart(ctx, {
+  return new Chart($(canvasId), {
     type: "doughnut",
     data: { labels: donut.labels, datasets: [{ data: donut.values }] },
-    options: {
-      responsive: true,
-      plugins: { legend: { position: "bottom" } },
-      cutout: "62%"
-    }
+    options: { responsive:true, plugins:{ legend:{ position:"bottom" } }, cutout:"62%" }
   });
 }
 function makeBars(canvasId, bars){
-  const ctx = document.getElementById(canvasId);
-  return new Chart(ctx, {
+  return new Chart($(canvasId), {
     type:"bar",
     data:{ labels: bars.labels, datasets:[{ data: bars.values }] },
-    options:{
-      responsive:true,
-      indexAxis:"y",
-      plugins:{ legend:{ display:false } },
-      scales:{ x:{ beginAtZero:true } }
-    }
+    options:{ responsive:true, indexAxis:"y", plugins:{ legend:{ display:false } }, scales:{ x:{ beginAtZero:true } } }
   });
 }
 function makeTrend(canvasId, trend){
-  const ctx = document.getElementById(canvasId);
-  return new Chart(ctx, {
+  return new Chart($(canvasId), {
     type:"line",
-    data:{
-      labels: trend.labels,
-      datasets:[{
-        label: trend.label,
-        data: trend.values,
-        tension: 0.35,
-        fill: true
-      }]
-    },
-    options:{
-      responsive:true,
-      plugins:{ legend:{ display:false } },
-      scales:{ y:{ beginAtZero:true } }
-    }
+    data:{ labels: trend.labels, datasets:[{ label: trend.label, data: trend.values, tension:0.35, fill:true }] },
+    options:{ responsive:true, plugins:{ legend:{ display:false } }, scales:{ y:{ beginAtZero:true } } }
   });
 }
 
@@ -233,15 +237,14 @@ function initMap(geo){
     const p = f.properties || {};
     const g = f.geometry || {};
     if(g.type !== "Point" || !g.coordinates) return;
-    const [lng, lat] = g.coordinates;
 
+    const [lng, lat] = g.coordinates;
     const popup = `
       <b>${p.name || "Zone"}</b><br/>
       <b>Contexte:</b> ${p.crisis || "—"}<br/>
       <b>Priorité:</b> ${p.focus || "—"}<br/>
       <b>Signal:</b> ${p.signal || "—"}
     `;
-
     const m = L.circleMarker([lat,lng], { radius:7, weight:2, fillOpacity:.25 })
       .addTo(map)
       .bindPopup(popup);
@@ -252,33 +255,37 @@ function initMap(geo){
     const group = new L.featureGroup(markers);
     map.fitBounds(group.getBounds(), { padding:[16,16] });
   }
-  return map;
 }
 
 function renderHotspotChips(geo){
-  const wrap = document.getElementById("hotspotChips");
+  const wrap = $("hotspotChips");
   wrap.innerHTML = "";
-  (geo.features || []).slice(0, 12).forEach(f=>{
+  (geo.features || []).forEach(f=>{
     const p = f.properties || {};
-    const chip = el("div","chip");
+    const chip = document.createElement("div");
+    chip.className = "chip";
     chip.textContent = `${p.name || "Zone"} • ${p.focus || "Focus"}`;
     wrap.appendChild(chip);
   });
 }
 
-/* Reveal */
-function initReveal(){
-  const nodes = document.querySelectorAll(".reveal");
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){
-        e.target.classList.add("is-visible");
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold:0.12 });
+/* Details buttons */
+function initDetailsButtons(){
+  const openBtn = document.querySelector('[data-open="allDetails"]');
+  const closeBtn = document.querySelector('[data-close="allDetails"]');
+  const all = () => Array.from(document.querySelectorAll("details.detailBlock"));
 
-  nodes.forEach(n=>io.observe(n));
+  if(openBtn){
+    openBtn.addEventListener("click", ()=>{
+      all().forEach(d=> d.open = true);
+      window.location.hash = "#snapshot";
+    });
+  }
+  if(closeBtn){
+    closeBtn.addEventListener("click", ()=>{
+      all().forEach(d=> d.open = false);
+    });
+  }
 }
 
 (async function main(){
@@ -290,103 +297,102 @@ function initReveal(){
       loadJSON("assets/data/content.json")
     ]);
 
-    // Hero
-    setText("heroSubtitle", content.hero_subtitle);
-    renderHeroMessages(content.hero_messages);
+    // HERO (summary)
+    $("heroLead").textContent = content.hero_lead || "";
+    renderSignals(content.hero_signals || []);
+    renderMicroKpis(content.micro_kpis || []);
 
-    // KPI
+    renderIllustrationFrame(
+      "heroIllustration",
+      content.hero_illustration?.src || "",
+      "heroIllustrationCap",
+      content.hero_illustration?.caption || ""
+    );
+
+    // SNAPSHOT
     renderKPIs(kpi);
+    renderKeyMessages(content.key_messages || []);
+    $("snapshotDetails").textContent = content.snapshot_details || "";
+    renderIllustrationStack("snapshotIllustrations", content.snapshot_illustrations || []);
 
-    // Quote
-    setText("quoteText", content.quote.text);
-    setText("quoteAuthor", content.quote.author);
-
-    // Intro
-    setPrewrapText("introText", content.intro.text);
-    renderList("alignmentsList", content.intro.alignments);
-    setText("introPurpose", content.intro.purpose);
-
-    // Context
+    // CONTEXT
+    renderList("contextSummary", content.context_summary || []);
+    $("westAfricaText").textContent = content.west_africa_text || "";
+    $("centralAfricaText").textContent = content.central_africa_text || "";
     initMap(geo);
     renderHotspotChips(geo);
-    renderList("contextKeyPoints", content.context.key_points);
-    setText("genderConsequence", content.context.gender_consequence);
-    setPrewrapText("westAfricaText", content.context.west_africa_text);
-    setPrewrapText("centralAfricaText", content.context.central_africa_text);
 
     // Charts
     makeDonut("chartDonut", charts.donut);
     makeBars("chartBars", charts.bars);
     makeTrend("chartTrend", charts.trend);
 
-    // Gender
-    renderList("genderWestBullets", content.gender.west.bullets);
-    setText("genderWestChallenges", content.gender.west.challenges);
-    renderList("genderCentralBullets", content.gender.central.bullets);
-    setText("genderCentralObstacle", content.gender.central.obstacle);
+    // GENDER
+    renderList("genderWestSummary", content.gender_west_summary || []);
+    $("genderWestDetails").textContent = content.gender_west_details || "";
+    renderList("genderCentralSummary", content.gender_central_summary || []);
+    $("genderCentralDetails").textContent = content.gender_central_details || "";
+    renderIllustrationStack("genderIllustrations", content.gender_illustrations || []);
 
-    // Risks & assumptions
-    renderRiskMatrix(content.risks.matrix);
-    setText("riskNote", content.risks.note);
-    renderAssumptions(content.risks.assumptions);
-    setText("mitigationApproach", content.risks.mitigation);
+    // RISKS
+    renderRiskMatrix(content.risks_matrix || []);
+    $("riskMitigation").textContent = content.risk_mitigation || "";
+    renderAssumptions(content.assumptions || []);
 
-    // Strategy (3.1)
-    renderList("objectivesList", content.strategy.objectives);
-    setText("scopeText", content.strategy.scope);
-    renderList("limitsList", content.strategy.limits);
-    setText("limitsMitigation", content.strategy.limits_mitigation);
+    // STRATEGY
+    renderList("objectivesList", content.objectives || []);
+    $("scopeText").textContent = content.scope || "";
+    renderList("limitsList", content.limits || []);
+    $("limitsMitigation").textContent = content.limits_mitigation || "";
 
-    // Pillars
-    setText("p1Objective", content.strategy.pillars.p1.objective);
-    setText("p1Approach", content.strategy.pillars.p1.approach);
-    renderList("p1Actions", content.strategy.pillars.p1.actions);
-    setText("p1Result", content.strategy.pillars.p1.result);
+    $("p1Objective").textContent = content.p1_objective || "";
+    $("p1Approach").textContent = content.p1_approach || "";
+    $("p1Result").textContent = content.p1_result || "";
+    renderList("p1Actions", content.p1_actions || []);
 
-    setText("p2Objective", content.strategy.pillars.p2.objective);
-    setText("p2Approach", content.strategy.pillars.p2.approach);
-    renderList("p2Actions", content.strategy.pillars.p2.actions);
-    setText("p2Result", content.strategy.pillars.p2.result);
+    $("p2Objective").textContent = content.p2_objective || "";
+    $("p2Approach").textContent = content.p2_approach || "";
+    $("p2Result").textContent = content.p2_result || "";
+    renderList("p2Actions", content.p2_actions || []);
 
-    renderCrossCut(content.strategy.cross_cutting);
+    renderStaff(content.staff_rows || []);
+    renderList("meList", content.me_points || []);
+    $("indicatorExamples").textContent = content.me_indicators || "";
 
-    // Staff / M&E / Timeline / RM
-    renderStaffTable(content.strategy.staffing.rows);
-    setText("staffNote", content.strategy.staffing.note);
+    renderList("rmList", content.rm_points || []);
+    $("rmCall").textContent = content.rm_call || "";
+    renderTimeline(content.timeline || []);
 
-    renderList("meList", content.strategy.me.points);
-    setText("indicatorExamples", content.strategy.me.indicators);
+    // INVESTMENT
+    renderDonorCards(content.donor_cards || []);
+    renderList("roiList", content.roi || []);
+    $("finalCall").textContent = content.final_call || "";
+    $("contactLine").textContent = content.contact || "";
 
-    renderTimeline(content.strategy.timeline);
-    renderList("rmList", content.strategy.resource_mobilization.points);
-    setText("rmCall", content.strategy.resource_mobilization.call);
+    renderIllustrationFrame(
+      "donorIllustration",
+      content.donor_illustration?.src || "",
+      "donorIllustrationCap",
+      content.donor_illustration?.caption || ""
+    );
 
-    // Donor / ROI
-    renderDonorCards(content.investment.cards);
-    renderList("roiList", content.investment.roi);
-    setText("finalCall", content.investment.final_call);
-    setText("contactLine", content.investment.contact);
-
-    // Sidebar intelligence
-    renderSidebar(content.sidebar_intelligence);
+    // Dock
+    renderIntelDock(content.intel_dock || []);
 
     // Footer
-    setText("lastUpdated", content.last_updated || new Date().toISOString().slice(0,10));
+    $("lastUpdated").textContent = content.last_updated || new Date().toISOString().slice(0,10);
 
-    // Reveal
-    initReveal();
+    initDetailsButtons();
 
   }catch(err){
     console.error("Erreur brief:", err);
-    const fallback = document.createElement("div");
-    fallback.style.padding = "16px";
-    fallback.style.margin = "16px";
-    fallback.style.background = "white";
-    fallback.style.border = "1px solid rgba(0,0,0,.1)";
-    fallback.style.borderRadius = "12px";
-    fallback.innerHTML = `<b>Erreur de chargement</b><br/>
-      Vérifiez <code>/docs/assets/data/*.json</code> et <code>/docs/assets/img/</code>.<br/>
-      Détail: ${String(err.message || err)}`;
-    document.body.prepend(fallback);
+    const box = document.createElement("div");
+    box.style.margin = "16px";
+    box.style.padding = "14px";
+    box.style.background = "white";
+    box.style.border = "1px solid rgba(0,0,0,.12)";
+    box.style.borderRadius = "12px";
+    box.innerHTML = `<b>Erreur de chargement</b><br/>Vérifiez <code>/docs/assets/data/content.json</code> et vos images.<br/><br/>Détail: ${String(err.message || err)}`;
+    document.body.prepend(box);
   }
 })();
