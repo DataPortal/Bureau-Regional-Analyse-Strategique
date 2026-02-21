@@ -1,0 +1,25 @@
+{
+  "note": "KPI issus du texte fourni (2024). Remplacez/actualisez à partir des références validées (HNO/HRP/OCHA/UNHCR/IPC) selon votre cycle.",
+  "kpis": [
+    {
+      "label": "Pays fragiles (AOC)",
+      "value": "11 / 24",
+      "hint": "Fragilité structurelle + crises prolongées."
+    },
+    {
+      "label": "Insécurité alimentaire (AOC)",
+      "value": "≈ 50M",
+      "hint": "Personnes projetées en insécurité alimentaire en 2024."
+    },
+    {
+      "label": "PDI — Afrique de l’Ouest",
+      "value": "≈ 2.7M",
+      "hint": "Stabilité 2023–2024 après hausse 2021–2022."
+    },
+    {
+      "label": "PDI — Bassin du Lac Tchad",
+      "value": "≈ 2.9M",
+      "hint": "Crise prolongée et pression sur services essentiels."
+    }
+  ]
+}
