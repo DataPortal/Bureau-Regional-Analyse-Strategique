@@ -16,424 +16,458 @@
 </head>
 
 <body>
-  <!-- TOP BAR -->
-  <div class="topbar">
-    <div class="topbar__inner">
-      <div class="topbar__left">
-        <img class="topbar__logo" src="assets/img/logo_unwomen.png" alt="ONU Femmes"/>
-        <div class="topbar__meta">
-          <div class="topbar__kicker">Bureau régional — Afrique de l’Ouest et du Centre (WCARO)</div>
-          <div class="topbar__title">Stratégie opérationnelle humanitaire 2024–2027</div>
-        </div>
-      </div>
-      <div class="topbar__right">
-        <a class="topbar__link" href="#kpis">KPI</a>
-        <a class="topbar__link" href="#intro">Intro</a>
-        <a class="topbar__link" href="#intelligence">Contexte</a>
-        <a class="topbar__link" href="#genre">Genre</a>
-        <a class="topbar__link" href="#risques">Risques</a>
-        <a class="topbar__link" href="#strategie">Stratégie</a>
-        <a class="topbar__btn" href="#investir">Investir</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- HERO -->
-  <header class="hero" id="top">
-    <div class="hero__bg" aria-hidden="true"></div>
-
-    <div class="hero__inner">
-      <div class="hero__brand">
-        <img class="hero__logo" src="assets/img/logo_unwomen.png" alt="ONU Femmes"/>
-        <div class="hero__stamp">
-          <div class="hero__region">Afrique de l’Ouest et du Centre</div>
-          <div class="hero__date">2024–2027 • Version web (brief HQ)</div>
+  <!-- ONU FEMMES BLUE HEADER BAND -->
+  <header class="uwHeaderBand" id="top">
+    <div class="uwHeaderBand__inner">
+      <div class="uwHeaderBand__brand">
+        <img class="uwHeaderBand__logo" src="assets/img/logo_unwomen.png" alt="ONU Femmes"/>
+        <div class="uwHeaderBand__meta">
+          <div class="uwHeaderBand__kicker">Bureau régional — Afrique de l’Ouest et du Centre (WCARO)</div>
+          <div class="uwHeaderBand__title">Stratégie opérationnelle humanitaire 2024–2027</div>
         </div>
       </div>
 
-      <div class="hero__content">
-        <h1>Stratégie opérationnelle humanitaire d’ONU Femmes</h1>
-        <p class="hero__subtitle" id="heroSubtitle"></p>
-
-        <div class="hero__messages" id="heroMessages"></div>
-      </div>
-
-      <div class="hero__foot">
-        <div class="hero__hint">Structure WCARO/OCHA • Lecture décisionnelle (3–5 min)</div>
-        <a class="hero__scroll" href="#kpis" aria-label="Aller aux KPI">↓</a>
-      </div>
+      <nav class="uwHeaderBand__nav" aria-label="Navigation">
+        <a href="#snapshot" class="uwNav__link">Snapshot</a>
+        <a href="#context" class="uwNav__link">Contexte</a>
+        <a href="#gender" class="uwNav__link">Genre</a>
+        <a href="#risks" class="uwNav__link">Risques</a>
+        <a href="#strategy" class="uwNav__link">Stratégie</a>
+        <a href="#investir" class="uwNav__btn">Investment Case</a>
+      </nav>
     </div>
   </header>
 
-  <!-- KPI -->
-  <section class="kpiBar section" id="kpis">
-    <div class="container">
-      <div class="section__head">
-        <h2>Indicateurs clés</h2>
-        <div class="section__sub">Échelle des besoins, déplacements, hotspots — lecture “OCHA snapshot”.</div>
-      </div>
+  <!-- HERO (summary-first) -->
+  <section class="hero2">
+    <div class="hero2__bg" aria-hidden="true"></div>
 
-      <div class="kpiGrid" id="kpiGrid"></div>
-      <div class="kpiNote" id="kpiNote"></div>
-    </div>
-  </section>
-
-  <!-- QUOTE -->
-  <section class="section" id="quote">
-    <div class="container">
-      <div class="panel reveal quote">
-        <div class="quote__text" id="quoteText"></div>
-        <div class="quote__author" id="quoteAuthor"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- INTRODUCTION -->
-  <section class="section" id="intro">
-    <div class="container">
-      <div class="section__head">
-        <h2>Introduction</h2>
-        <div class="section__sub">Positionnement, mandat, et cadre d’opérationnalisation (WCARO).</div>
-      </div>
-
-      <div class="panel reveal longread">
-        <div class="longread__grid">
-          <div>
-            <h3 class="longread__title">Mandat et valeur ajoutée d’ONU Femmes</h3>
-            <div class="longread__text" id="introText"></div>
-          </div>
-
-          <div>
-            <h3 class="longread__title">Alignements stratégiques</h3>
-            <ul class="bullets" id="alignmentsList"></ul>
-
-            <div class="callout callout--opportunity">
-              <div class="callout__title">Finalité</div>
-              <div class="callout__text" id="introPurpose"></div>
-            </div>
-          </div>
+    <div class="hero2__inner">
+      <div class="hero2__left">
+        <div class="hero2__badgeRow">
+          <span class="badge badge--blue">Brief HQ</span>
+          <span class="badge badge--orange">Version Web</span>
+          <span class="badge">Lecture 3–5 min</span>
         </div>
+
+        <h1 class="hero2__h1">Opérationnaliser l’action humanitaire d’ONU Femmes (WCARO)</h1>
+        <p class="hero2__lead" id="heroLead"></p>
+
+        <div class="hero2__ctaRow">
+          <a class="btnPrimary" href="#snapshot">Voir le snapshot</a>
+          <button class="btnGhost" type="button" data-open="allDetails">Ouvrir tous les détails</button>
+          <button class="btnGhost" type="button" data-close="allDetails">Fermer tous les détails</button>
+        </div>
+
+        <div class="hero2__signals" id="heroSignals"></div>
+      </div>
+
+      <div class="hero2__right">
+        <div class="illustrationCard">
+          <div class="illustrationCard__frame" id="heroIllustration"></div>
+          <div class="illustrationCard__cap" id="heroIllustrationCap"></div>
+        </div>
+
+        <div class="microKpiGrid" id="microKpis"></div>
       </div>
     </div>
   </section>
 
-  <!-- INTELLIGENCE / CONTEXT -->
-  <section class="section" id="intelligence">
+  <!-- SNAPSHOT -->
+  <section class="section" id="snapshot">
     <div class="container">
-      <div class="section__head">
+      <div class="sectionHead">
+        <h2>Snapshot décisionnel</h2>
+        <p class="sectionSub">Essentiel à retenir — puis approfondir via “Détails”.</p>
+      </div>
+
+      <div class="kpiRow" id="kpiGrid"></div>
+
+      <div class="grid2">
+        <article class="panel">
+          <div class="panelHead">
+            <h3>Messages stratégiques (HQ)</h3>
+            <div class="panelMeta">3 messages — calibrés pour influencer la décision.</div>
+          </div>
+
+          <div class="keyMessages" id="keyMessages"></div>
+
+          <details class="detailBlock">
+            <summary class="detailBlock__summary">
+              <span>Détails</span>
+              <span class="detailBlock__hint">cadre de justification / arguments</span>
+            </summary>
+            <div class="detailBlock__body" id="snapshotDetails"></div>
+          </details>
+        </article>
+
+        <aside class="panel">
+          <div class="panelHead">
+            <h3>Illustrations</h3>
+            <div class="panelMeta">Cadres prêts à remplacer (images, cartes, graphiques).</div>
+          </div>
+
+          <div class="illustrationStack" id="snapshotIllustrations"></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTEXT -->
+  <section class="section" id="context">
+    <div class="container">
+      <div class="sectionHead">
         <h2>I. Contexte</h2>
-        <div class="section__sub">Sécuritaire, humanitaire, et implications genrées (AOC).</div>
+        <p class="sectionSub">Résumé synthétique + approfondissement par sous-région.</p>
       </div>
 
       <div class="grid2">
-        <article class="panel reveal">
-          <div class="panel__head">
-            <h3>Carte — hotspots et contextes prioritaires</h3>
-            <div class="panel__meta">Points illustratifs (remplacez/complétez par vos données).</div>
+        <article class="panel">
+          <div class="panelHead">
+            <h3>Résumé stratégique</h3>
+            <div class="panelMeta">Les facteurs dominants et implications humanitaires.</div>
           </div>
-          <div id="map" class="map"></div>
-          <div class="chips" id="hotspotChips"></div>
+
+          <ul class="bullets" id="contextSummary"></ul>
+
+          <details class="detailBlock">
+            <summary class="detailBlock__summary">
+              <span>Détails</span><span class="detailBlock__hint">texte complet (WCA)</span>
+            </summary>
+            <div class="detailBlock__body">
+              <div class="twoCols">
+                <div>
+                  <div class="miniTitle">Afrique de l’Ouest</div>
+                  <div class="longText" id="westAfricaText"></div>
+                </div>
+                <div>
+                  <div class="miniTitle">Afrique centrale</div>
+                  <div class="longText" id="centralAfricaText"></div>
+                </div>
+              </div>
+            </div>
+          </details>
         </article>
 
-        <aside class="panel reveal">
-          <div class="panel__head">
-            <h3>Lecture rapide</h3>
-            <div class="panel__meta">Signaux humanitaires et implications.</div>
+        <aside class="panel">
+          <div class="panelHead">
+            <h3>Carte — hotspots</h3>
+            <div class="panelMeta">Points illustratifs (à compléter avec vos données).</div>
           </div>
+          <div id="map" class="map"></div>
 
-          <ul class="bullets" id="contextKeyPoints"></ul>
-
-          <div class="callout callout--risk">
-            <div class="callout__title">Conséquence liée au genre</div>
-            <div class="callout__text" id="genderConsequence"></div>
-          </div>
+          <details class="detailBlock">
+            <summary class="detailBlock__summary">
+              <span>Détails</span><span class="detailBlock__hint">liste des hotspots</span>
+            </summary>
+            <div class="detailBlock__body">
+              <div class="chips" id="hotspotChips"></div>
+            </div>
+          </details>
         </aside>
       </div>
 
       <div class="grid3">
-        <article class="panel reveal">
-          <div class="panel__head">
-            <h3>Mix prioritaire (GiHA/LEAP/Data)</h3>
-            <div class="panel__meta">Répartition indicative.</div>
+        <article class="panel">
+          <div class="panelHead">
+            <h3>Mix prioritaire</h3>
+            <div class="panelMeta">GiHA / Protection / LEAP / Données.</div>
           </div>
-          <canvas id="chartDonut" height="210"></canvas>
+          <canvas id="chartDonut" height="220"></canvas>
         </article>
 
-        <article class="panel reveal">
-          <div class="panel__head">
+        <article class="panel">
+          <div class="panelHead">
             <h3>Gaps & contraintes</h3>
-            <div class="panel__meta">Lecture “risk to results”.</div>
+            <div class="panelMeta">Lecture “risk to results”.</div>
           </div>
-          <canvas id="chartBars" height="210"></canvas>
+          <canvas id="chartBars" height="220"></canvas>
         </article>
 
-        <article class="panel reveal">
-          <div class="panel__head">
-            <h3>Tendance (illustrative)</h3>
-            <div class="panel__meta">Exemple de signal (incidents / accès / besoins).</div>
+        <article class="panel">
+          <div class="panelHead">
+            <h3>Signal (illustratif)</h3>
+            <div class="panelMeta">Tendance indicatrice.</div>
           </div>
-          <canvas id="chartTrend" height="210"></canvas>
-        </article>
-      </div>
-
-      <div class="grid2">
-        <article class="panel reveal">
-          <div class="panel__head">
-            <h3>1.1.a Afrique de l’Ouest</h3>
-            <div class="panel__meta">Sécurité, déplacements, besoins.</div>
-          </div>
-          <div class="longread__text" id="westAfricaText"></div>
-        </article>
-
-        <article class="panel reveal">
-          <div class="panel__head">
-            <h3>1.1.b Afrique centrale</h3>
-            <div class="panel__meta">Grands Lacs, Lac Tchad, Golfe de Guinée.</div>
-          </div>
-          <div class="longread__text" id="centralAfricaText"></div>
+          <canvas id="chartTrend" height="220"></canvas>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- GENRE & EQUITY -->
-  <section class="section" id="genre">
+  <!-- GENDER -->
+  <section class="section" id="gender">
     <div class="container">
-      <div class="section__head">
-        <h2>1.2 Contexte Genre et équité</h2>
-        <div class="section__sub">Inégalités, normes, VBG, accès aux ressources, représentation, données.</div>
+      <div class="sectionHead">
+        <h2>1.2 Genre & équité</h2>
+        <p class="sectionSub">Problèmes structurants + risques de protection + besoins d’inclusion.</p>
       </div>
 
       <div class="grid2">
-        <article class="panel reveal">
-          <div class="panel__head">
-            <h3>Afrique de l’Ouest — points clés</h3>
-            <div class="panel__meta">Éducation, emploi, santé, décision, normes.</div>
+        <article class="panel">
+          <div class="panelHead">
+            <h3>Résumé — Afrique de l’Ouest</h3>
+            <div class="panelMeta">Inégalités, normes, VBG et impacts.</div>
           </div>
-          <ul class="bullets" id="genderWestBullets"></ul>
-          <div class="callout callout--risk">
-            <div class="callout__title">Défis majeurs</div>
-            <div class="callout__text" id="genderWestChallenges"></div>
-          </div>
+
+          <ul class="bullets" id="genderWestSummary"></ul>
+
+          <details class="detailBlock">
+            <summary class="detailBlock__summary">
+              <span>Détails</span><span class="detailBlock__hint">défis majeurs</span>
+            </summary>
+            <div class="detailBlock__body">
+              <div class="callout callout--orange" id="genderWestDetails"></div>
+            </div>
+          </details>
         </article>
 
-        <article class="panel reveal">
-          <div class="panel__head">
-            <h3>Afrique centrale — points clés</h3>
-            <div class="panel__meta">Conflits prolongés, reconstruction, violence, données.</div>
+        <article class="panel">
+          <div class="panelHead">
+            <h3>Résumé — Afrique centrale</h3>
+            <div class="panelMeta">Conflits prolongés, reconstruction, données.</div>
           </div>
-          <ul class="bullets" id="genderCentralBullets"></ul>
-          <div class="callout callout--risk">
-            <div class="callout__title">Obstacle structurel</div>
-            <div class="callout__text" id="genderCentralObstacle"></div>
-          </div>
+
+          <ul class="bullets" id="genderCentralSummary"></ul>
+
+          <details class="detailBlock">
+            <summary class="detailBlock__summary">
+              <span>Détails</span><span class="detailBlock__hint">obstacle structurel</span>
+            </summary>
+            <div class="detailBlock__body">
+              <div class="callout callout--blue" id="genderCentralDetails"></div>
+            </div>
+          </details>
         </article>
       </div>
+
+      <div class="imageRow" id="genderIllustrations"></div>
     </div>
   </section>
 
-  <!-- RISKS & ASSUMPTIONS -->
-  <section class="section" id="risques">
+  <!-- RISKS -->
+  <section class="section" id="risks">
     <div class="container">
-      <div class="section__head">
-        <h2>II. Risques et hypothèses opératoires</h2>
-        <div class="section__sub">Matrice des risques + hypothèses (théorie du changement).</div>
+      <div class="sectionHead">
+        <h2>II. Risques & hypothèses opératoires</h2>
+        <p class="sectionSub">Matrice synthétique + hypothèses (conditions de succès).</p>
       </div>
 
       <div class="grid2">
-        <article class="panel reveal">
-          <div class="panel__head">
-            <h3>Matrice des risques (HQ)</h3>
-            <div class="panel__meta">Catégories et implications opérationnelles.</div>
+        <article class="panel">
+          <div class="panelHead">
+            <h3>Matrice des risques (résumé)</h3>
+            <div class="panelMeta">Catégories et effets opérationnels.</div>
           </div>
+
           <div class="riskMatrix" id="riskMatrix"></div>
-          <div class="note" id="riskNote"></div>
+
+          <details class="detailBlock">
+            <summary class="detailBlock__summary">
+              <span>Détails</span><span class="detailBlock__hint">approche de mitigation</span>
+            </summary>
+            <div class="detailBlock__body">
+              <div class="callout callout--blue" id="riskMitigation"></div>
+            </div>
+          </details>
         </article>
 
-        <aside class="panel reveal">
-          <div class="panel__head">
-            <h3>Hypothèses (conditions de succès)</h3>
-            <div class="panel__meta">Cadres régionaux, participation, financement, normes, capacités.</div>
+        <aside class="panel">
+          <div class="panelHead">
+            <h3>Hypothèses (conditions)</h3>
+            <div class="panelMeta">Théorie du changement — ce qui doit tenir.</div>
           </div>
 
           <div class="assumptions" id="assumptionsGrid"></div>
-
-          <div class="callout callout--opportunity">
-            <div class="callout__title">Approche de mitigation</div>
-            <div class="callout__text" id="mitigationApproach"></div>
-          </div>
         </aside>
       </div>
     </div>
   </section>
 
   <!-- STRATEGY -->
-  <section class="section" id="strategie">
+  <section class="section" id="strategy">
     <div class="container">
-      <div class="section__head">
-        <h2>III. Stratégie humanitaire (2024–2027)</h2>
-        <div class="section__sub">Objectifs, portée/limites, piliers GiHA/LEAP, staff, M&E, ressources.</div>
+      <div class="sectionHead">
+        <h2>III. Stratégie (2024–2027)</h2>
+        <p class="sectionSub">Objectifs, piliers GiHA/LEAP, staff, S&E, mobilisation.</p>
       </div>
 
-      <div class="panel reveal">
-        <div class="panel__head">
-          <h3>3.1 Objectifs, portée et limites</h3>
-          <div class="panel__meta">Ce que la stratégie vise concrètement et ses contraintes.</div>
+      <div class="panel">
+        <div class="panelHead">
+          <h3>Résumé stratégique</h3>
+          <div class="panelMeta">Objectifs / portée / limites — version scannable.</div>
         </div>
 
         <div class="twoCols">
           <div>
             <div class="miniTitle">Objectifs (résumé)</div>
             <ul class="bullets" id="objectivesList"></ul>
-
-            <div class="miniTitle">Portée</div>
+          </div>
+          <div>
+            <div class="miniTitle">Portée (1 phrase)</div>
             <div class="resultBox" id="scopeText"></div>
           </div>
-
-          <div>
-            <div class="miniTitle">Limites (principales)</div>
-            <ul class="bullets" id="limitsList"></ul>
-
-            <div class="miniTitle">Mesures d’atténuation</div>
-            <div class="resultBox" id="limitsMitigation"></div>
-          </div>
         </div>
-      </div>
 
-      <!-- Pillars -->
-      <div class="pillars">
-        <article class="pillar panel reveal">
-          <div class="pillar__top">
-            <div class="icon icon--blue" aria-hidden="true">◎</div>
-            <div>
-              <h3>Pilier 1 — GiHA (coordination & redevabilité)</h3>
-              <div class="pillar__objective" id="p1Objective"></div>
+        <details class="detailBlock" style="margin-top:12px">
+          <summary class="detailBlock__summary">
+            <span>Détails</span><span class="detailBlock__hint">limites + atténuation</span>
+          </summary>
+          <div class="detailBlock__body">
+            <div class="twoCols">
+              <div>
+                <div class="miniTitle">Limites</div>
+                <ul class="bullets" id="limitsList"></ul>
+              </div>
+              <div>
+                <div class="miniTitle">Atténuation</div>
+                <div class="resultBox" id="limitsMitigation"></div>
+              </div>
             </div>
           </div>
-          <div class="pillar__cols">
+        </details>
+      </div>
+
+      <div class="pillars">
+        <article class="panel pillar">
+          <div class="pillarTop">
+            <div class="icon icon--blue" aria-hidden="true">◎</div>
+            <div>
+              <h3>Pilier 1 — GiHA</h3>
+              <div class="pillarObj" id="p1Objective"></div>
+            </div>
+          </div>
+
+          <div class="pillarGrid">
             <div>
               <div class="miniTitle">Approche</div>
               <div class="resultBox" id="p1Approach"></div>
-              <div class="miniTitle" style="margin-top:10px">Actions prioritaires</div>
-              <ul class="bullets" id="p1Actions"></ul>
             </div>
             <div>
               <div class="miniTitle">Résultat stratégique</div>
               <div class="resultBox" id="p1Result"></div>
             </div>
           </div>
+
+          <details class="detailBlock">
+            <summary class="detailBlock__summary">
+              <span>Détails</span><span class="detailBlock__hint">actions prioritaires</span>
+            </summary>
+            <div class="detailBlock__body">
+              <ul class="bullets" id="p1Actions"></ul>
+            </div>
+          </details>
         </article>
 
-        <article class="pillar panel reveal">
-          <div class="pillar__top">
+        <article class="panel pillar">
+          <div class="pillarTop">
             <div class="icon icon--orange" aria-hidden="true">◉</div>
             <div>
-              <h3>Pilier 2 — LEAP (protection & moyens de subsistance)</h3>
-              <div class="pillar__objective" id="p2Objective"></div>
+              <h3>Pilier 2 — LEAP</h3>
+              <div class="pillarObj" id="p2Objective"></div>
             </div>
           </div>
-          <div class="pillar__cols">
+
+          <div class="pillarGrid">
             <div>
-              <div class="miniTitle">Objectif</div>
+              <div class="miniTitle">Approche</div>
               <div class="resultBox" id="p2Approach"></div>
-              <div class="miniTitle" style="margin-top:10px">Actions prioritaires</div>
-              <ul class="bullets" id="p2Actions"></ul>
             </div>
             <div>
               <div class="miniTitle">Résultat stratégique</div>
               <div class="resultBox" id="p2Result"></div>
             </div>
           </div>
+
+          <details class="detailBlock">
+            <summary class="detailBlock__summary">
+              <span>Détails</span><span class="detailBlock__hint">actions prioritaires</span>
+            </summary>
+            <div class="detailBlock__body">
+              <ul class="bullets" id="p2Actions"></ul>
+            </div>
+          </details>
         </article>
       </div>
 
-      <div class="crossCut panel reveal">
-        <div class="crossCut__title">Priorités transversales</div>
-        <div class="crossCut__items" id="crossCutItems"></div>
-      </div>
+      <div class="panel" style="margin-top:14px">
+        <div class="panelHead">
+          <h3>Capacités, S&E, mobilisation (résumé)</h3>
+          <div class="panelMeta">Cadre opérationnel + déclencheurs de performance.</div>
+        </div>
 
-      <!-- Team / staffing -->
-      <div class="grid2">
-        <article class="panel reveal">
-          <div class="panel__head">
-            <h3>3.2 Équipe et staff clés</h3>
-            <div class="panel__meta">Structure minimale pour opérationnaliser (WCARO + pays).</div>
+        <div class="threeCols">
+          <div>
+            <div class="miniTitle">Équipe minimale</div>
+            <div class="staffTable" id="staffTable"></div>
           </div>
-          <div class="staffTable" id="staffTable"></div>
-          <div class="note" id="staffNote"></div>
-        </article>
+          <div>
+            <div class="miniTitle">Suivi & données</div>
+            <ul class="bullets" id="meList"></ul>
+            <div class="callout callout--blue" id="indicatorExamples"></div>
+          </div>
+          <div>
+            <div class="miniTitle">Mobilisation</div>
+            <ul class="bullets" id="rmList"></ul>
+            <div class="callout callout--orange" id="rmCall"></div>
+          </div>
+        </div>
 
-        <aside class="panel reveal">
-          <div class="panel__head">
-            <h3>3.3 Dispositif S&E & données</h3>
-            <div class="panel__meta">Suivi annuel, QA, indicateurs, reporting.</div>
+        <details class="detailBlock" style="margin-top:12px">
+          <summary class="detailBlock__summary">
+            <span>Détails</span><span class="detailBlock__hint">chronogramme</span>
+          </summary>
+          <div class="detailBlock__body">
+            <div class="timeline" id="timeline"></div>
           </div>
-          <ul class="bullets" id="meList"></ul>
-          <div class="callout callout--opportunity">
-            <div class="callout__title">Indicateurs (exemples)</div>
-            <div class="callout__text" id="indicatorExamples"></div>
-          </div>
-        </aside>
-      </div>
-
-      <div class="grid2">
-        <article class="panel reveal">
-          <div class="panel__head">
-            <h3>3.4 Chronogramme (structure)</h3>
-            <div class="panel__meta">Cadre à compléter (par année).</div>
-          </div>
-          <div class="timeline" id="timeline"></div>
-        </article>
-
-        <article class="panel reveal">
-          <div class="panel__head">
-            <h3>3.5 Mobilisation de ressources</h3>
-            <div class="panel__meta">Stratégies et opportunités (fonds conjoints, CERF, SDG, PBF…).</div>
-          </div>
-          <ul class="bullets" id="rmList"></ul>
-          <div class="finalCall" id="rmCall"></div>
-        </article>
+        </details>
       </div>
     </div>
   </section>
 
-  <!-- DONOR / INVESTMENT -->
+  <!-- INVESTMENT -->
   <section class="section donorSection" id="investir">
     <div class="donorBg" aria-hidden="true"></div>
 
     <div class="container donorGrid">
-      <article class="panel reveal">
-        <div class="panel__head">
+      <article class="panel">
+        <div class="panelHead">
           <h2>Investment Case</h2>
-          <div class="panel__meta">Pourquoi investir maintenant (logique HQ).</div>
+          <div class="panelMeta">Pourquoi investir maintenant — logique HQ.</div>
         </div>
 
         <div class="donorCards" id="donorCards"></div>
 
-        <div class="miniTitle">Retour sur investissement</div>
+        <div class="miniTitle">ROI (résumé)</div>
         <ul class="bullets" id="roiList"></ul>
+
+        <details class="detailBlock">
+          <summary class="detailBlock__summary">
+            <span>Détails</span><span class="detailBlock__hint">argumentaire final</span>
+          </summary>
+          <div class="detailBlock__body" id="finalCall"></div>
+        </details>
       </article>
 
-      <aside class="panel reveal">
-        <div class="panel__head">
-          <h2>Appel stratégique</h2>
-          <div class="panel__meta">Message final pour partenaires & bailleurs.</div>
+      <aside class="panel">
+        <div class="panelHead">
+          <h2>Contact & next steps</h2>
+          <div class="panelMeta">À personnaliser (nom / email / rôle).</div>
         </div>
 
-        <div class="finalCall" id="finalCall"></div>
-
-        <div class="miniTitle" style="margin-top:10px">Contact</div>
         <div class="resultBox" id="contactLine"></div>
+
+        <div class="illustrationCard" style="margin-top:12px">
+          <div class="illustrationCard__frame" id="donorIllustration"></div>
+          <div class="illustrationCard__cap" id="donorIllustrationCap"></div>
+        </div>
       </aside>
     </div>
   </section>
 
-  <!-- Sidebar Intelligence -->
-  <aside class="intelSidebar" id="intelSidebar" aria-label="Strategic intelligence sidebar">
-    <div class="intelSidebar__title">Strategic Intelligence</div>
-    <div class="intelSidebar__subtitle">Données clés (à actualiser)</div>
-    <div class="intelSidebar__items" id="intelSidebarItems"></div>
-    <a class="intelSidebar__top" href="#top">↑ Haut</a>
+  <!-- Floating intelligence pill -->
+  <aside class="intelDock" aria-label="Strategic intelligence dock">
+    <div class="intelDock__inner" id="intelDock"></div>
   </aside>
 
   <footer class="footer">
