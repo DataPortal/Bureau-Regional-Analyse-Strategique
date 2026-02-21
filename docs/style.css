@@ -1,0 +1,92 @@
+:root{
+ --blue:#448BCA;
+ --orange:#f58220;
+ --bg:#f6f8fb;
+ --card:#fff;
+}
+
+body{
+ font-family:Segoe UI, sans-serif;
+ margin:0;
+ background:var(--bg);
+ color:#222;
+}
+
+/* HERO */
+.hero{
+ display:flex;
+ align-items:center;
+ gap:20px;
+ padding:30px;
+ background:linear-gradient(120deg,#e9f4ff,#fff4ea);
+}
+.logo{height:55px}
+.hero h1{margin:0;font-size:30px}
+.hero h2{margin:5px 0 0;color:#555;font-size:17px}
+
+/* KPI */
+.kpi-row{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:12px;
+ padding:20px;
+}
+.kpi{
+ background:var(--card);
+ border-radius:14px;
+ padding:15px;
+ box-shadow:0 5px 18px rgba(0,0,0,.08);
+}
+.kpi .value{font-size:24px;font-weight:700;color:var(--blue)}
+
+/* Intelligence */
+.intelligence{
+ display:grid;
+ grid-template-columns:2fr 1fr;
+ gap:15px;
+ padding:20px;
+}
+#map{height:400px;border-radius:10px}
+.insight-panel{
+ background:#fff;
+ padding:15px;
+ border-radius:12px;
+}
+
+/* Framework */
+.framework{padding:20px}
+.pillars{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:15px;
+}
+.pillar{
+ background:#fff;
+ padding:16px;
+ border-radius:12px;
+}
+.cross{
+ margin-top:12px;
+ background:#fff;
+ padding:12px;
+ border-radius:10px;
+ text-align:center;
+}
+
+/* Risk */
+.risk{padding:20px}
+table{width:100%;background:#fff;border-radius:10px;padding:10px}
+th{background:#eef6ff}
+
+/* Donor */
+.donor{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:15px;
+ padding:20px;
+}
+.investment,.call{
+ background:#fff;
+ padding:18px;
+ border-radius:12px;
+}
