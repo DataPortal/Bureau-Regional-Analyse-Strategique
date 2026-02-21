@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Brief stratégique — ONU Femmes WCARO (2024–2027)</title>
+  <title>Stratégie opérationnelle humanitaire — ONU Femmes WCARO (2024–2027)</title>
 
   <link rel="stylesheet" href="style.css"/>
 
@@ -16,31 +16,29 @@
 </head>
 
 <body>
-  <!-- =========================
-       TOP NAV (minimal / HQ)
-  ========================== -->
+  <!-- TOP BAR -->
   <div class="topbar">
     <div class="topbar__inner">
       <div class="topbar__left">
         <img class="topbar__logo" src="assets/img/logo_unwomen.png" alt="ONU Femmes"/>
         <div class="topbar__meta">
           <div class="topbar__kicker">Bureau régional — Afrique de l’Ouest et du Centre (WCARO)</div>
-          <div class="topbar__title">Brief stratégique humanitaire 2024–2027</div>
+          <div class="topbar__title">Stratégie opérationnelle humanitaire 2024–2027</div>
         </div>
       </div>
-
       <div class="topbar__right">
-        <a class="topbar__link" href="#intelligence">Intelligence</a>
-        <a class="topbar__link" href="#strategie">Stratégie</a>
+        <a class="topbar__link" href="#kpis">KPI</a>
+        <a class="topbar__link" href="#intro">Intro</a>
+        <a class="topbar__link" href="#intelligence">Contexte</a>
+        <a class="topbar__link" href="#genre">Genre</a>
         <a class="topbar__link" href="#risques">Risques</a>
-        <a class="topbar__btn" href="#investir">Pourquoi investir</a>
+        <a class="topbar__link" href="#strategie">Stratégie</a>
+        <a class="topbar__btn" href="#investir">Investir</a>
       </div>
     </div>
   </div>
 
-  <!-- =========================
-       HERO (PAGE 1 equivalent)
-  ========================== -->
+  <!-- HERO -->
   <header class="hero" id="top">
     <div class="hero__bg" aria-hidden="true"></div>
 
@@ -49,149 +47,278 @@
         <img class="hero__logo" src="assets/img/logo_unwomen.png" alt="ONU Femmes"/>
         <div class="hero__stamp">
           <div class="hero__region">Afrique de l’Ouest et du Centre</div>
-          <div class="hero__date">Période : 2024–2027</div>
+          <div class="hero__date">2024–2027 • Version web (brief HQ)</div>
         </div>
       </div>
 
       <div class="hero__content">
-        <h1>Stratégie opérationnelle humanitaire — ONU Femmes</h1>
-        <p class="hero__subtitle">
-          Renforcer la redevabilité du système humanitaire sur le genre (GiHA) et protéger / soutenir
-          les moyens de subsistance des femmes et des filles affectées par les crises (LEAP).
-        </p>
+        <h1>Stratégie opérationnelle humanitaire d’ONU Femmes</h1>
+        <p class="hero__subtitle" id="heroSubtitle"></p>
 
-        <div class="hero__messages" id="heroMessages">
-          <!-- injecté depuis content.json -->
-        </div>
+        <div class="hero__messages" id="heroMessages"></div>
       </div>
 
       <div class="hero__foot">
-        <div class="hero__hint">Produit stratégique régional • Version web (GitHub Pages) • Lecture 3–5 minutes</div>
-        <a class="hero__scroll" href="#kpis" aria-label="Aller aux indicateurs">↓</a>
+        <div class="hero__hint">Structure WCARO/OCHA • Lecture décisionnelle (3–5 min)</div>
+        <a class="hero__scroll" href="#kpis" aria-label="Aller aux KPI">↓</a>
       </div>
     </div>
   </header>
 
-  <!-- =========================
-       KPI BAR (sticky on scroll)
-  ========================== -->
+  <!-- KPI -->
   <section class="kpiBar section" id="kpis">
     <div class="container">
       <div class="section__head">
         <h2>Indicateurs clés</h2>
-        <div class="section__sub">Chiffres d’échelle + signaux de priorité (format “OCHA snapshot”).</div>
+        <div class="section__sub">Échelle des besoins, déplacements, hotspots — lecture “OCHA snapshot”.</div>
       </div>
 
       <div class="kpiGrid" id="kpiGrid"></div>
-
       <div class="kpiNote" id="kpiNote"></div>
     </div>
   </section>
 
-  <!-- =========================
-       INTELLIGENCE (PAGE 2)
-  ========================== -->
+  <!-- QUOTE -->
+  <section class="section" id="quote">
+    <div class="container">
+      <div class="panel reveal quote">
+        <div class="quote__text" id="quoteText"></div>
+        <div class="quote__author" id="quoteAuthor"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRODUCTION -->
+  <section class="section" id="intro">
+    <div class="container">
+      <div class="section__head">
+        <h2>Introduction</h2>
+        <div class="section__sub">Positionnement, mandat, et cadre d’opérationnalisation (WCARO).</div>
+      </div>
+
+      <div class="panel reveal longread">
+        <div class="longread__grid">
+          <div>
+            <h3 class="longread__title">Mandat et valeur ajoutée d’ONU Femmes</h3>
+            <div class="longread__text" id="introText"></div>
+          </div>
+
+          <div>
+            <h3 class="longread__title">Alignements stratégiques</h3>
+            <ul class="bullets" id="alignmentsList"></ul>
+
+            <div class="callout callout--opportunity">
+              <div class="callout__title">Finalité</div>
+              <div class="callout__text" id="introPurpose"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTELLIGENCE / CONTEXT -->
   <section class="section" id="intelligence">
     <div class="container">
       <div class="section__head">
-        <h2>Intelligence humanitaire régionale</h2>
-        <div class="section__sub">
-          Crises prolongées + chocs climatiques + déplacements — impacts genrés et implications stratégiques.
-        </div>
+        <h2>I. Contexte</h2>
+        <div class="section__sub">Sécuritaire, humanitaire, et implications genrées (AOC).</div>
       </div>
 
       <div class="grid2">
-        <!-- LEFT: Map + hotspot cards -->
         <article class="panel reveal">
           <div class="panel__head">
-            <h3>Carte — hotspots & contextes prioritaires</h3>
-            <div class="panel__meta">Cliquer sur un point pour les informations clés.</div>
+            <h3>Carte — hotspots et contextes prioritaires</h3>
+            <div class="panel__meta">Points illustratifs (remplacez/complétez par vos données).</div>
           </div>
           <div id="map" class="map"></div>
-
-          <div class="chips" id="hotspotChips">
-            <!-- injecté depuis geo.json / content -->
-          </div>
+          <div class="chips" id="hotspotChips"></div>
         </article>
 
-        <!-- RIGHT: Key insights -->
         <aside class="panel reveal">
           <div class="panel__head">
-            <h3>Key insights (lecture décisionnelle)</h3>
-            <div class="panel__meta">Ce que le leadership doit retenir.</div>
+            <h3>Lecture rapide</h3>
+            <div class="panel__meta">Signaux humanitaires et implications.</div>
           </div>
 
-          <ul class="bullets" id="insightsList">
-            <!-- injecté depuis content.json -->
-          </ul>
+          <ul class="bullets" id="contextKeyPoints"></ul>
 
           <div class="callout callout--risk">
-            <div class="callout__title">Risque systémique</div>
-            <div class="callout__text" id="systemRisk">
-              <!-- injecté -->
-            </div>
+            <div class="callout__title">Conséquence liée au genre</div>
+            <div class="callout__text" id="genderConsequence"></div>
           </div>
         </aside>
       </div>
 
-      <!-- Charts row -->
       <div class="grid3">
         <article class="panel reveal">
           <div class="panel__head">
-            <h3>Priorités d’action (exemple de mix)</h3>
-            <div class="panel__meta">Distribution indicative pour la lecture stratégique.</div>
+            <h3>Mix prioritaire (GiHA/LEAP/Data)</h3>
+            <div class="panel__meta">Répartition indicative.</div>
           </div>
           <canvas id="chartDonut" height="210"></canvas>
         </article>
 
         <article class="panel reveal">
           <div class="panel__head">
-            <h3>Gaps & contraintes (lecture “risk to results”)</h3>
-            <div class="panel__meta">Plus la valeur est élevée, plus le gap est critique.</div>
+            <h3>Gaps & contraintes</h3>
+            <div class="panel__meta">Lecture “risk to results”.</div>
           </div>
           <canvas id="chartBars" height="210"></canvas>
         </article>
 
         <article class="panel reveal">
           <div class="panel__head">
-            <h3>Signal de tendance (illustratif)</h3>
-            <div class="panel__meta">Exemple : intensification / extension des incidents.</div>
+            <h3>Tendance (illustrative)</h3>
+            <div class="panel__meta">Exemple de signal (incidents / accès / besoins).</div>
           </div>
           <canvas id="chartTrend" height="210"></canvas>
+        </article>
+      </div>
+
+      <div class="grid2">
+        <article class="panel reveal">
+          <div class="panel__head">
+            <h3>1.1.a Afrique de l’Ouest</h3>
+            <div class="panel__meta">Sécurité, déplacements, besoins.</div>
+          </div>
+          <div class="longread__text" id="westAfricaText"></div>
+        </article>
+
+        <article class="panel reveal">
+          <div class="panel__head">
+            <h3>1.1.b Afrique centrale</h3>
+            <div class="panel__meta">Grands Lacs, Lac Tchad, Golfe de Guinée.</div>
+          </div>
+          <div class="longread__text" id="centralAfricaText"></div>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- =========================
-       STRATEGY FRAMEWORK (PAGE 3)
-  ========================== -->
+  <!-- GENRE & EQUITY -->
+  <section class="section" id="genre">
+    <div class="container">
+      <div class="section__head">
+        <h2>1.2 Contexte Genre et équité</h2>
+        <div class="section__sub">Inégalités, normes, VBG, accès aux ressources, représentation, données.</div>
+      </div>
+
+      <div class="grid2">
+        <article class="panel reveal">
+          <div class="panel__head">
+            <h3>Afrique de l’Ouest — points clés</h3>
+            <div class="panel__meta">Éducation, emploi, santé, décision, normes.</div>
+          </div>
+          <ul class="bullets" id="genderWestBullets"></ul>
+          <div class="callout callout--risk">
+            <div class="callout__title">Défis majeurs</div>
+            <div class="callout__text" id="genderWestChallenges"></div>
+          </div>
+        </article>
+
+        <article class="panel reveal">
+          <div class="panel__head">
+            <h3>Afrique centrale — points clés</h3>
+            <div class="panel__meta">Conflits prolongés, reconstruction, violence, données.</div>
+          </div>
+          <ul class="bullets" id="genderCentralBullets"></ul>
+          <div class="callout callout--risk">
+            <div class="callout__title">Obstacle structurel</div>
+            <div class="callout__text" id="genderCentralObstacle"></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- RISKS & ASSUMPTIONS -->
+  <section class="section" id="risques">
+    <div class="container">
+      <div class="section__head">
+        <h2>II. Risques et hypothèses opératoires</h2>
+        <div class="section__sub">Matrice des risques + hypothèses (théorie du changement).</div>
+      </div>
+
+      <div class="grid2">
+        <article class="panel reveal">
+          <div class="panel__head">
+            <h3>Matrice des risques (HQ)</h3>
+            <div class="panel__meta">Catégories et implications opérationnelles.</div>
+          </div>
+          <div class="riskMatrix" id="riskMatrix"></div>
+          <div class="note" id="riskNote"></div>
+        </article>
+
+        <aside class="panel reveal">
+          <div class="panel__head">
+            <h3>Hypothèses (conditions de succès)</h3>
+            <div class="panel__meta">Cadres régionaux, participation, financement, normes, capacités.</div>
+          </div>
+
+          <div class="assumptions" id="assumptionsGrid"></div>
+
+          <div class="callout callout--opportunity">
+            <div class="callout__title">Approche de mitigation</div>
+            <div class="callout__text" id="mitigationApproach"></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRATEGY -->
   <section class="section" id="strategie">
     <div class="container">
       <div class="section__head">
-        <h2>Cadre stratégique de réponse</h2>
-        <div class="section__sub">
-          Deux piliers + priorités transversales. Format “solution-first” (HQ).
+        <h2>III. Stratégie humanitaire (2024–2027)</h2>
+        <div class="section__sub">Objectifs, portée/limites, piliers GiHA/LEAP, staff, M&E, ressources.</div>
+      </div>
+
+      <div class="panel reveal">
+        <div class="panel__head">
+          <h3>3.1 Objectifs, portée et limites</h3>
+          <div class="panel__meta">Ce que la stratégie vise concrètement et ses contraintes.</div>
+        </div>
+
+        <div class="twoCols">
+          <div>
+            <div class="miniTitle">Objectifs (résumé)</div>
+            <ul class="bullets" id="objectivesList"></ul>
+
+            <div class="miniTitle">Portée</div>
+            <div class="resultBox" id="scopeText"></div>
+          </div>
+
+          <div>
+            <div class="miniTitle">Limites (principales)</div>
+            <ul class="bullets" id="limitsList"></ul>
+
+            <div class="miniTitle">Mesures d’atténuation</div>
+            <div class="resultBox" id="limitsMitigation"></div>
+          </div>
         </div>
       </div>
 
+      <!-- Pillars -->
       <div class="pillars">
         <article class="pillar panel reveal">
           <div class="pillar__top">
             <div class="icon icon--blue" aria-hidden="true">◎</div>
             <div>
-              <h3>Pilier 1 — Coordination et leadership GiHA</h3>
+              <h3>Pilier 1 — GiHA (coordination & redevabilité)</h3>
               <div class="pillar__objective" id="p1Objective"></div>
             </div>
           </div>
-
           <div class="pillar__cols">
             <div>
-              <div class="miniTitle">Interventions prioritaires</div>
+              <div class="miniTitle">Approche</div>
+              <div class="resultBox" id="p1Approach"></div>
+              <div class="miniTitle" style="margin-top:10px">Actions prioritaires</div>
               <ul class="bullets" id="p1Actions"></ul>
             </div>
             <div>
-              <div class="miniTitle">Résultat stratégique attendu</div>
+              <div class="miniTitle">Résultat stratégique</div>
               <div class="resultBox" id="p1Result"></div>
             </div>
           </div>
@@ -201,18 +328,19 @@
           <div class="pillar__top">
             <div class="icon icon--orange" aria-hidden="true">◉</div>
             <div>
-              <h3>Pilier 2 — Protection et résilience (LEAP)</h3>
+              <h3>Pilier 2 — LEAP (protection & moyens de subsistance)</h3>
               <div class="pillar__objective" id="p2Objective"></div>
             </div>
           </div>
-
           <div class="pillar__cols">
             <div>
-              <div class="miniTitle">Interventions prioritaires</div>
+              <div class="miniTitle">Objectif</div>
+              <div class="resultBox" id="p2Approach"></div>
+              <div class="miniTitle" style="margin-top:10px">Actions prioritaires</div>
               <ul class="bullets" id="p2Actions"></ul>
             </div>
             <div>
-              <div class="miniTitle">Résultat stratégique attendu</div>
+              <div class="miniTitle">Résultat stratégique</div>
               <div class="resultBox" id="p2Result"></div>
             </div>
           </div>
@@ -220,58 +348,56 @@
       </div>
 
       <div class="crossCut panel reveal">
-        <div class="crossCut__title">Priorités transversales (exigences minimales)</div>
+        <div class="crossCut__title">Priorités transversales</div>
         <div class="crossCut__items" id="crossCutItems"></div>
       </div>
-    </div>
-  </section>
 
-  <!-- =========================
-       RISKS (PAGE 4)
-  ========================== -->
-  <section class="section" id="risques">
-    <div class="container">
-      <div class="section__head">
-        <h2>Risques stratégiques & gaps systémiques</h2>
-        <div class="section__sub">
-          Lecture “risque → implication → action d’atténuation”. Une page clé pour bailleurs et HCT.
-        </div>
+      <!-- Team / staffing -->
+      <div class="grid2">
+        <article class="panel reveal">
+          <div class="panel__head">
+            <h3>3.2 Équipe et staff clés</h3>
+            <div class="panel__meta">Structure minimale pour opérationnaliser (WCARO + pays).</div>
+          </div>
+          <div class="staffTable" id="staffTable"></div>
+          <div class="note" id="staffNote"></div>
+        </article>
+
+        <aside class="panel reveal">
+          <div class="panel__head">
+            <h3>3.3 Dispositif S&E & données</h3>
+            <div class="panel__meta">Suivi annuel, QA, indicateurs, reporting.</div>
+          </div>
+          <ul class="bullets" id="meList"></ul>
+          <div class="callout callout--opportunity">
+            <div class="callout__title">Indicateurs (exemples)</div>
+            <div class="callout__text" id="indicatorExamples"></div>
+          </div>
+        </aside>
       </div>
 
       <div class="grid2">
         <article class="panel reveal">
           <div class="panel__head">
-            <h3>Matrice des risques (HQ)</h3>
-            <div class="panel__meta">Synthèse multi-domaines.</div>
+            <h3>3.4 Chronogramme (structure)</h3>
+            <div class="panel__meta">Cadre à compléter (par année).</div>
           </div>
-
-          <div class="riskMatrix" id="riskMatrix"></div>
-
-          <div class="note">
-            Les risques reflètent la convergence de crises, les contraintes d’accès et les limites structurelles.
-          </div>
+          <div class="timeline" id="timeline"></div>
         </article>
 
-        <aside class="panel reveal">
+        <article class="panel reveal">
           <div class="panel__head">
-            <h3>Gaps systémiques critiques</h3>
-            <div class="panel__meta">Ce qui freine la performance du système.</div>
+            <h3>3.5 Mobilisation de ressources</h3>
+            <div class="panel__meta">Stratégies et opportunités (fonds conjoints, CERF, SDG, PBF…).</div>
           </div>
-
-          <ul class="bullets" id="systemGaps"></ul>
-
-          <div class="callout callout--opportunity">
-            <div class="callout__title">Fenêtre d’opportunité</div>
-            <div class="callout__text" id="opportunityBox"></div>
-          </div>
-        </aside>
+          <ul class="bullets" id="rmList"></ul>
+          <div class="finalCall" id="rmCall"></div>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- =========================
-       INVESTMENT / DONOR (PAGE 5)
-  ========================== -->
+  <!-- DONOR / INVESTMENT -->
   <section class="section donorSection" id="investir">
     <div class="donorBg" aria-hidden="true"></div>
 
@@ -279,40 +405,30 @@
       <article class="panel reveal">
         <div class="panel__head">
           <h2>Investment Case</h2>
-          <div class="panel__meta">Pourquoi investir maintenant.</div>
+          <div class="panel__meta">Pourquoi investir maintenant (logique HQ).</div>
         </div>
 
         <div class="donorCards" id="donorCards"></div>
 
-        <div class="miniTitle">Retour sur investissement (logique HQ)</div>
+        <div class="miniTitle">Retour sur investissement</div>
         <ul class="bullets" id="roiList"></ul>
       </article>
 
       <aside class="panel reveal">
         <div class="panel__head">
-          <h2>Priorités 2024–2027</h2>
-          <div class="panel__meta">Actions “system level” + “community level”.</div>
-        </div>
-
-        <div class="twoCols">
-          <div>
-            <div class="miniTitle">Niveau système</div>
-            <ul class="bullets" id="systemActions"></ul>
-          </div>
-          <div>
-            <div class="miniTitle">Niveau communautaire</div>
-            <ul class="bullets" id="communityActions"></ul>
-          </div>
+          <h2>Appel stratégique</h2>
+          <div class="panel__meta">Message final pour partenaires & bailleurs.</div>
         </div>
 
         <div class="finalCall" id="finalCall"></div>
+
+        <div class="miniTitle" style="margin-top:10px">Contact</div>
+        <div class="resultBox" id="contactLine"></div>
       </aside>
     </div>
   </section>
 
-  <!-- =========================
-       Sticky Intelligence Sidebar (OCHA style)
-  ========================== -->
+  <!-- Sidebar Intelligence -->
   <aside class="intelSidebar" id="intelSidebar" aria-label="Strategic intelligence sidebar">
     <div class="intelSidebar__title">Strategic Intelligence</div>
     <div class="intelSidebar__subtitle">Données clés (à actualiser)</div>
@@ -324,10 +440,10 @@
     <div class="footer__inner container">
       <div>
         <strong>ONU Femmes — WCARO</strong><br/>
-        Produit stratégique régional • Version web GitHub Pages
+        Stratégie opérationnelle humanitaire 2024–2027 • Version web
       </div>
       <div class="footer__right">
-        <span class="muted">Contact :</span> <span id="contactLine"></span>
+        <span class="muted">Dernière mise à jour :</span> <span id="lastUpdated"></span>
       </div>
     </div>
   </footer>
