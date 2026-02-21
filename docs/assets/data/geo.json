@@ -1,0 +1,75 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type":"Feature",
+      "properties":{
+        "name":"Mali",
+        "crisis":"Conflit + déplacements + contraintes d’accès",
+        "focus":"GiHA + protection",
+        "signal":"Pression prolongée sur services essentiels"
+      },
+      "geometry":{"type":"Point","coordinates":[-3.996,17.570]}
+    },
+    {
+      "type":"Feature",
+      "properties":{
+        "name":"Burkina Faso",
+        "crisis":"Violence armée + déplacements internes",
+        "focus":"Protection/VBG + résilience",
+        "signal":"Dégradation rapide et accès limité"
+      },
+      "geometry":{"type":"Point","coordinates":[-1.561,12.238]}
+    },
+    {
+      "type":"Feature",
+      "properties":{
+        "name":"Niger",
+        "crisis":"Insécurité + insécurité alimentaire",
+        "focus":"Coordination GiHA",
+        "signal":"Risques de protection et vulnérabilités accrues"
+      },
+      "geometry":{"type":"Point","coordinates":[8.081,17.607]}
+    },
+    {
+      "type":"Feature",
+      "properties":{
+        "name":"Tchad",
+        "crisis":"Bassin du Lac Tchad (crise prolongée)",
+        "focus":"Protection + leadership local",
+        "signal":"Pression sur moyens de subsistance"
+      },
+      "geometry":{"type":"Point","coordinates":[18.732,15.454]}
+    },
+    {
+      "type":"Feature",
+      "properties":{
+        "name":"Nigeria (NE)",
+        "crisis":"Crise prolongée Lac Tchad",
+        "focus":"Coordination + services essentiels",
+        "signal":"Besoins élevés, retours et déplacements"
+      },
+      "geometry":{"type":"Point","coordinates":[13.150,11.850]}
+    },
+    {
+      "type":"Feature",
+      "properties":{
+        "name":"RDC (Est)",
+        "crisis":"Conflit + déplacements massifs + risques VBG",
+        "focus":"Protection/VBG + relèvement",
+        "signal":"Risque élevé pour femmes et filles"
+      },
+      "geometry":{"type":"Point","coordinates":[29.230, -1.670]}
+    },
+    {
+      "type":"Feature",
+      "properties":{
+        "name":"RCA",
+        "crisis":"Crise prolongée + vulnérabilités structurelles",
+        "focus":"Services de protection + accès",
+        "signal":"Risques de protection persistants"
+      },
+      "geometry":{"type":"Point","coordinates":[20.940,6.610]}
+    }
+  ]
+}
