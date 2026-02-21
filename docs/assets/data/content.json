@@ -1,276 +1,177 @@
 {
   "last_updated": "2026-02-21",
 
-  "hero_subtitle": "Opérationnaliser la stratégie humanitaire globale d’ONU Femmes et adapter les engagements fondamentaux aux réalités des crises en Afrique de l’Ouest et du Centre, en alignement avec l’IASC et les principes humanitaires.",
+  "hero_lead": "Rendre opérationnelle la stratégie humanitaire d’ONU Femmes en Afrique de l’Ouest et du Centre : renforcer la redevabilité GiHA, protéger et soutenir les moyens de subsistance (LEAP), et accélérer la localisation via financement et données de qualité.",
 
-  "hero_messages": [
+  "hero_signals": [
+    { "title": "Décision", "text": "Les crises prolongées accroissent les risques de protection et l’exclusion économique des femmes." },
+    { "title": "Levier", "text": "GiHA améliore la qualité des plans/projets et la redevabilité du système humanitaire." },
+    { "title": "Impact", "text": "LEAP + WLO/WRO + données : meilleure couverture, meilleure inclusion, meilleure durabilité." }
+  ],
+
+  "micro_kpis": [
+    { "k": "Pays fragiles", "v": "11/24" },
+    { "k": "Insécurité alimentaire (2024)", "v": "≈ 50M" },
+    { "k": "PDI (A. Ouest / Lac Tchad)", "v": "≈ 2.7M / 2.9M" }
+  ],
+
+  "hero_illustration": {
+    "src": "",
+    "caption": "Cadre image : carte AOC / photo terrain / graphique besoins."
+  },
+
+  "key_messages": [
     {
-      "title": "Redevabilité GiHA",
-      "text": "Renforcer l’intégration du genre dans la coordination, les HNO/HRP et la mise en œuvre afin d’améliorer la qualité, l’inclusion et l’efficacité des réponses."
+      "title": "1) Redevabilité GiHA = meilleure qualité de réponse",
+      "text": "Renforcer l’intégration du genre dans HNO/HRP, clusters et mise en œuvre pour améliorer ciblage, protection et efficacité."
     },
     {
-      "title": "Protection & Résilience (LEAP)",
-      "text": "Protéger les femmes et les filles dans toute leur diversité et soutenir des moyens de subsistance pour renforcer la résilience et le relèvement."
+      "title": "2) Localisation = performance + durabilité",
+      "text": "Accroître la participation et l’accès au financement des organisations dirigées par des femmes (WLO/WRO)."
     },
     {
-      "title": "Localisation & Données",
-      "text": "Accroître l’accès des organisations de femmes au financement et renforcer les systèmes de données/QA sensibles au genre pour la décision."
+      "title": "3) LEAP = protection + relèvement sensible au genre",
+      "text": "Réduire VBG, améliorer l’accès aux services essentiels et restaurer les moyens de subsistance en contexte de crise."
     }
   ],
 
-  "quote": {
-    "text": "« Intégrer une démarche d’équité entre les sexes, c’est évaluer les incidences pour les femmes et pour les hommes de toute action envisagée… Le but ultime est d’atteindre l’égalité entre les sexes. »",
-    "author": "Aidalaye DIOP"
-  },
+  "snapshot_details": "Positionnement : ONU Femmes (membre IASC) porte une valeur ajoutée unique pour la redevabilité genre, la coordination inter-agences et des résultats opérationnels. Priorité WCARO : adapter les engagements fondamentaux aux dynamiques des crises (Sahel, Lac Tchad, Grands Lacs, Golfe de Guinée) et renforcer les mécanismes de données/QA pour des décisions fondées sur preuves.",
 
-  "intro": {
-    "text": "La création d’ONU Femmes (résolution A/RES/64/289) a répondu aux défis persistants en matière de promotion de l’égalité des sexes et d’autonomisation des femmes, notamment le sous-financement et l’absence de leadership institutionnel dédié. Issue de la fusion de DAW, OSAGI, INSTRAW et UNIFEM, ONU Femmes dispose d’un mandat clair : faire progresser l’égalité de genre, coordonner les efforts du Système des Nations Unies et appuyer les États membres dans la mise en œuvre de leurs engagements internationaux.\n\nEn 2023, ONU Femmes a rejoint le Comité Permanent Inter-Organisation (IASC) comme co-présidente du Groupe de Référence sur l’Égalité de Genre et l’Action Humanitaire. Cette position permet de renforcer la prise en compte systématique des besoins des femmes, des filles et des groupes marginalisés dans la coordination inter-agences, la planification et les réponses d’urgence. ONU Femmes soutient les acteurs humanitaires et les États membres pour répondre aux besoins immédiats et aux priorités de relèvement à plus long terme.\n\nLe Bureau régional WCARO vise à opérationnaliser la stratégie globale d’ONU Femmes et à adapter les engagements fondamentaux aux dynamiques humanitaires de la région, dans une logique de réponse fondée sur les principes, mobilisant le triple mandat (normatif, coordination, opérationnel).",
-    "alignments": [
-      "Stratégie humanitaire ONU Femmes 2022–2025 et engagements fondamentaux (offre minimale).",
-      "Politique IASC Genre et autonomisation des femmes et filles dans l’action humanitaire (2017).",
-      "Principes humanitaires (humanité, neutralité, impartialité, indépendance).",
-      "Approche nexus Humanitaire–Développement–Paix (HDP) selon pertinence contextuelle."
-    ],
-    "purpose": "Ce document définit le cadre opérationnel WCARO 2024–2027 pour renforcer la redevabilité genre, soutenir le leadership des femmes et produire des résultats opérationnels en contextes de crise."
-  },
+  "snapshot_illustrations": [
+    { "src": "", "caption": "Illustration 1 : carte des hotspots (Sahel / Lac Tchad / RDC Est)." },
+    { "src": "", "caption": "Illustration 2 : infographie KPI (PiN / PDI / réfugiés / IPC)." },
+    { "src": "", "caption": "Illustration 3 : schéma “GiHA → QA → meilleure réponse”." }
+  ],
 
-  "context": {
-    "key_points": [
-      "Convergence de fragilité structurelle, crises prolongées et croissance démographique rapide.",
-      "Insécurité alimentaire projetée : près de 50 millions de personnes (2024).",
-      "Déplacements à grande échelle : ≈2,7M PDI en Afrique de l’Ouest, ≈2,9M dans le bassin du Lac Tchad.",
-      "Besoins élevés : 14,3M personnes dans le besoin en Afrique de l’Ouest (dont 5,6M en Phase 3+).",
-      "Bassin du Lac Tchad : ≈10,2M personnes dans le besoin (crise prolongée)."
-    ],
-    "gender_consequence": "Les crises touchent disproportionnellement les femmes et les filles : exposition accrue aux VBG, mécanismes d’adaptation négatifs, accès réduit aux services essentiels, et limitation de l’accès aux ressources, à la prise de décision et aux moyens de subsistance.",
+  "context_summary": [
+    "Crises prolongées + chocs climatiques + fragilité institutionnelle : besoins persistants et accès contraint.",
+    "Déplacements à grande échelle et pression sur services essentiels (santé/SSR, protection, abris).",
+    "Extension des menaces et volatilité sécuritaire, y compris dans les pays côtiers.",
+    "Impacts genrés : hausse VBG, stratégies d’adaptation négatives, exclusion économique et décisionnelle."
+  ],
 
-    "west_africa_text": "L’Afrique de l’Ouest fait face à une intensification des attaques de groupes islamistes militants, avec une pression croissante vers les pays côtiers. Le Bénin est fortement affecté, avec un nombre de décès ayant doublé (173) sur l’année écoulée. Le Togo a enregistré 69 morts sur la même période. Les zones frontalières du Ghana, de la Côte d’Ivoire, de la Guinée, du Sénégal et de la Mauritanie subissent des pressions croissantes.\n\nLe nombre d’événements violents à l’intérieur et à moins de 50 km des frontières des voisins côtiers des pays sahéliens a augmenté de plus de 250 % en deux ans, dépassant 450 incidents/an. Sur le plan humanitaire, le nombre de PDI est passé de 2,1M (2021) à 2,5M (2022), puis ~2,7M (2023–2024). Les réfugiés ont augmenté de 130 000 (2021) à 292 000 (2024). 828 000 retournés ont été enregistrés en 2023. 14,3M personnes sont dans le besoin, dont 5,6M en insécurité alimentaire aiguë (Phase 3+).",
+  "west_africa_text": "L’Afrique de l’Ouest fait face à une intensification des attaques de groupes islamistes militants et à une pression croissante vers les pays côtiers. Le Bénin et le Togo ont connu une recrudescence de la violence. Les zones frontalières d’autres pays côtiers subissent des pressions. Sur le plan humanitaire, le nombre de PDI s’est maintenu autour de 2,7M (2023–2024). Les réfugiés ont augmenté significativement, et 14,3M personnes sont identifiées dans le besoin (dont 5,6M en Phase 3+).",
 
-    "central_africa_text": "En Afrique centrale, trois pôles concentrent les défis : (i) Grands Lacs (épicentre RDC), (ii) bassin du Lac Tchad (Nord Cameroun, Tchad, RCA), (iii) Golfe de Guinée (piraterie, trafics illicites, attaques en mer).\n\nLe bassin du Lac Tchad demeure un théâtre très létal. Le nord-est du Nigeria reste un point focal. Le Cameroun connaît une hausse significative d’événements violents imputables à Boko Haram et à l’ISWA. Sur le plan humanitaire, le bassin du Lac Tchad compte ~10,2M personnes dans le besoin (avec alternance 10,6M en 2021), dont 2,9M PDI, 345 000 réfugiés et 228 000 retournés.\n\nLa RDC demeure l’un des contextes les plus touchés : plus de 120 groupes armés, déplacement forcé massif. Sur 2023–2024 : 25,4M personnes dans le besoin, dont 6,8M PDI, 519 000 réfugiés et 814 000 retournés."
-  },
+  "central_africa_text": "En Afrique centrale, les défis se concentrent sur (i) Grands Lacs (RDC), (ii) bassin du Lac Tchad, (iii) Golfe de Guinée. Le bassin du Lac Tchad demeure très létal. La RDC fait face à une insécurité prolongée alimentée par de nombreux groupes armés, avec déplacements massifs. Les besoins humanitaires restent extrêmement élevés.",
 
-  "gender": {
-    "west": {
-      "bullets": [
-        "Éducation : progrès mais désavantage persistant des filles, surtout en zones rurales.",
-        "Travail/emploi : prédominance d’emplois informels, précaires, faible accès aux postes décisionnels.",
-        "Santé : accès limité, notamment santé maternelle et reproductive en zones rurales.",
-        "Décision politique : sous-représentation malgré progrès dans certains pays.",
-        "Normes/stéréotypes : restrictions sur mobilité, propriété, autonomie et exposition accrue aux VBG."
-      ],
-      "challenges": "Mariage précoce élevé (Niger, Mali, Burkina Faso, Guinée, Nigeria…), VBG et pratiques néfastes, insécurité alimentaire et pauvreté touchant disproportionnellement les femmes, crises Sahel/climat aggravant les inégalités."
-    },
-    "central": {
-      "bullets": [
-        "VBG très élevée en zones de conflit (RDC, RCA, Tchad), y compris violences sexuelles.",
-        "Mariages précoces/forcés : taux élevés, frein à l’éducation et à l’autonomie.",
-        "Accès limité à la terre, au crédit, à l’emploi formel ; charge de soins non rémunérés élevée.",
-        "Déplacements massifs et insécurité renforçant les vulnérabilités intersectionnelles.",
-        "Représentation politique faible et déficit de données fiables."
-      ],
-      "obstacle": "L’exclusion des femmes du pouvoir et de la redistribution des ressources contribue à entretenir des cycles de violence et fragilise les perspectives de relèvement durable."
-    }
-  },
+  "gender_west_summary": [
+    "Inégalités persistantes en éducation, emploi formel et décision politique.",
+    "Normes discriminatoires : restrictions de mobilité, propriété et autonomie.",
+    "VBG élevée et pratiques néfastes (mariages précoces/forcés).",
+    "Crises (conflits/climat) aggravant pauvreté et risques de protection."
+  ],
+  "gender_west_details": "Défis majeurs : taux élevés de mariages précoces, VBG, insécurité alimentaire et pauvreté affectant disproportionnellement les femmes. Les crises accentuent les mécanismes d’adaptation négatifs et la sous-représentation des femmes dans les espaces de décision et d’accès aux ressources.",
 
-  "risks": {
-    "matrix": [
-      {
-        "title":"Risques liés aux crises humanitaires",
-        "text":"Dégradation rapide (conflits, climat, migrations) et exposition accrue aux VBG ; accroissement des vulnérabilités et inégalités économiques.",
-        "tags":["Accès","VBG","Climat"]
-      },
-      {
-        "title":"Risques structurels et sociaux",
-        "text":"Normes discriminatoires/patriarcales, inégalités économiques, fardeau accru des tâches de soins non rémunérées.",
-        "tags":["Normes","Inégalités","Participation"]
-      },
-      {
-        "title":"Risques opérationnels et systémiques",
-        "text":"Faible financement, consultation limitée des organisations de femmes, cohérence variable au sein du système ONU et partenaires.",
-        "tags":["Financement","Coordination","Localisation"]
-      },
-      {
-        "title":"Risques directs pour femmes et filles",
-        "text":"Hausse VBG, exploitation sexuelle, malnutrition, inégalités intersectionnelles (âge, handicap, statut migratoire).",
-        "tags":["Protection","PSEA","Inclusion"]
-      }
-    ],
-    "note":"ONU Femmes gère ces risques via une approche nexus HDP, le renforcement des partenariats régionaux (CEDEAO, UA, G5 Sahel, Commission du bassin du Lac Tchad) et l’intégration des analyses de genre dans les plans humanitaires.",
-    "assumptions": [
-      {
-        "title":"Mécanismes régionaux et continentaux adaptés",
-        "description":"Les mécanismes (plans, politiques) sont articulés aux besoins des femmes et filles marginalisées, bien coordonnés et financés.",
-        "application":"Collaboration avec CEDEAO/UA/G5 Sahel pour stratégies genre-réactives (résilience Sahel et Lac Tchad)."
-      },
-      {
-        "title":"Accès égal à la participation",
-        "description":"Les femmes et filles accèdent de façon sécurisée à la participation et à la décision, y compris groupes exclus.",
-        "application":"Partenariats avec réseaux de femmes et plateformes régionales pour inclusion dans les mécanismes humanitaires (HCT/GTG)."
-      },
-      {
-        "title":"Financement et mainstreaming du genre",
-        "description":"Le SNU mobilise des financements et intègre le genre dans programmes et politiques.",
-        "application":"Mobilisation de fonds conjoints (CERF/SDG/PBF…) pour LEAP et marqueurs (GEM/genre) dans les réponses."
-      },
-      {
-        "title":"Transformation des normes et services complets",
-        "description":"Normes discriminatoires transformées, services holistiques fournis (santé, abris, subsistance) pour réduire les violences.",
-        "application":"Engagement hommes/garçons et approches participatives (audits de sécurité), prévention VBG."
-      },
-      {
-        "title":"Capacités renforcées & accountability",
-        "description":"Institutions étatiques et SNU disposent de capacités et de systèmes de données/suivi pour respecter les engagements.",
-        "application":"Coordination via GTG/GiHA/EHP et renforcement du suivi (indicateurs, QA, reporting)."
-      }
-    ],
-    "mitigation":"Approche HDP, localisation, intersectoralité, AAP/PSEA, et renforcement des systèmes de données pour le pilotage et la redevabilité."
-  },
+  "gender_central_summary": [
+    "VBG très élevée en zones de conflit (RDC, RCA, Tchad).",
+    "Accès limité à la terre, au crédit et à l’emploi formel ; charge de soins non rémunérés élevée.",
+    "Déplacements massifs et vulnérabilités intersectionnelles.",
+    "Déficit de données fiables freinant la décision et le suivi."
+  ],
+  "gender_central_details": "Obstacle structurel : exclusion des femmes du pouvoir et de la redistribution des ressources entretient les cycles de violence et fragilise les perspectives de relèvement durable.",
 
-  "strategy": {
-    "objectives": [
-      "Rendre opérationnelle la stratégie humanitaire ONU Femmes selon la sévérité de la crise et la capacité du bureau pays (2024–2027).",
-      "Renforcer la redevabilité genre dans les réponses menées par l’EHP, alignée IASC Genre (2017) et Call to Action VBG (2021–2025).",
-      "Renforcer le positionnement des organisations de femmes et faciliter leur accès aux ressources financières humanitaires et autres sources.",
-      "Amplifier les voix et le leadership des femmes, assurer leur participation significative à la décision et au financement."
-    ],
-    "scope":"Stratégie développée pour 4 ans (2024–2027). Alignée sur la stratégie humanitaire globale (2022–2025) et les engagements fondamentaux applicables à toutes les présences ONU Femmes, avec un suivi annuel pour s’adapter aux évolutions du contexte WCARO.",
-    "limits":[
-      "Contraintes financières : budgets core/non-core limités ; sous-financement chronique des besoins genre.",
-      "Portée géographique : dépendance à la présence ONU Femmes et contraintes d’accès dans certaines zones.",
-      "Évolution rapide des contextes : ajustements constants requis ; contingences parfois insuffisantes.",
-      "Dépendance aux partenariats : succès lié à priorisation effective par HCT/Clusters/partenaires ; consultation WLO/WRO parfois faible.",
-      "Gaps systémiques : intégration/usage inégal des analyses genre au-delà de la VBG (économie/résilience)."
-    ],
-    "limits_mitigation":"Accent sur la localisation (partenariats WLO/WRO), intersectoralité, collecte/analyse de données, et mobilisation de fonds conjoints pour améliorer l’échelle et la durabilité.",
+  "gender_illustrations": [
+    { "src": "", "caption": "Cadre : photo “service essentiel / protection / SSR”." },
+    { "src": "", "caption": "Cadre : graphique “risque VBG / accès services”." },
+    { "src": "", "caption": "Cadre : carte “zones de déplacement et vulnérabilité”." }
+  ],
 
-    "pillars":{
-      "p1":{
-        "objective":"Faciliter l’intégration de l’égalité des sexes et le leadership des femmes dans la coordination et la mise en œuvre des réponses humanitaires et aux réfugiés menées par l’ONU afin de renforcer la redevabilité sur le genre (GiHA).",
-        "approach":"Intégrer le genre dans tous les cycles de programme humanitaire ; renforcer le soutien technique/QA aux acteurs humanitaires pour répondre aux besoins intersectionnels et multisectoriels.",
-        "actions":[
-          "Appui HNO/HRP : analyse genre, recommandations opérationnelles, QA.",
-          "Renforcement des mécanismes GiHA/GTG : gouvernance, outils, suivi.",
-          "Coaching clusters/EHP : guidance, mainstreaming et standards IASC.",
-          "Promotion leadership WLO/WRO : participation, coordination, financement.",
-          "AAP/PSEA : intégration et suivi des mécanismes de redevabilité."
-        ],
-        "result":"Responsabilisation accrue du système ONU et partenaires sur les engagements genre dans la coordination et la mise en œuvre des réponses (crises soudaines et prolongées)."
-      },
-      "p2":{
-        "objective":"Renforcer la protection et le soutien aux moyens de subsistance des femmes et des filles touchées par les crises (LEAP).",
-        "approach":"Soutenir les femmes et filles pour répondre aux besoins en crise, se relever, renforcer la résilience, et renforcer les capacités nationales à reconstruire mieux et équitablement.",
-        "actions":[
-          "Prévention/réponse VBG et liens vers services essentiels (SSR, protection).",
-          "Relance des moyens de subsistance : compétences, accès, financement, marchés.",
-          "Renforcement des organisations locales de femmes : mise en œuvre et relèvement.",
-          "Approches inclusion : âge, handicap, statut, protection intégrée.",
-          "Nexus HDP : relèvement et résilience sensible au genre."
-        ],
-        "result":"Protection renforcée et soutien aux moyens de subsistance des femmes et filles touchées par les crises et déplacées, contribuant à une résilience durable."
-      }
-    },
+  "risks_matrix": [
+    { "title": "Crises humanitaires", "text": "Dégradation rapide (conflits, climat, migrations) et hausse VBG.", "tags": ["Accès", "VBG", "Climat"] },
+    { "title": "Structurels & sociaux", "text": "Normes patriarcales, inégalités économiques, charge de soins.", "tags": ["Normes", "Inégalités"] },
+    { "title": "Opérationnels & systémiques", "text": "Sous-financement, consultation limitée WLO/WRO, cohérence variable.", "tags": ["Financement", "Localisation"] },
+    { "title": "Femmes & filles", "text": "Exploitation, malnutrition, risques intersectionnels.", "tags": ["Protection", "PSEA", "Inclusion"] }
+  ],
+  "risk_mitigation": "Approche de mitigation : nexus HDP, intersectoralité, AAP/PSEA, et renforcement des systèmes de données/QA pour piloter la performance et cibler les ressources.",
 
-    "cross_cutting":[
-      "Localisation (WLO/WRO : accès aux financements et leadership)",
-      "Intersectoralité (au-delà VBG : économie, résilience, services)",
-      "AAP (redevabilité envers populations affectées)",
-      "PSEA (prévention exploitation et abus sexuels)",
-      "Données / QA / apprentissage (désagrégation, dashboards, reporting)"
-    ],
+  "assumptions": [
+    { "title":"Mécanismes adaptés", "description":"Cadres régionaux articulés, coordonnés et financés.", "application":"Collaboration CEDEAO/UA/CBLT/G5 Sahel pour stratégies genre-réactives." },
+    { "title":"Participation", "description":"Accès sécurisé à la décision, y compris groupes exclus.", "application":"Renforcement des réseaux et inclusion dans les mécanismes humanitaires." },
+    { "title":"Financement & mainstreaming", "description":"Mobilisation de ressources et intégration genre systémique.", "application":"Fonds conjoints + marqueurs + QA sur la chaîne HNO→HRP→mise en œuvre." }
+  ],
 
-    "staffing":{
-      "rows":[
-        {
-          "title":"Direction régionale",
-          "status":"OK",
-          "body":"Directeur·rice régional·e : supervision stratégie, plaidoyer et partenariats."
-        },
-        {
-          "title":"Équipe humanitaire dédiée (WPS/AH/Résilience)",
-          "status":"OK",
-          "body":"Conseiller·ère régional·e action humanitaire et résilience.\nSpécialiste Genre en Action Humanitaire (GiHA focal point).\nExpert·e protection (VBG/protection femmes en crise).\nCoordination programmes (LEAP ou équivalent)."
-        },
-        {
-          "title":"Appui technique et programmatique",
-          "status":"À confirmer",
-          "body":"Spécialistes coordination humanitaire (liaison HCT/Clusters/GTG).\nChargé·e·s programmes humanitaires par pays/thématique.\nM&E/Reporting : suivi intégration genre, qualité, résultats."
-        },
-        {
-          "title":"Équipe support",
-          "status":"OK",
-          "body":"Communication & plaidoyer (visibilité, influence).\nPartenariats & mobilisation ressources.\nAdministration/finance/logistique pour appui opérationnel."
-        },
-        {
-          "title":"Bureaux pays",
-          "status":"OK",
-          "body":"Représentant·e·s pays et staff terrain (Mali, Burkina Faso, Niger, Cameroun, RDC, RCA, Nigeria…) selon présence et contexte."
-        }
-      ],
-      "note":"La configuration dépend du niveau de crise, de la présence ONU Femmes, et du dispositif inter-agences (GenCap, HCT/Clusters, fonds conjoints)."
-    },
+  "objectives": [
+    "Rendre opérationnelle la stratégie humanitaire ONU Femmes selon la sévérité de la crise et les capacités pays.",
+    "Renforcer la redevabilité genre dans la coordination et la mise en œuvre (alignement IASC/Call to Action).",
+    "Améliorer l’accès des WLO/WRO à la décision et au financement.",
+    "Amplifier le leadership des femmes et la participation significative."
+  ],
+  "scope": "Stratégie WCARO 2024–2027 alignée sur la stratégie globale ONU Femmes, avec suivi annuel pour adaptation contextuelle.",
+  "limits": [
+    "Contraintes financières et sous-financement chronique des priorités genre.",
+    "Portée géographique et contraintes d’accès.",
+    "Dépendance aux partenariats et consultation variable des WLO/WRO.",
+    "Gaps systémiques sur analyses et données désagrégées."
+  ],
+  "limits_mitigation": "Atténuation : localisation, partenariats WLO/WRO, intersectoralité, collecte/QA des données, mobilisation de fonds conjoints.",
 
-    "me":{
-      "points":[
-        "Suivi annuel (revue et ajustement selon évolution contextuelle).",
-        "Mécanisme QA : marqueurs genre, conformité IASC, redevabilité.",
-        "Reporting : résultats GiHA/LEAP, localisation, AAP/PSEA.",
-        "Produits IM : dashboards, briefs analytiques, synthèses décisionnelles."
-      ],
-      "indicators":"Exemples : (i) % projets HRP intégrant analyse genre + actions, (ii) score/usage marqueur genre, (iii) # WLO/WRO financées et montants, (iv) couverture AAP/PSEA, (v) indicateurs LEAP (accès services, moyens de subsistance, protection)."
-    },
+  "p1_objective": "Pilier 1 (GiHA) : renforcer l’intégration genre et la redevabilité dans la coordination et la mise en œuvre des réponses humanitaires.",
+  "p1_approach": "Approche : QA sur HNO/HRP et appui aux clusters/EHP, guidance, coaching et mainstreaming.",
+  "p1_result": "Résultat : responsabilisation accrue du système humanitaire sur les engagements genre.",
+  "p1_actions": [
+    "QA HNO/HRP : analyse genre et recommandations opérationnelles.",
+    "Renforcement GiHA/GTG : gouvernance, outils, suivi.",
+    "Coaching clusters : mainstreaming et standards IASC.",
+    "AAP/PSEA : intégration et suivi."
+  ],
 
-    "timeline":[
-      {
-        "year":"2024",
-        "text":"Lancement opérationnalisation • Cartographie pays en crise • Mise en place QA/IM • Priorisation hotspots • Mobilisation fonds conjoints."
-      },
-      {
-        "year":"2025",
-        "text":"Renforcement GiHA/GTG • Consolidation partenariats WLO/WRO • Scaling LEAP selon contextes • Reporting régional standardisé."
-      },
-      {
-        "year":"2026",
-        "text":"Optimisation performance (data-driven) • Renforcement localisation • Nexus relèvement • Ajustements stratégiques par contexte."
-      },
-      {
-        "year":"2027",
-        "text":"Capitalisation • Évaluation finale • Stratégie suivante • Renforcement durabilité et transition."
-      }
-    ],
+  "p2_objective": "Pilier 2 (LEAP) : protection et moyens de subsistance des femmes et filles touchées par crises.",
+  "p2_approach": "Approche : services essentiels, prévention/réponse VBG, relance économique et relèvement sensible au genre.",
+  "p2_result": "Résultat : réduction des risques de protection et amélioration de la résilience durable.",
+  "p2_actions": [
+    "Services essentiels et liens protection/SSR.",
+    "Relance moyens de subsistance et accès aux ressources.",
+    "Renforcement WLO/WRO et capacités locales.",
+    "Inclusion (âge, handicap, statut) et prévention des abus."
+  ],
 
-    "resource_mobilization":{
-      "points":[
-        "Mobiliser fonds conjoints : CERF, SDG Fund, PBF, et mécanismes régionaux (selon éligibilité).",
-        "Développer un investment case régional (GiHA + LEAP + Data/QA).",
-        "Renforcer partenariats CEDEAO/UA/G5 Sahel/CBLT et coordination SNU.",
-        "Aligner la visibilité (comms) sur résultats démontrables et données.",
-        "Augmenter financement direct/localisation pour WLO/WRO."
-      ],
-      "call":"Priorité : faire converger financement, redevabilité (QA) et localisation pour maximiser l’impact sur femmes et filles en contextes de crise."
-    }
-  },
+  "staff_rows": [
+    { "title":"Direction régionale", "status":"OK", "body":"Supervision stratégie, plaidoyer, partenariats." },
+    { "title":"Équipe humanitaire dédiée", "status":"OK", "body":"GiHA focal point, protection, coordination programmes." },
+    { "title":"Appui technique & programmatique", "status":"À confirmer", "body":"Coordination HCT/clusters, M&E/reporting, IM/QA." },
+    { "title":"Équipe support", "status":"OK", "body":"Comms, RM/partenariats, admin/finance/logistique." }
+  ],
 
-  "investment":{
-    "cards":[
-      { "k":"Coordination GiHA", "v":"Impact système", "h":"Améliore qualité des plans/projets et la redevabilité." },
-      { "k":"Localisation WLO/WRO", "v":"Durabilité", "h":"Leadership local et solutions adaptées au terrain." },
-      { "k":"Données & QA", "v":"Efficience", "h":"Décisions fondées sur preuves, ciblage et reporting crédibles." }
-    ],
-    "roi":[
-      "Réduction des échecs de protection via ciblage plus précis et inclusion.",
-      "Optimisation ressources par décisions data-driven (priorisation, QA, suivi).",
-      "Renforcement résilience via moyens de subsistance et relèvement sensible au genre.",
-      "Appropriation locale accrue via participation et financement des WLO/WRO."
-    ],
-    "final_call":"Appel stratégique : renforcer la coordination GiHA, financer les organisations dirigées par des femmes et investir dans des systèmes de données/QA sensibles au genre afin d’améliorer la performance humanitaire et la durabilité du relèvement.",
-    "contact":"Point focal régional Action humanitaire & résilience • (à remplacer)"
-  },
+  "me_points": [
+    "Suivi annuel et ajustements contextuels.",
+    "Mécanisme QA (marqueurs, conformité IASC, redevabilité).",
+    "Produits IM : dashboards, briefs analytiques, synthèses décisionnelles."
+  ],
+  "me_indicators": "Exemples : % projets HRP intégrant actions genre, score marqueur, montants vers WLO/WRO, couverture AAP/PSEA, indicateurs LEAP (accès services/protection/subsistance).",
 
-  "sidebar_intelligence":[
+  "rm_points": [
+    "Fonds conjoints (CERF/SDG/PBF) selon éligibilité.",
+    "Investment case régional (GiHA + LEAP + Data/QA).",
+    "Renforcement de la visibilité sur résultats démontrables."
+  ],
+  "rm_call": "Priorité : faire converger financement, redevabilité (QA) et localisation pour maximiser l’impact sur femmes et filles.",
+
+  "timeline": [
+    { "year":"2024", "text":"Lancement, priorisation hotspots, mise en place QA/IM, mobilisation." },
+    { "year":"2025", "text":"Scaling GiHA/LEAP, consolidation WLO/WRO, reporting régional." },
+    { "year":"2026", "text":"Optimisation performance, renforcement localisation, nexus relèvement." },
+    { "year":"2027", "text":"Capitalisation, évaluation finale, transition stratégie suivante." }
+  ],
+
+  "donor_cards": [
+    { "k":"GiHA", "v":"Impact système", "h":"Qualité des plans/projets et redevabilité." },
+    { "k":"Localisation", "v":"Durabilité", "h":"Leadership local et solutions adaptées." },
+    { "k":"Données/QA", "v":"Efficience", "h":"Décision fondée sur preuves et ciblage." }
+  ],
+  "roi": [
+    "Meilleure inclusion et réduction des gaps de protection.",
+    "Optimisation ressources via QA et ciblage data-driven.",
+    "Résilience accrue via subsistance et relèvement sensible au genre."
+  ],
+  "final_call": "Investir dans GiHA, financer les WLO/WRO et renforcer les systèmes de données/QA pour accélérer une réponse humanitaire plus efficace, inclusive et durable.",
+  "contact": "Point focal régional Action humanitaire & résilience • (à remplacer)",
+  "donor_illustration": { "src": "", "caption": "Cadre : photo terrain / partenariat / graphique d’impact." },
+
+  "intel_dock": [
     { "k":"Pays fragiles", "v":"11/24" },
-    { "k":"Insécurité alimentaire (2024)", "v":"≈ 50M" },
-    { "k":"PDI Afrique de l’Ouest", "v":"≈ 2.7M" },
-    { "k":"PDI Lac Tchad", "v":"≈ 2.9M" },
-    { "k":"Priorité", "v":"GiHA + LEAP" }
+    { "k":"IA (2024)", "v":"≈ 50M" },
+    { "k":"PDI", "v":"≈ 2.7M / 2.9M" },
+    { "k":"Priorité", "v":"GiHA + LEAP" },
+    { "k":"Focus", "v":"Localisation + QA" }
   ]
 }
