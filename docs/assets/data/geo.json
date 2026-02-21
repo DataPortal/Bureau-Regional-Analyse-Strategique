@@ -1,0 +1,65 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type":"Feature",
+      "properties":{
+        "name":"Sahel (Mali)",
+        "crisis":"Conflit + déplacement + accès restreint",
+        "focus":"GiHA + Protection",
+        "signal":"Extension vers pays côtiers"
+      },
+      "geometry":{"type":"Point","coordinates":[-3.996,17.570]}
+    },
+    {
+      "type":"Feature",
+      "properties":{
+        "name":"Burkina Faso",
+        "crisis":"Violence armée + déplacement interne",
+        "focus":"Protection/VBG + Résilience",
+        "signal":"Dégradation rapide"
+      },
+      "geometry":{"type":"Point","coordinates":[-1.561,12.238]}
+    },
+    {
+      "type":"Feature",
+      "properties":{
+        "name":"Bénin (Nord)",
+        "crisis":"Pression extrémisme violent",
+        "focus":"Prévention + coordination",
+        "signal":"Décès en hausse"
+      },
+      "geometry":{"type":"Point","coordinates":[2.3158,11.134]}
+    },
+    {
+      "type":"Feature",
+      "properties":{
+        "name":"Togo (Nord)",
+        "crisis":"Recrudescence attaques",
+        "focus":"Protection + cohésion",
+        "signal":"Pression transfrontalière"
+      },
+      "geometry":{"type":"Point","coordinates":[1.2255,9.551]}
+    },
+    {
+      "type":"Feature",
+      "properties":{
+        "name":"Bassin du Lac Tchad",
+        "crisis":"Crise prolongée / groupes armés",
+        "focus":"Protection + services",
+        "signal":"Besoins persistants"
+      },
+      "geometry":{"type":"Point","coordinates":[13.2,13.2]}
+    },
+    {
+      "type":"Feature",
+      "properties":{
+        "name":"RDC (Est)",
+        "crisis":"Conflit + VBG + déplacements massifs",
+        "focus":"Protection/VBG + Relèvement",
+        "signal":"Multiples groupes armés"
+      },
+      "geometry":{"type":"Point","coordinates":[29.23,-1.67]}
+    }
+  ]
+}
