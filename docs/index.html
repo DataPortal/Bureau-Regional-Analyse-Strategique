@@ -11,104 +11,307 @@
 
   <style>
     :root{
-      --bg:#0b1220;
-      --card:#0f1a2f;
-      --card2:#0b1528;
-      --text:#eaf0ff;
-      --muted:#b7c3e6;
-      --line:rgba(255,255,255,.10);
-      --accent:#6aa6ff;   /* bleu */
-      --accent2:#ff8a3d;  /* orange */
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius: 18px;
-      --max: 1100px;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0; padding:0; background: radial-gradient(1200px 800px at 20% 0%, rgba(106,166,255,.15), transparent 60%),
-                                     radial-gradient(900px 700px at 90% 10%, rgba(255,138,61,.12), transparent 60%),
-                                     var(--bg); color:var(--text); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;}
-    a{color:inherit}
-    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 80px}
-    .topbar{display:flex; gap:14px; align-items:center; justify-content:space-between; padding:14px 16px; border:1px solid var(--line);
-            background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)); border-radius:var(--radius); box-shadow:var(--shadow); position:sticky; top:14px; z-index:5; backdrop-filter: blur(10px);}
-    .brand{display:flex; align-items:center; gap:12px}
-    .logo{width:40px; height:40px; border-radius:12px;
-          background: conic-gradient(from 180deg, var(--accent), rgba(106,166,255,.25), var(--accent2), rgba(255,138,61,.20), var(--accent));
-          border:1px solid var(--line);}
-    .titlebox{line-height:1.1}
-    .titlebox h1{margin:0; font-size:14.5px; letter-spacing:.2px}
-    .titlebox p{margin:3px 0 0; font-size:12px; color:var(--muted)}
-    .actions{display:flex; gap:10px; align-items:center; flex-wrap:wrap; justify-content:flex-end}
-    .btn{border:1px solid var(--line); background: rgba(255,255,255,.04); color:var(--text);
-         padding:10px 12px; border-radius:12px; cursor:pointer; font-size:12.5px}
-    .btn:hover{background: rgba(255,255,255,.07)}
-    .btn.primary{border-color: rgba(106,166,255,.45); background: rgba(106,166,255,.10)}
-    .btn.primary:hover{background: rgba(106,166,255,.14)}
-    .btn.orange{border-color: rgba(255,138,61,.45); background: rgba(255,138,61,.10)}
-    .btn.orange:hover{background: rgba(255,138,61,.14)}
-    .grid{display:grid; grid-template-columns: 1.2fr .8fr; gap:16px; margin-top:18px}
-    @media (max-width: 920px){ .grid{grid-template-columns: 1fr} .topbar{position:relative; top:0} }
+      /* Palette moderne Nations Unies / ONU Femmes */
+      --un-blue:#1f5fa8;         /* bleu ONU moderne */
+      --un-blue-2:#2b7cd3;       /* accent */
+      --un-ink:#0b1220;
+      --un-muted:#5d6b7c;
 
-    .hero{border:1px solid var(--line); background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-          border-radius:var(--radius); box-shadow:var(--shadow); padding:22px}
+      --uw-orange:#f58220;       /* accent ONU Femmes */
+      --uw-orange-2:#ff9a4c;
+
+      --bg:#f6f8fb;
+      --card:#ffffff;
+      --line:rgba(11,18,32,.10);
+
+      --shadow: 0 18px 48px rgba(2,6,23,.10);
+      --shadow2: 0 12px 28px rgba(2,6,23,.10);
+
+      --radius: 18px;
+      --max: 1120px;
+      --safe: clamp(16px, 2vw, 22px);
+      --focus: 0 0 0 4px rgba(31,95,168,.20);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color:var(--un-ink);
+      background:
+        radial-gradient(1100px 760px at 12% 6%, rgba(31,95,168,.10), transparent 55%),
+        radial-gradient(1000px 720px at 88% 14%, rgba(245,130,32,.10), transparent 55%),
+        var(--bg);
+    }
+    a{color:inherit}
+    code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace}
+
+    .wrap{max-width:var(--max); margin:0 auto; padding:22px var(--safe) 86px}
+
+    /* ============================
+       Topbar (band UN style)
+    ============================ */
+    .topbar{
+      display:flex; gap:14px; align-items:center; justify-content:space-between;
+      padding:12px 14px;
+      border:1px solid rgba(255,255,255,.18);
+      background: linear-gradient(135deg, var(--un-blue), rgba(31,95,168,.92));
+      border-radius:var(--radius);
+      box-shadow: 0 18px 46px rgba(2,6,23,.14);
+      position:sticky; top:14px; z-index:5;
+      backdrop-filter: blur(10px);
+    }
+    .brand{display:flex; align-items:center; gap:12px}
+    .logo{
+      width:40px; height:40px; border-radius:14px;
+      background:
+        radial-gradient(18px 18px at 30% 30%, rgba(255,255,255,.55), transparent 60%),
+        linear-gradient(135deg, rgba(255,255,255,.22), rgba(255,255,255,.06)),
+        linear-gradient(135deg, rgba(245,130,32,.25), rgba(31,95,168,.35));
+      border:1px solid rgba(255,255,255,.22);
+      box-shadow: 0 12px 28px rgba(2,6,23,.18);
+    }
+    .titlebox{line-height:1.12}
+    .titlebox h1{margin:0; font-size:13px; font-weight:900; letter-spacing:.2px; color:#fff}
+    .titlebox p{margin:3px 0 0; font-size:12px; color:rgba(255,255,255,.84)}
+
+    .actions{display:flex; gap:10px; align-items:center; flex-wrap:wrap; justify-content:flex-end}
+    .btn{
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.10);
+      color:#fff;
+      padding:10px 12px;
+      border-radius:999px;
+      cursor:pointer;
+      font-size:12px;
+      font-weight:900;
+      transition: transform .12s ease, background .15s ease, filter .15s ease;
+    }
+    .btn:hover{background: rgba(255,255,255,.16); transform: translateY(-1px)}
+    .btn:focus-visible{outline:none; box-shadow: var(--focus)}
+    .btn.primary{
+      background: rgba(255,255,255,.92);
+      color: var(--un-ink);
+      border-color: rgba(255,255,255,.28);
+      box-shadow: 0 14px 30px rgba(2,6,23,.12);
+    }
+    .btn.primary:hover{filter: brightness(.98)}
+    .btn.orange{
+      background: linear-gradient(135deg, var(--uw-orange), rgba(245,130,32,.86));
+      border-color: rgba(255,255,255,.18);
+      box-shadow: 0 16px 36px rgba(245,130,32,.22);
+    }
+
+    .grid{display:grid; grid-template-columns: 1.2fr .8fr; gap:16px; margin-top:18px}
+    @media (max-width: 920px){
+      .grid{grid-template-columns: 1fr}
+      .topbar{position:relative; top:0}
+    }
+
+    /* ============================
+       Hero / Cards (light executive)
+    ============================ */
+    .hero{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.94);
+      border-radius:var(--radius);
+      box-shadow: var(--shadow);
+      padding:20px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(650px 260px at 15% 0%, rgba(31,95,168,.14), transparent 62%),
+        radial-gradient(650px 260px at 85% 0%, rgba(245,130,32,.10), transparent 62%);
+      pointer-events:none;
+    }
+    .hero > *{position:relative; z-index:1}
     .hero h2{margin:0 0 10px; font-size:22px; letter-spacing:.2px}
-    .hero .subtitle{margin:0 0 14px; color:var(--muted); font-size:13.5px; line-height:1.4}
-    .quote{margin-top:14px; padding:14px 16px; border:1px solid var(--line); border-radius:14px;
-           background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02))}
-    .quote strong{display:block; font-size:13.5px; line-height:1.45}
-    .quote em{display:block; margin-top:6px; color:var(--muted); font-size:12.5px}
+    .hero .subtitle{margin:0 0 14px; color:var(--un-muted); font-size:13.5px; line-height:1.55; max-width:780px}
+
+    .quote{
+      margin-top:14px;
+      padding:14px 16px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background: rgba(255,255,255,.92);
+      box-shadow: var(--shadow2);
+      position:relative;
+      overflow:hidden;
+    }
+    .quote::after{
+      content:"";
+      position:absolute; left:0; top:0; bottom:0;
+      width:4px;
+      background: linear-gradient(180deg, var(--un-blue-2), var(--uw-orange));
+    }
+    .quote strong{display:block; font-size:13.5px; line-height:1.55}
+    .quote em{display:block; margin-top:6px; color:var(--un-muted); font-size:12.5px}
 
     .side{display:flex; flex-direction:column; gap:16px}
-    .card{border:1px solid var(--line); background: rgba(255,255,255,.03); border-radius:var(--radius); box-shadow:var(--shadow); padding:16px}
+    .card{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.94);
+      border-radius:var(--radius);
+      box-shadow: var(--shadow);
+      padding:16px;
+      position:relative;
+      overflow:hidden;
+    }
+    .card::before{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(2,6,23,.02), transparent);
+      pointer-events:none;
+    }
+    .card > *{position:relative; z-index:1}
     .card h3{margin:0 0 10px; font-size:13.5px; letter-spacing:.2px}
+
     .kpis{display:grid; grid-template-columns: 1fr 1fr; gap:10px}
-    .kpi{padding:12px; border-radius:14px; border:1px solid var(--line); background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02))}
-    .kpi .v{font-size:16px; font-weight:700}
-    .kpi .l{font-size:11.5px; color:var(--muted); margin-top:2px; line-height:1.25}
+    .kpi{
+      padding:12px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.92);
+      box-shadow: var(--shadow2);
+      position:relative;
+      overflow:hidden;
+    }
+    .kpi::after{
+      content:"";
+      position:absolute; left:0; top:0; bottom:0;
+      width:4px;
+      background: linear-gradient(180deg, var(--un-blue-2), var(--uw-orange));
+      opacity:.95;
+    }
+    .kpi .v{font-size:16px; font-weight:950; margin-left:6px}
+    .kpi .l{font-size:11.5px; color:var(--un-muted); margin-top:2px; line-height:1.35; margin-left:6px}
+
     .tagrow{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
-    .tag{font-size:11.5px; padding:7px 10px; border-radius:999px; border:1px solid var(--line); background: rgba(255,255,255,.03); color:var(--muted)}
-    .tag.blue{border-color: rgba(106,166,255,.35); color: rgba(210,228,255,.95)}
-    .tag.orange{border-color: rgba(255,138,61,.35); color: rgba(255,219,200,.95)}
+    .tag{
+      font-size:11.5px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.92);
+      color: var(--un-ink);
+      box-shadow: var(--shadow2);
+    }
+    .tag.blue{
+      border-color: rgba(31,95,168,.26);
+      background: rgba(31,95,168,.10);
+      color: var(--un-blue);
+      font-weight:900;
+    }
+    .tag.orange{
+      border-color: rgba(245,130,32,.30);
+      background: rgba(245,130,32,.12);
+      color: #b54a00;
+      font-weight:900;
+    }
 
-    /* Section blocks */
+    /* ============================
+       Section blocks / details
+    ============================ */
     section{margin-top:18px}
-    .sectionHeader{display:flex; align-items:flex-end; justify-content:space-between; gap:10px; margin:18px 0 10px}
+    .sectionHeader{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:10px;
+      margin:18px 0 10px;
+    }
     .sectionHeader h2{margin:0; font-size:16px}
-    .sectionHeader p{margin:0; color:var(--muted); font-size:12.5px}
+    .sectionHeader p{margin:0; color:var(--un-muted); font-size:12.5px}
 
-    details{border:1px solid var(--line); border-radius:var(--radius); background: rgba(255,255,255,.03); box-shadow:var(--shadow); overflow:hidden}
-    summary{list-style:none; cursor:pointer; padding:16px; display:flex; gap:12px; align-items:flex-start; justify-content:space-between}
+    details{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background: rgba(255,255,255,.94);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    summary{
+      list-style:none;
+      cursor:pointer;
+      padding:14px 16px;
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      justify-content:space-between;
+      background: linear-gradient(90deg, rgba(31,95,168,.08), rgba(245,130,32,.06));
+    }
     summary::-webkit-details-marker{display:none}
+
     .sumLeft{display:flex; gap:12px; align-items:flex-start}
-    .badge{min-width:36px; height:36px; border-radius:12px; border:1px solid var(--line);
-           background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-           display:flex; align-items:center; justify-content:center; font-weight:800; color:rgba(234,240,255,.95)}
+    .badge{
+      min-width:36px; height:36px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.92);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:950;
+      color: var(--un-ink);
+      box-shadow: var(--shadow2);
+      position:relative;
+      overflow:hidden;
+    }
+    .badge::after{
+      content:"";
+      position:absolute; left:0; top:0; bottom:0;
+      width:4px;
+      background: linear-gradient(180deg, var(--un-blue-2), var(--uw-orange));
+    }
+
     .sumText h3{margin:0; font-size:14px}
-    .sumText p{margin:4px 0 0; color:var(--muted); font-size:12.5px; line-height:1.35}
+    .sumText p{margin:4px 0 0; color:var(--un-muted); font-size:12.5px; line-height:1.4}
     .chev{opacity:.75; font-size:12px; padding-top:3px}
     details[open] .chev{transform: rotate(180deg)}
-    .content{padding:0 16px 16px}
+
     .divider{height:1px; background: var(--line); margin:0 16px}
+    .content{padding:0 16px 16px}
     .contentGrid{display:grid; grid-template-columns: 1.2fr .8fr; gap:14px; margin-top:14px}
     @media (max-width: 920px){ .contentGrid{grid-template-columns: 1fr} }
 
-    .block{border:1px solid var(--line); background: rgba(255,255,255,.03); border-radius:16px; padding:14px}
+    .block{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.92);
+      border-radius:16px;
+      padding:14px;
+      box-shadow: var(--shadow2);
+    }
     .block h4{margin:0 0 8px; font-size:13px}
-    .block p{margin:0; color:rgba(234,240,255,.92); font-size:12.8px; line-height:1.55}
-    .block ul{margin:8px 0 0 18px; color:rgba(234,240,255,.92); font-size:12.8px; line-height:1.5}
+    .block p{margin:0; color:var(--un-ink); font-size:12.8px; line-height:1.65}
+    .block ul{margin:8px 0 0 18px; color:var(--un-ink); font-size:12.8px; line-height:1.55}
     .block li{margin:4px 0}
+    .block em{color: var(--un-muted)}
 
     /* Image placeholders */
-    .imgSlot{border:1px dashed rgba(255,255,255,.25); border-radius:16px; background: rgba(255,255,255,.02);
-            min-height:180px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden}
+    .imgSlot{
+      border:1px dashed rgba(11,18,32,.22);
+      border-radius:16px;
+      background:
+        radial-gradient(520px 260px at 18% 10%, rgba(31,95,168,.14), transparent 60%),
+        radial-gradient(520px 260px at 82% 12%, rgba(245,130,32,.12), transparent 60%),
+        rgba(2,6,23,.02);
+      min-height:180px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      overflow:hidden;
+      box-shadow: var(--shadow2);
+    }
     .imgSlot img{width:100%; height:100%; object-fit:cover; display:block}
     .imgSlot .ph{padding:14px; text-align:center}
     .imgSlot .ph b{display:block; font-size:12.8px}
-    .imgSlot .ph span{display:block; margin-top:4px; color:var(--muted); font-size:12px}
-    .imgHint{margin-top:8px; color:var(--muted); font-size:12px}
+    .imgSlot .ph span{display:block; margin-top:4px; color:var(--un-muted); font-size:12px}
+    .imgHint{margin-top:8px; color:var(--un-muted); font-size:12px}
 
     /* Footer */
-    footer{margin-top:28px; color:var(--muted); font-size:12px; opacity:.95}
+    footer{margin-top:28px; color:var(--un-muted); font-size:12px}
     .footgrid{display:grid; grid-template-columns: 1fr 1fr; gap:12px}
     @media (max-width: 920px){ .footgrid{grid-template-columns: 1fr} }
 
@@ -118,8 +321,10 @@
       body{background:#fff; color:#000}
       details{break-inside:avoid}
       .hero,.card,details{box-shadow:none}
-      .imgSlot{border:1px solid #bbb}
+      .imgSlot{border:1px solid #bbb; box-shadow:none}
     }
+
+    :focus-visible{outline:none; box-shadow: var(--focus); border-radius:12px;}
   </style>
 </head>
 
@@ -132,7 +337,7 @@
         <div class="logo" aria-hidden="true"></div>
         <div class="titlebox">
           <h1>Stratégie opérationnelle humanitaire — ONU Femmes (AOC) 2024–2027</h1>
-          <p>Lecture Directeur régional • Sections repliables • Espaces images stratégiques</p>
+          <p>Lecture Directeur régional • Sections repliables • Espaces visuels</p>
         </div>
       </div>
       <div class="actions">
@@ -175,7 +380,7 @@
             <div class="kpi"><div class="v">10.2M</div><div class="l">Dans le besoin (Bassin du Lac Tchad)</div></div>
             <div class="kpi"><div class="v">25.4M</div><div class="l">Dans le besoin (RDC)</div></div>
           </div>
-          <p class="imgHint">Astuce : remplacez ces chiffres par des sources OCHA/UNHCR/IPC au moment de la publication.</p>
+          <p class="imgHint">Astuce : remplacez ces chiffres par des sources validées au moment de la publication.</p>
         </div>
 
         <div class="card">
@@ -223,7 +428,7 @@
                 Cette stratégie régionale vise à traduire les engagements globaux dans les contextes spécifiques de l’Afrique de l’Ouest et du Centre.
               </p>
               <p style="margin-top:10px"><em>
-                Commentaire stratégique : utilisez cette section comme “socle politique” dans les échanges RC/HC, HCT et bailleurs.
+                Commentaire stratégique : utilisez cette section comme socle politique dans les échanges RC/HC, HCT et bailleurs.
                 Le message à porter : l’égalité de genre est un facteur d’efficacité humanitaire mesurable et un levier de redevabilité du système.
               </em></p>
             </div>
@@ -305,8 +510,8 @@
                 un financement suffisant et une transformation progressive des normes sociales.
               </p>
               <p style="margin-top:10px"><em>
-                Commentaire stratégique : utilisez cette section comme “cadre de dialogue bailleurs” : le risque majeur est systémique.
-                Sans investissement dans la coordination et la redevabilité genre, la performance globale des HRP se dégrade.
+                Commentaire stratégique : utilisez cette section comme cadre de dialogue bailleurs : le risque majeur est systémique.
+                Sans investissement dans la coordination et la redevabilité genre, la performance globale des réponses humanitaires se dégrade.
               </em></p>
             </div>
             <div>
@@ -345,7 +550,7 @@
                 amplifier le leadership féminin, soutenir protection et résilience économique.
               </p>
               <p style="margin-top:10px"><em>
-                Commentaire stratégique : formulez la vision comme récit unificateur et “solution systémique” (stabilisation, cohésion sociale, paix),
+                Commentaire stratégique : formulez la vision comme récit unificateur et solution systémique (stabilisation, cohésion sociale, paix),
                 plutôt qu’une approche sectorielle. C’est le langage attendu en dialogue politique et mobilisation de ressources.
               </em></p>
             </div>
@@ -424,8 +629,8 @@
                 Priorités : localisation, coordination inter-agences et mobilisation de ressources.
               </p>
               <p style="margin-top:10px"><em>
-                Commentaire stratégique : affirmez WCARO comme hub régional (cohérence/qualité/innovation) plutôt qu’un acteur parallèle.
-                L’argument bailleurs : “effet multiplicateur” via influence des mécanismes existants.
+                Commentaire stratégique : affirmez WCARO comme hub régional (cohérence, qualité, innovation) plutôt qu’un acteur parallèle.
+                L’argument bailleurs : effet multiplicateur via influence des mécanismes existants.
               </em></p>
             </div>
             <div>
@@ -462,7 +667,7 @@
                 Le suivi utilise UNCT-SWAP, le marqueur égalité de genre et des mécanismes réguliers d’apprentissage et d’évaluation.
               </p>
               <p style="margin-top:10px"><em>
-                Commentaire stratégique : faites du M&E un outil d’influence : démontrer la valeur ajoutée des investissements genre,
+                Commentaire stratégique : faites du suivi un outil d’influence : démontrer la valeur ajoutée des investissements genre,
                 orienter les décisions et renforcer la crédibilité institutionnelle auprès des bailleurs.
               </em></p>
             </div>
@@ -502,8 +707,8 @@
                 et le renforcement des données pour atténuer ces contraintes.
               </p>
               <p style="margin-top:10px"><em>
-                Commentaire stratégique : utilisez ces contraintes comme “plateforme de plaidoyer” : l’écart ambition/ressources est le frein principal.
-                Investir dans le genre = réduire coûts humains/financiers à moyen terme (efficacité + durabilité).
+                Commentaire stratégique : utilisez ces contraintes comme plateforme de plaidoyer : l’écart ambition/ressources est le frein principal.
+                Investir dans le genre réduit les coûts humains et financiers à moyen terme (efficacité et durabilité).
               </em></p>
             </div>
             <div>
@@ -541,7 +746,7 @@
                 capable de promouvoir une action inclusive, équitable et durable, et de renforcer le leadership des femmes dans les réponses aux crises.
               </p>
               <p style="margin-top:10px"><em>
-                Commentaire stratégique : ancrez la vision dans un narratif “stabilité durable” : les femmes comme leviers de résilience et de paix.
+                Commentaire stratégique : ancrez la vision dans un narratif de stabilité durable : les femmes comme leviers de résilience et de paix.
                 C’est un message haut niveau, utile pour dialogues politiques et financements pluriannuels.
               </em></p>
             </div>
@@ -573,7 +778,7 @@
           </div>
         </div>
         <div class="card">
-          <h3>Conseil “effet WOW” (sans complexifier)</h3>
+          <h3>Conseil de mise en page</h3>
           <div class="block" style="margin:0">
             <p>
               Ajoutez 6–8 visuels maximum : 1 carte régionale + 1 matrice risques + 1 schéma GiHA/LEAP + 1 tableau redevabilité + 1 gap financement + 1 photo impact.
@@ -588,7 +793,6 @@
   </div>
 
   <script>
-    // Déplier / replier tout
     const details = () => Array.from(document.querySelectorAll("details.sec"));
 
     document.getElementById("btnOpenAll").addEventListener("click", () => {
@@ -601,10 +805,8 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
 
-    // Optionnel : charger automatiquement une image si elle existe (sans casser si absente)
-    // Remarque: GitHub Pages renvoie 404; on évite fetch pour rester simple.
-    // Vous pouvez remplacer les placeholders en mettant directement <img src="assets/img/..." />
-    // Exemple : document.getElementById("imgHeroSlot").innerHTML = '<img src="assets/img/hero.jpg" alt="Hero"/>';
+    // Optionnel (simple) : si tu ajoutes hero.jpg, tu peux décommenter :
+    // document.getElementById("imgHeroSlot").innerHTML = '<img src="assets/img/hero.jpg" alt="Illustration"/>';
   </script>
 </body>
 </html>
