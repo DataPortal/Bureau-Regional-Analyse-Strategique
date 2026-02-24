@@ -480,22 +480,34 @@
 
   <!-- Sticky Header Band -->
   <header class="uwHeaderBand" role="banner">
-    <div class="uwHeaderBand__inner">
-      <div class="uwHeaderBand__brand">
-        <div class="uwHeaderBand__logo" aria-hidden="true"></div>
-        <div class="uwHeaderBand__meta">
-          <div class="uwHeaderBand__kicker">ONU Femmes • Afrique de l’Ouest et du Centre</div>
-          <div class="uwHeaderBand__title">Stratégie opérationnelle humanitaire 2024–2027</div>
-        </div>
+  <div class="uwHeaderBand__inner">
+
+    <div class="uwHeaderBand__brand">
+      <!-- Logo ONU Femmes (PNG) -->
+      <img
+        class="uwHeaderBand__logoImg"
+        src="assets/img/logo.png"
+        alt="UN Women"
+        loading="eager"
+        decoding="async"
+      />
+
+      <!-- Titres -->
+      <div class="uwHeaderBand__meta">
+        <div class="uwHeaderBand__kicker">ONU Femmes • Afrique de l’Ouest et du Centre</div>
+        <div class="uwHeaderBand__title">Stratégie opérationnelle humanitaire 2024–2027</div>
       </div>
-      <nav class="uwHeaderBand__nav" aria-label="Navigation">
-        <a class="uwNav__link" href="#top">Haut</a>
-        <a class="uwNav__link" href="#pages">12 points</a>
-        <a class="uwNav__link" href="#footer">Ressources</a>
-        <button class="uwNav__btn" type="button" onclick="window.print()">Imprimer / PDF</button>
-      </nav>
     </div>
-  </header>
+
+    <nav class="uwHeaderBand__nav" aria-label="Navigation">
+      <a class="uwNav__link" href="#top">Haut</a>
+      <a class="uwNav__link" href="#pages">12 points</a>
+      <a class="uwNav__link" href="#footer">Ressources</a>
+      <button class="uwNav__btn" type="button" onclick="window.print()">Imprimer / PDF</button>
+    </nav>
+
+  </div>
+</header>
 
   <div class="wrap" id="top">
 
