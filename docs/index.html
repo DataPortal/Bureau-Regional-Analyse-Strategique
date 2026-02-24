@@ -386,7 +386,6 @@
     }
     .block h4{margin:0 0 8px; font-size:13px; color:var(--ink2);}
     .block p{margin:0; color:var(--ink2); font-size:12.9px; line-height:1.65;}
-    .block em{color:var(--muted); font-style:italic;}
     .block p + p{margin-top:10px;}
     .padL{padding-left:6px;}
 
@@ -396,14 +395,8 @@
       color: var(--un-blue);
       letter-spacing:.1px;
     }
-    .kBlue{
-      font-weight:900;
-      color: var(--un-blue);
-    }
-    .kOrange{
-      font-weight:900;
-      color: var(--uw-orange);
-    }
+    .kBlue{font-weight:900; color: var(--un-blue);}
+    .kOrange{font-weight:900; color: var(--uw-orange);}
     .kTag{
       display:inline-block;
       padding:2px 8px;
@@ -415,22 +408,30 @@
       margin:0 2px;
       white-space:nowrap;
     }
-    .callout{
-      margin-top:10px;
-      border:1px solid rgba(245,130,32,.22);
-      background: rgba(245,130,32,.08);
+
+    /* Résumé (remplace les commentaires) */
+    .summary{
+      margin-top:12px;
+      border:1px solid rgba(31,95,168,.18);
+      background:
+        linear-gradient(90deg, rgba(31,95,168,.06), rgba(245,130,32,.05));
       border-radius:14px;
-      padding:10px 12px;
+      padding:12px 12px;
       box-shadow: var(--shadow2);
       color: var(--ink2);
     }
-    .callout em{color: var(--ink2); font-style:italic;}
-    .callout .label{
+    .summary .label{
       display:inline-block;
       margin-bottom:6px;
       font-weight:950;
-      color: var(--uw-orange);
+      color: var(--un-blue);
       letter-spacing:.2px;
+    }
+    .summary p{
+      margin:0;
+      color: var(--ink2);
+      font-size:12.9px;
+      line-height:1.65;
     }
 
     footer{
@@ -567,6 +568,7 @@
       </div>
 
       <div class="hScroll" id="hScroll" aria-label="Pages">
+
         <!-- 1 -->
         <article class="hPage" data-index="1">
           <div class="hPage__head">
@@ -590,12 +592,15 @@
                   Cette stratégie régionale vise à traduire les engagements globaux dans les contextes spécifiques de l’Afrique de l’Ouest et du Centre.
                 </p>
 
-                <div class="callout">
-                  <div class="label">Commentaire stratégique</div>
-                  <em>
-                    utilisez cette section comme “socle politique” dans les échanges RC/HC, HCT et bailleurs.
-                    Le message à porter : l’égalité de genre est un facteur d’efficacité humanitaire mesurable et un levier de redevabilité du système.
-                  </em>
+                <div class="summary">
+                  <div class="label">Résumé stratégique</div>
+                  <p>
+                    Ce premier point établit le <span class="kBlue">socle de légitimité</span> et la logique d’intervention : ONU Femmes n’est pas un acteur sectoriel, mais un
+                    <span class="kBlue">organisateur de cohérence</span> entre normes, coordination et actions de terrain. Le positionnement IASC (2023) renforce une capacité d’influence
+                    sur la qualité du cycle humanitaire, en particulier sur la prise en compte du genre comme critère de performance et de redevabilité.
+                    La stratégie régionale se présente donc comme une <span class="kOrange">traduction opérationnelle</span> d’engagements globaux, articulant leadership politique,
+                    coordination inter-agences et démonstration d’impact, afin d’ancrer l’égalité de genre au cœur des décisions et des financements.
+                  </p>
                 </div>
               </div>
               <div>
@@ -629,16 +634,19 @@
                   L’expansion des violences vers les zones côtières et la persistance de foyers en Afrique centrale démontrent une régionalisation des risques.
                 </p>
 
-                <div class="callout">
-                  <div class="label">:))))</div>
-                  <em>
-                    transformez cette section en argument d’investissement régional (financements pluriannuels/flexibles),
-                    en soulignant que la crise est transfrontalière et durable, donc incompatible avec des approches annuelles et fragmentées.
-                  </em>
+                <div class="summary">
+                  <div class="label">Résumé stratégique</div>
+                  <p>
+                    Le contexte met en évidence une <span class="kOrange">polycrise durable</span> et transfrontalière, où les chocs (sécurité, climat, économie, gouvernance)
+                    se superposent et déplacent la géographie des risques, notamment vers les zones côtières. Les chiffres illustrent l’ampleur et la persistance des besoins,
+                    ce qui justifie une approche <span class="kBlue">régionale</span> et non fragmentée par pays. Le message central est opérationnel : une crise qui se régionalise
+                    exige des instruments de financement plus <span class="kOrange">flexibles</span> et pluriannuels, et une coordination renforcée pour éviter les angles morts,
+                    notamment sur la protection, la VBG et l’accès équitable aux services pour les femmes et les filles.
+                  </p>
                 </div>
               </div>
               <div>
-                <div class="imgSlot"><div class="ph"><b>Image stratégique 2</b><span>Carte “hotspots” / déplacements / tendance incidents</span></div></div>
+                <div class="imgSlot"><div class="ph"><b>Image stratégique 2</b><span>Carte “hotspots” / déplacements / tendances</span></div></div>
                 <div class="imgHint">Chemin suggéré : <code>assets/img/section-2-map.jpg</code></div>
               </div>
             </div>
@@ -667,12 +675,15 @@
                   un financement suffisant et une transformation progressive des normes sociales.
                 </p>
 
-                <div class="callout">
-                  <div class="label">:))))</div>
-                  <em>
-                    utilisez cette section comme “cadre de dialogue bailleurs” : le risque majeur est systémique.
-                    Sans investissement dans la coordination et la redevabilité genre, la performance globale des HRP se dégrade.
-                  </em>
+                <div class="summary">
+                  <div class="label">Résumé stratégique</div>
+                  <p>
+                    Ce point formalise le caractère <span class="kBlue">systémique</span> des risques : la principale vulnérabilité n’est pas seulement l’intensité des crises,
+                    mais la capacité du système à intégrer le genre dans les décisions, les priorités et les budgets. Le sous-financement du genre, la consultation inégale
+                    des organisations dirigées par des femmes et la montée des risques de VBG créent un cercle de performance faible où l’assistance laisse des groupes clés
+                    en marge. Les hypothèses de réussite reposent sur des mécanismes régionaux adaptés, une participation réelle et un financement suffisant, afin de transformer
+                    ces risques en leviers de <span class="kOrange">redevabilité</span> et d’efficacité, mesurables dans les résultats humanitaires.
+                  </p>
                 </div>
               </div>
               <div>
@@ -704,12 +715,15 @@
                   amplifier le leadership féminin, soutenir protection et résilience économique.
                 </p>
 
-                <div class="callout">
-                  <div class="label">:))))</div>
-                  <em>
-                    formulez la vision comme récit unificateur et “solution systémique” (stabilisation, cohésion sociale, paix),
-                    plutôt qu’une approche sectorielle. C’est le langage attendu en dialogue politique et mobilisation de ressources.
-                  </em>
+                <div class="summary">
+                  <div class="label">Résumé stratégique</div>
+                  <p>
+                    La vision propose un récit unificateur : le genre n’est pas un “thème”, mais une condition de succès du <span class="kTag">nexus HDP</span>.
+                    Les objectifs structurent une trajectoire 2024–2027 centrée sur la <span class="kBlue">qualité des réponses</span> (redevabilité, standards, coordination),
+                    la <span class="kOrange">capacité d’action</span> des femmes (leadership, participation, accès aux services) et la résilience (protection + autonomisation économique).
+                    L’enjeu est d’aligner les priorités opérationnelles, l’influence institutionnelle et les financements, afin que les engagements se traduisent en décisions
+                    mesurables dans la programmation et les résultats.
+                  </p>
                 </div>
               </div>
               <div>
@@ -740,12 +754,15 @@
                   Pilier 2 — <span class="kOrange">LEAP</span> : protection, autonomisation économique et soutien aux moyens de subsistance.
                 </p>
 
-                <div class="callout">
-                  <div class="label">:))))</div>
-                  <em>
-                    présentez GiHA-LEAP comme proposition de valeur unique : influencer les volumes HRP (GiHA)
-                    tout en démontrant l’impact tangible (LEAP). C’est un argument direct de financement et de différenciation.
-                  </em>
+                <div class="summary">
+                  <div class="label">Résumé stratégique</div>
+                  <p>
+                    Les deux piliers structurent une proposition de valeur claire : <span class="kBlue">GiHA</span> agit sur le “système” (coordination, standards, redevabilité)
+                    pour améliorer la qualité globale de la réponse, tandis que <span class="kOrange">LEAP</span> démontre un impact tangible sur le terrain (protection, moyens de
+                    subsistance, autonomie). Cette articulation garantit la cohérence “influence → résultats” : on renforce les mécanismes qui orientent les priorités et les budgets,
+                    tout en prouvant, par des interventions ciblées, ce que produit une réponse réellement sensible au genre. C’est un cadre lisible pour les partenaires et
+                    particulièrement efficace pour la mobilisation de ressources.
+                  </p>
                 </div>
               </div>
               <div>
@@ -777,12 +794,15 @@
                   Priorités : localisation, coordination inter-agences et mobilisation de ressources.
                 </p>
 
-                <div class="callout">
-                  <div class="label">Commentaire stratégique</div>
-                  <em>
-                    affirmez WCARO comme hub régional (cohérence/qualité/innovation) plutôt qu’un acteur parallèle.
-                    L’argument bailleurs : “effet multiplicateur” via influence des mécanismes existants.
-                  </em>
+                <div class="summary">
+                  <div class="label">Résumé stratégique</div>
+                  <p>
+                    La mise en œuvre repose sur un modèle de hub : <span class="kBlue">WCARO</span> assure cohérence, appui technique et alignement régional,
+                    tandis que les bureaux pays et partenaires déploient l’action dans les priorités contextuelles. L’efficacité dépend d’un écosystème de partenariats
+                    (agences ONU, institutions régionales, WLO) et d’une logique de <span class="kOrange">localisation</span> qui transfère capacités, ressources et espaces
+                    de décision. L’objectif est de réduire la fragmentation, d’améliorer la qualité de coordination et de sécuriser une mobilisation de ressources plus
+                    prévisible, en renforçant la crédibilité opérationnelle et la lisibilité des résultats.
+                  </p>
                 </div>
               </div>
               <div>
@@ -812,12 +832,15 @@
                   Le suivi utilise UNCT-SWAP, le marqueur égalité de genre et des mécanismes réguliers d’apprentissage et d’évaluation.
                 </p>
 
-                <div class="callout">
-                  <div class="label">:))))e</div>
-                  <em>
-                    faites du M&E un outil d’influence : démontrer la valeur ajoutée des investissements genre,
-                    orienter les décisions et renforcer la crédibilité institutionnelle auprès des bailleurs.
-                  </em>
+                <div class="summary">
+                  <div class="label">Résumé stratégique</div>
+                  <p>
+                    Le suivi et l’apprentissage sont conçus comme un levier de <span class="kBlue">crédibilité</span> et de performance : UNCT-SWAP et le marqueur genre
+                    permettent de documenter l’intégration du genre, d’identifier les écarts et de corriger les choix programmatiques. Au-delà du reporting,
+                    le dispositif vise une redevabilité active : produire des preuves d’impact, alimenter la prise de décision et transformer l’apprentissage en influence,
+                    en particulier sur la qualité des HRP, la priorisation des ressources et la pérennité des financements. L’enjeu est d’éviter un suivi “de conformité”
+                    et d’installer un pilotage orienté résultats.
+                  </p>
                 </div>
               </div>
               <div>
@@ -849,12 +872,15 @@
                   et le renforcement des données pour atténuer ces contraintes.
                 </p>
 
-                <div class="callout">
-                  <div class="label">:))))</div>
-                  <em>
-                    utilisez ces contraintes comme “plateforme de plaidoyer” : l’écart ambition/ressources est le frein principal.
-                    Investir dans le genre = réduire coûts humains/financiers à moyen terme (efficacité + durabilité).
-                  </em>
+                <div class="summary">
+                  <div class="label">Résumé stratégique</div>
+                  <p>
+                    Ce point clarifie les contraintes comme paramètres de conception : l’accès restreint, les lacunes de données et la volatilité sécuritaire
+                    imposent des dispositifs adaptatifs, tandis que le <span class="kOrange">sous-financement</span> exige un plaidoyer structuré et une priorisation stricte.
+                    La stratégie répond par la localisation, le renforcement des capacités et une meilleure structuration des données pour sécuriser la continuité des services,
+                    limiter la dépendance et réduire les inégalités d’accès. L’ambition est de transformer les limites en arguments d’investissement : sans ressources dédiées,
+                    la performance globale diminue et le coût humain/financier augmente à moyen terme.
+                  </p>
                 </div>
               </div>
               <div>
@@ -885,12 +911,15 @@
                   capable de promouvoir une action inclusive, équitable et durable, et de renforcer le leadership des femmes dans les réponses aux crises.
                 </p>
 
-                <div class="callout">
-                  <div class="label">:))))</div>
-                  <em>
-                    ancrez la vision dans un narratif “stabilité durable” : les femmes comme leviers de résilience et de paix.
-                    C’est un message haut niveau, utile pour dialogues politiques et financements pluriannuels.
-                  </em>
+                <div class="summary">
+                  <div class="label">Résumé stratégique</div>
+                  <p>
+                    La vision finale installe ONU Femmes comme acteur pivot de la <span class="kBlue">gouvernance humanitaire</span> régionale : une organisation capable
+                    d’orienter la qualité des réponses tout en consolidant le leadership des femmes et des organisations qui les représentent. L’objectif est une réponse
+                    inclusive et durable, où la protection, l’accès et la participation ne sont plus des variables secondaires mais des critères structurants de performance.
+                    Le narratif de “stabilité durable” positionne les femmes comme levier de résilience, de cohésion sociale et de paix, et justifie des investissements
+                    pluriannuels qui relient urgence, relèvement et transformation.
+                  </p>
                 </div>
               </div>
               <div>
@@ -900,6 +929,7 @@
             </div>
           </div>
         </article>
+
       </div>
     </section>
 
