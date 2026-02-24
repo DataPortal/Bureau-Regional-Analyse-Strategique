@@ -1,0 +1,188 @@
+{
+  "hero_lead": "Cette stratégie opérationnelle humanitaire 2024–2027 positionne ONU Femmes comme acteur clé de la gouvernance humanitaire régionale en Afrique de l’Ouest et du Centre, en intégrant l’égalité de genre comme levier d’efficacité, de redevabilité et de stabilité durable.",
+
+  "hero_signals": [
+    {
+      "title": "Leadership régional",
+      "text": "ONU Femmes renforce son rôle de référence sur l’intégration du genre dans l’action humanitaire."
+    },
+    {
+      "title": "Approche systémique",
+      "text": "Combiner influence institutionnelle (GiHA) et impact terrain (LEAP)."
+    },
+    {
+      "title": "Vision nexus HDP",
+      "text": "Aligner réponse humanitaire, résilience et consolidation de la paix."
+    }
+  ],
+
+  "micro_kpis": [
+    { "k": "Insécurité alimentaire", "v": "≈ 50M personnes" },
+    { "k": "Afrique de l’Ouest (PIN)", "v": "14.3M" },
+    { "k": "Bassin du Lac Tchad", "v": "10.2M" },
+    { "k": "RDC (PIN)", "v": "25.4M" }
+  ],
+
+  "hero_illustration": {
+    "src": "assets/img/hero.jpg",
+    "caption": "Vue régionale humanitaire — Afrique de l’Ouest et du Centre"
+  },
+
+  "key_messages": [
+    {
+      "title": "Genre = efficacité humanitaire",
+      "text": "L’intégration du genre améliore la pertinence et la qualité des réponses."
+    },
+    {
+      "title": "Localisation stratégique",
+      "text": "Les organisations dirigées par des femmes sont des actrices de première ligne."
+    },
+    {
+      "title": "Influence systémique",
+      "text": "Renforcer les mécanismes existants plutôt que créer des structures parallèles."
+    },
+    {
+      "title": "Mobilisation de ressources",
+      "text": "Investir dans le genre réduit les coûts humains et économiques à long terme."
+    }
+  ],
+
+  "snapshot_details": "Cette stratégie articule une vision régionale cohérente pour répondre aux crises prolongées, soutenir le leadership féminin et renforcer la redevabilité du système humanitaire.",
+
+  "snapshot_illustrations": [
+    {
+      "src": "assets/img/snapshot-1.jpg",
+      "caption": "Cartographie des zones prioritaires"
+    },
+    {
+      "src": "assets/img/snapshot-2.jpg",
+      "caption": "Coordination humanitaire et acteurs clés"
+    },
+    {
+      "src": "assets/img/snapshot-3.jpg",
+      "caption": "Impact communautaire et leadership féminin"
+    }
+  ],
+
+  "points_9": [
+
+    {
+      "n": 1,
+      "title": "Introduction et justification stratégique",
+      "summary": "Mandat ONU Femmes • Triple mandat • Positionnement IASC",
+      "content": "La création d’ONU Femmes via la résolution A/RES/64/289 répond au besoin d’un leadership mondial sur l’égalité de genre. Son triple mandat — normatif, coordination et opérationnel — permet d’influencer les politiques et pratiques humanitaires. L’adhésion à l’IASC en 2023 comme co-présidente du Groupe de Référence GiHA renforce son rôle stratégique global.",
+      "commentary": "Ce point constitue le socle politique du document. Il doit être utilisé pour légitimer le positionnement institutionnel d’ONU Femmes auprès des RC/HC, HCT et partenaires financiers, en affirmant que l’égalité de genre est une exigence de performance du système humanitaire.",
+      "illustration": {
+        "src": "assets/img/section-1.jpg",
+        "caption": "Mandat et positionnement institutionnel"
+      }
+    },
+
+    {
+      "n": 2,
+      "title": "Contexte régional : crises et dynamiques humanitaires",
+      "summary": "Polycrise • Déplacements • Fragilité régionale",
+      "content": "L’Afrique de l’Ouest et du Centre connaît des crises prolongées combinant conflits armés, déplacements forcés, insécurité alimentaire et impacts climatiques. Les dynamiques de violence se déplacent vers les zones côtières tandis que des foyers persistants subsistent en Afrique centrale.",
+      "commentary": "Cette section justifie une approche régionale et pluriannuelle. Elle doit appuyer le plaidoyer pour des financements flexibles adaptés aux crises transfrontalières, et non des interventions ponctuelles.",
+      "illustration": {
+        "src": "assets/img/section-2-map.jpg",
+        "caption": "Cartographie des zones de crise"
+      }
+    },
+
+    {
+      "n": 3,
+      "title": "Analyse des risques et hypothèses opérationnelles",
+      "summary": "Risques systémiques • Sous-financement genre",
+      "content": "Les risques incluent l’aggravation des crises, la persistance des normes sociales discriminatoires, la faible participation des organisations dirigées par des femmes et le sous-financement chronique des actions genre.",
+      "commentary": "Ce point doit servir de base au dialogue bailleurs : l’absence d’investissement genre fragilise l’ensemble des résultats humanitaires. Le risque est systémique et non sectoriel.",
+      "illustration": {
+        "src": "assets/img/section-3-risk.jpg",
+        "caption": "Matrice risques et hypothèses"
+      }
+    },
+
+    {
+      "n": 4,
+      "title": "Vision stratégique et objectifs 2024–2027",
+      "summary": "Nexus HDP • Leadership féminin • Résilience",
+      "content": "La vision vise à intégrer l’égalité de genre dans toutes les phases de la réponse humanitaire et du nexus humanitaire-développement-paix, en renforçant la protection, la participation et l’autonomisation économique des femmes.",
+      "commentary": "Présenter cette vision comme une solution systémique renforce son attractivité politique et financière, notamment auprès des bailleurs recherchant stabilité et cohésion sociale.",
+      "illustration": {
+        "src": "assets/img/section-4-toc.jpg",
+        "caption": "Théorie du changement nexus HDP"
+      }
+    },
+
+    {
+      "n": 5,
+      "title": "Cadre stratégique : GiHA et LEAP",
+      "summary": "Influence système + impact terrain",
+      "content": "Le pilier GiHA agit sur la coordination et la redevabilité du système humanitaire, tandis que LEAP soutient protection, moyens de subsistance et autonomisation économique des femmes.",
+      "commentary": "Cette articulation constitue la proposition de valeur centrale : influencer les mécanismes humanitaires tout en démontrant des résultats concrets au niveau communautaire.",
+      "illustration": {
+        "src": "assets/img/section-5-pillars.jpg",
+        "caption": "Relation stratégique GiHA – LEAP"
+      }
+    },
+
+    {
+      "n": 6,
+      "title": "Mise en œuvre opérationnelle",
+      "summary": "Leadership WCARO • Partenariats • Localisation",
+      "content": "La mise en œuvre repose sur le hub régional WCARO, les bureaux pays, les agences partenaires et les organisations dirigées par des femmes, avec un accent sur la coordination et la localisation.",
+      "commentary": "Le positionnement doit être celui d’un hub régional catalyseur, capable de multiplier l’impact via les mécanismes existants plutôt que de créer des structures parallèles.",
+      "illustration": {
+        "src": "assets/img/section-6-ops.jpg",
+        "caption": "Architecture opérationnelle régionale"
+      }
+    },
+
+    {
+      "n": 7,
+      "title": "Suivi, redevabilité et apprentissage",
+      "summary": "UNCT-SWAP • Marqueur genre • Données",
+      "content": "Le suivi s’appuie sur UNCT-SWAP, les marqueurs genre et des mécanismes réguliers d’apprentissage pour améliorer les performances et renforcer la redevabilité.",
+      "commentary": "Le suivi doit être utilisé comme outil d’influence stratégique, permettant de démontrer la valeur ajoutée des investissements genre et d’orienter les décisions humanitaires.",
+      "illustration": {
+        "src": "assets/img/section-7-mel.jpg",
+        "caption": "Tableau de bord redevabilité"
+      }
+    },
+
+    {
+      "n": 8,
+      "title": "Contraintes et limites",
+      "summary": "Accès • Financement • Données",
+      "content": "Les contraintes incluent le sous-financement, l’accès limité, les défis sécuritaires et les lacunes de données. La stratégie mise sur la localisation et le renforcement analytique pour atténuer ces limites.",
+      "commentary": "Cette section soutient le plaidoyer financier : réduire le gap de financement est essentiel pour garantir efficacité et durabilité des réponses.",
+      "illustration": {
+        "src": "assets/img/section-8-gap.jpg",
+        "caption": "Analyse du gap de financement"
+      }
+    },
+
+    {
+      "n": 9,
+      "title": "Vision finale",
+      "summary": "Leadership des femmes • Gouvernance humanitaire",
+      "content": "ONU Femmes ambitionne de renforcer une gouvernance humanitaire inclusive, plaçant le leadership des femmes au centre des réponses et contribuant à une stabilité durable.",
+      "commentary": "La vision finale doit porter un narratif politique clair : investir dans les femmes constitue un levier stratégique de résilience, de paix et de transformation systémique.",
+      "illustration": {
+        "src": "assets/img/section-9-impact.jpg",
+        "caption": "Leadership féminin et impact durable"
+      }
+    }
+
+  ],
+
+  "intel_dock": [
+    { "k": "Approche", "v": "Nexus HDP" },
+    { "k": "Positionnement", "v": "Leadership régional" },
+    { "k": "Cadre", "v": "GiHA + LEAP" },
+    { "k": "Priorité", "v": "Localisation" },
+    { "k": "Objectif", "v": "Stabilité durable" }
+  ],
+
+  "last_updated": "2026-02-24"
+}
