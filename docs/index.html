@@ -1,610 +1,514 @@
+<!-- =========================================================
+     index.html — HQ Brief (ONU Femmes | Bleu ONU + Orange)
+     - Style: utilise votre CSS (style.css)
+     - UX: résumé d’abord, puis sections avec <details>
+     - Boutons: tout déplier / tout replier
+     - Données: assets/data/kpi.json, charts.json, geo.json, content.json
+     - Remarque: aucune mention “système” dans l’UI
+========================================================== -->
 <!doctype html>
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Stratégie opérationnelle humanitaire — ONU Femmes (AOC) 2024–2027</title>
+  <title>Brief régional — Stratégie humanitaire | ONU Femmes</title>
 
-  <!-- OpenGraph (optionnel) -->
-  <meta property="og:title" content="Stratégie opérationnelle humanitaire — ONU Femmes (AOC) 2024–2027" />
-  <meta property="og:description" content="Document stratégique narratif avec sections repliables, espaces visuels et lecture Directeur régional." />
+  <link rel="stylesheet" href="style.css" />
 
-  <style>
-    :root{
-      --bg:#0b1220;
-      --card:#0f1a2f;
-      --card2:#0b1528;
-      --text:#eaf0ff;
-      --muted:#b7c3e6;
-      --line:rgba(255,255,255,.10);
-      --accent:#6aa6ff;   /* bleu */
-      --accent2:#ff8a3d;  /* orange */
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius: 18px;
-      --max: 1100px;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0; padding:0; background: radial-gradient(1200px 800px at 20% 0%, rgba(106,166,255,.15), transparent 60%),
-                                     radial-gradient(900px 700px at 90% 10%, rgba(255,138,61,.12), transparent 60%),
-                                     var(--bg); color:var(--text); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;}
-    a{color:inherit}
-    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 80px}
-    .topbar{display:flex; gap:14px; align-items:center; justify-content:space-between; padding:14px 16px; border:1px solid var(--line);
-            background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)); border-radius:var(--radius); box-shadow:var(--shadow); position:sticky; top:14px; z-index:5; backdrop-filter: blur(10px);}
-    .brand{display:flex; align-items:center; gap:12px}
-    .logo{width:40px; height:40px; border-radius:12px;
-          background: conic-gradient(from 180deg, var(--accent), rgba(106,166,255,.25), var(--accent2), rgba(255,138,61,.20), var(--accent));
-          border:1px solid var(--line);}
-    .titlebox{line-height:1.1}
-    .titlebox h1{margin:0; font-size:14.5px; letter-spacing:.2px}
-    .titlebox p{margin:3px 0 0; font-size:12px; color:var(--muted)}
-    .actions{display:flex; gap:10px; align-items:center; flex-wrap:wrap; justify-content:flex-end}
-    .btn{border:1px solid var(--line); background: rgba(255,255,255,.04); color:var(--text);
-         padding:10px 12px; border-radius:12px; cursor:pointer; font-size:12.5px}
-    .btn:hover{background: rgba(255,255,255,.07)}
-    .btn.primary{border-color: rgba(106,166,255,.45); background: rgba(106,166,255,.10)}
-    .btn.primary:hover{background: rgba(106,166,255,.14)}
-    .btn.orange{border-color: rgba(255,138,61,.45); background: rgba(255,138,61,.10)}
-    .btn.orange:hover{background: rgba(255,138,61,.14)}
-    .grid{display:grid; grid-template-columns: 1.2fr .8fr; gap:16px; margin-top:18px}
-    @media (max-width: 920px){ .grid{grid-template-columns: 1fr} .topbar{position:relative; top:0} }
+  <!-- Leaflet (carte) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-    .hero{border:1px solid var(--line); background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-          border-radius:var(--radius); box-shadow:var(--shadow); padding:22px}
-    .hero h2{margin:0 0 10px; font-size:22px; letter-spacing:.2px}
-    .hero .subtitle{margin:0 0 14px; color:var(--muted); font-size:13.5px; line-height:1.4}
-    .quote{margin-top:14px; padding:14px 16px; border:1px solid var(--line); border-radius:14px;
-           background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02))}
-    .quote strong{display:block; font-size:13.5px; line-height:1.45}
-    .quote em{display:block; margin-top:6px; color:var(--muted); font-size:12.5px}
+  <!-- Chart.js + DataLabels (graphiques + %) -->
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
 
-    .side{display:flex; flex-direction:column; gap:16px}
-    .card{border:1px solid var(--line); background: rgba(255,255,255,.03); border-radius:var(--radius); box-shadow:var(--shadow); padding:16px}
-    .card h3{margin:0 0 10px; font-size:13.5px; letter-spacing:.2px}
-    .kpis{display:grid; grid-template-columns: 1fr 1fr; gap:10px}
-    .kpi{padding:12px; border-radius:14px; border:1px solid var(--line); background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02))}
-    .kpi .v{font-size:16px; font-weight:700}
-    .kpi .l{font-size:11.5px; color:var(--muted); margin-top:2px; line-height:1.25}
-    .tagrow{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
-    .tag{font-size:11.5px; padding:7px 10px; border-radius:999px; border:1px solid var(--line); background: rgba(255,255,255,.03); color:var(--muted)}
-    .tag.blue{border-color: rgba(106,166,255,.35); color: rgba(210,228,255,.95)}
-    .tag.orange{border-color: rgba(255,138,61,.35); color: rgba(255,219,200,.95)}
-
-    /* Section blocks */
-    section{margin-top:18px}
-    .sectionHeader{display:flex; align-items:flex-end; justify-content:space-between; gap:10px; margin:18px 0 10px}
-    .sectionHeader h2{margin:0; font-size:16px}
-    .sectionHeader p{margin:0; color:var(--muted); font-size:12.5px}
-
-    details{border:1px solid var(--line); border-radius:var(--radius); background: rgba(255,255,255,.03); box-shadow:var(--shadow); overflow:hidden}
-    summary{list-style:none; cursor:pointer; padding:16px; display:flex; gap:12px; align-items:flex-start; justify-content:space-between}
-    summary::-webkit-details-marker{display:none}
-    .sumLeft{display:flex; gap:12px; align-items:flex-start}
-    .badge{min-width:36px; height:36px; border-radius:12px; border:1px solid var(--line);
-           background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-           display:flex; align-items:center; justify-content:center; font-weight:800; color:rgba(234,240,255,.95)}
-    .sumText h3{margin:0; font-size:14px}
-    .sumText p{margin:4px 0 0; color:var(--muted); font-size:12.5px; line-height:1.35}
-    .chev{opacity:.75; font-size:12px; padding-top:3px}
-    details[open] .chev{transform: rotate(180deg)}
-    .content{padding:0 16px 16px}
-    .divider{height:1px; background: var(--line); margin:0 16px}
-    .contentGrid{display:grid; grid-template-columns: 1.2fr .8fr; gap:14px; margin-top:14px}
-    @media (max-width: 920px){ .contentGrid{grid-template-columns: 1fr} }
-
-    .block{border:1px solid var(--line); background: rgba(255,255,255,.03); border-radius:16px; padding:14px}
-    .block h4{margin:0 0 8px; font-size:13px}
-    .block p{margin:0; color:rgba(234,240,255,.92); font-size:12.8px; line-height:1.55}
-    .block ul{margin:8px 0 0 18px; color:rgba(234,240,255,.92); font-size:12.8px; line-height:1.5}
-    .block li{margin:4px 0}
-
-    /* Image placeholders */
-    .imgSlot{border:1px dashed rgba(255,255,255,.25); border-radius:16px; background: rgba(255,255,255,.02);
-            min-height:180px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden}
-    .imgSlot img{width:100%; height:100%; object-fit:cover; display:block}
-    .imgSlot .ph{padding:14px; text-align:center}
-    .imgSlot .ph b{display:block; font-size:12.8px}
-    .imgSlot .ph span{display:block; margin-top:4px; color:var(--muted); font-size:12px}
-    .imgHint{margin-top:8px; color:var(--muted); font-size:12px}
-
-    /* Footer */
-    footer{margin-top:28px; color:var(--muted); font-size:12px; opacity:.95}
-    .footgrid{display:grid; grid-template-columns: 1fr 1fr; gap:12px}
-    @media (max-width: 920px){ .footgrid{grid-template-columns: 1fr} }
-
-    /* Print */
-    @media print{
-      .topbar, .actions{display:none !important}
-      body{background:#fff; color:#000}
-      details{break-inside:avoid}
-      .hero,.card,details{box-shadow:none}
-      .imgSlot{border:1px solid #bbb}
-    }
-  </style>
+  <!-- Votre main.js -->
+  <script defer src="main.js"></script>
 </head>
 
 <body>
-  <div class="wrap">
 
-    <!-- Topbar -->
-    <div class="topbar" role="banner">
-      <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <div class="titlebox">
-          <h1>Stratégie opérationnelle humanitaire — ONU Femmes (AOC) 2024–2027</h1>
-          <p>Lecture Directeur régional • Sections repliables • Espaces images stratégiques</p>
+  <!-- Bandeau ONU Femmes -->
+  <header class="uwHeaderBand" role="banner">
+    <div class="uwHeaderBand__inner">
+      <div class="uwHeaderBand__brand">
+        <!-- Remplacez par votre logo -->
+        <img class="uwHeaderBand__logo" src="assets/img/logo-unwomen.png" alt="ONU Femmes" onerror="this.style.display='none'" />
+        <div class="uwHeaderBand__meta">
+          <div class="uwHeaderBand__kicker">Brief régional</div>
+          <div class="uwHeaderBand__title">Stratégie opérationnelle humanitaire — Afrique de l’Ouest & du Centre (2024–2027)</div>
         </div>
       </div>
-      <div class="actions">
-        <button class="btn primary" id="btnOpenAll" type="button">Tout déplier</button>
-        <button class="btn" id="btnCloseAll" type="button">Tout replier</button>
-        <button class="btn orange" onclick="window.print()" type="button">Imprimer / PDF</button>
-      </div>
-    </div>
 
-    <!-- Hero + Side -->
-    <div class="grid">
-      <div class="hero">
-        <h2>Document stratégique narratif</h2>
-        <p class="subtitle">
-          Cette page présente une version digitale structurée pour le positionnement politique, la coordination inter-agences et la mobilisation de ressources,
-          en cohérence avec les cadres humanitaires et l’approche nexus humanitaire-développement-paix.
+      <nav class="uwHeaderBand__nav" aria-label="Navigation">
+        <a class="uwNav__link" href="#snapshot">Aperçu</a>
+        <a class="uwNav__link" href="#context">Contexte</a>
+        <a class="uwNav__link" href="#gender">Genre</a>
+        <a class="uwNav__link" href="#risks">Risques</a>
+        <a class="uwNav__link" href="#strategy">Stratégie</a>
+        <a class="uwNav__link" href="#investment">Mobilisation</a>
+        <a class="uwNav__btn" href="#investment">Priorités bailleurs</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero2" id="top">
+    <div class="hero2__bg" aria-hidden="true"></div>
+
+    <div class="hero2__inner">
+      <div>
+        <h1 class="hero2__h1">Brief de direction</h1>
+        <p class="hero2__lead" id="heroLead">
+          Chargement du résumé…
         </p>
 
-        <div class="quote">
-          <strong>« Intégrer l’équité entre les sexes consiste à évaluer les incidences pour les femmes et les hommes de toute action envisagée afin de garantir que l’inégalité ne puisse se perpétuer. »</strong>
-          <em>— Déclaration et Programme d’action de Pékin, 1995</em>
+        <div class="hero2__badgeRow" aria-label="Thèmes">
+          <span class="badge badge--blue">GiHA</span>
+          <span class="badge badge--orange">LEAP</span>
+          <span class="badge">Nexus Humanitaire–Développement–Paix</span>
+          <span class="badge">Localisation</span>
+          <span class="badge">Redevabilité</span>
         </div>
 
-        <div class="tagrow" aria-label="Mots-clés">
-          <span class="tag blue">GiHA</span>
-          <span class="tag orange">LEAP</span>
-          <span class="tag">Nexus HDP</span>
-          <span class="tag">Localisation</span>
-          <span class="tag">Redevabilité</span>
-          <span class="tag">Mobilisation de ressources</span>
+        <div class="hero2__ctaRow" role="group" aria-label="Actions">
+          <a class="btnPrimary" href="#snapshot">Aller à l’aperçu</a>
+          <button class="btnGhost" type="button" data-open="allDetails">Tout déplier</button>
+          <button class="btnGhost" type="button" data-close="allDetails">Tout replier</button>
         </div>
+
+        <div class="hero2__signals" id="heroSignals" aria-label="Signaux clés"></div>
       </div>
 
-      <aside class="side">
-        <div class="card">
-          <h3>Chiffres clés (à confirmer / alimenter)</h3>
-          <div class="kpis">
-            <div class="kpi"><div class="v">50M</div><div class="l">Exposés à l’insécurité alimentaire (région)</div></div>
-            <div class="kpi"><div class="v">14.3M</div><div class="l">Dans le besoin (Afrique de l’Ouest)</div></div>
-            <div class="kpi"><div class="v">10.2M</div><div class="l">Dans le besoin (Bassin du Lac Tchad)</div></div>
-            <div class="kpi"><div class="v">25.4M</div><div class="l">Dans le besoin (RDC)</div></div>
+      <aside>
+        <div class="panel">
+          <div class="panelHead">
+            <h3>Indicateurs clés</h3>
+            <div class="panelMeta">Synthèse rapide pour lecture exécutive</div>
           </div>
-          <p class="imgHint">Astuce : remplacez ces chiffres par des sources OCHA/UNHCR/IPC au moment de la publication.</p>
+          <div class="microKpiGrid" id="microKpis"></div>
         </div>
 
-        <div class="card">
-          <h3>Visuels stratégiques (emplacements)</h3>
-          <div class="imgSlot" id="imgHeroSlot">
-            <div class="ph">
-              <b>Image “Hero”</b>
-              <span>Carte régionale / photo contextuelle / visuel institutionnel</span>
-            </div>
+        <div class="panel" style="margin-top:12px">
+          <div class="panelHead">
+            <h3>Visuel</h3>
+            <div class="panelMeta" id="heroIllustrationCap"></div>
           </div>
-          <p class="imgHint">Chemin suggéré : <code>assets/img/hero.jpg</code> (optionnel)</p>
+          <div class="illustrationCard__frame" id="heroIllustration">Illustration (à remplacer)</div>
         </div>
       </aside>
     </div>
+  </section>
 
-    <!-- Sections -->
-    <section aria-label="Contenu principal">
-      <div class="sectionHeader">
-        <h2>Structure en 9 points</h2>
-        <p>Chaque point est repliable • Contenu + commentaire stratégique</p>
+  <!-- APERÇU -->
+  <section class="section" id="snapshot">
+    <div class="container">
+      <div class="sectionHead">
+        <h2>Aperçu</h2>
+        <p class="sectionSub">Points saillants, messages clés et premières visualisations.</p>
       </div>
 
-      <!-- 1 -->
-      <details class="sec" open>
-        <summary>
-          <div class="sumLeft">
-            <div class="badge">1</div>
-            <div class="sumText">
-              <h3>Introduction et justification stratégique</h3>
-              <p>Mandat ONU Femmes • Triple mandat • Positionnement IASC • Objectif d’opérationnalisation régionale</p>
-            </div>
-          </div>
-          <div class="chev">▾</div>
-        </summary>
-        <div class="divider"></div>
-        <div class="content">
-          <div class="contentGrid">
-            <div class="block">
-              <h4>Contenu</h4>
-              <p>
-                La création d’ONU Femmes, à travers la résolution A/RES/64/289, répond à la nécessité d’un leadership mondial en matière d’égalité de genre.
-                Son triple mandat — normatif, coordination et opérationnel — lui confère une position unique pour influencer les politiques et les réponses humanitaires.
-                Depuis son entrée au sein de l’IASC en 2023 comme co-présidente du Groupe de Référence sur l’Égalité de Genre dans l’Action Humanitaire,
-                ONU Femmes joue un rôle stratégique dans l’intégration du genre au cœur des mécanismes humanitaires globaux.
-                Cette stratégie régionale vise à traduire les engagements globaux dans les contextes spécifiques de l’Afrique de l’Ouest et du Centre.
-              </p>
-              <p style="margin-top:10px"><em>
-                Commentaire stratégique : utilisez cette section comme “socle politique” dans les échanges RC/HC, HCT et bailleurs.
-                Le message à porter : l’égalité de genre est un facteur d’efficacité humanitaire mesurable et un levier de redevabilité du système.
-              </em></p>
-            </div>
-            <div>
-              <div class="imgSlot">
-                <div class="ph">
-                  <b>Image stratégique 1</b>
-                  <span>Visuel institutionnel / schéma “triple mandat”</span>
-                </div>
-              </div>
-              <div class="imgHint">Chemin suggéré : <code>assets/img/section-1.jpg</code></div>
-            </div>
-          </div>
-        </div>
-      </details>
+      <div class="kpiRow" id="kpiGrid"></div>
 
-      <!-- 2 -->
-      <details class="sec">
-        <summary>
-          <div class="sumLeft">
-            <div class="badge">2</div>
-            <div class="sumText">
-              <h3>Contexte régional : crises, fragilité et dynamiques humanitaires</h3>
-              <p>Polycrise • Déplacements • Insécurité alimentaire • Expansion vers zones côtières • Foyers Afrique centrale</p>
-            </div>
+      <div class="grid2">
+        <div class="panel">
+          <div class="panelHead">
+            <h3>Messages clés</h3>
+            <div class="panelMeta">À utiliser pour briefs et réunions</div>
           </div>
-          <div class="chev">▾</div>
-        </summary>
-        <div class="divider"></div>
-        <div class="content">
-          <div class="contentGrid">
-            <div class="block">
-              <h4>Contenu</h4>
-              <p>
-                La région fait face à des crises prolongées combinant conflits armés, déplacements massifs, insécurité alimentaire,
-                fragilité institutionnelle et impacts climatiques. En 2024 : près de 50M exposés à l’insécurité alimentaire,
-                14.3M dans le besoin en Afrique de l’Ouest, 10.2M dans le bassin du Lac Tchad, 25.4M en RDC.
-                L’expansion des violences vers les zones côtières et la persistance de foyers en Afrique centrale démontrent une régionalisation des risques.
-              </p>
-              <p style="margin-top:10px"><em>
-                Commentaire stratégique : transformez cette section en argument d’investissement régional (financements pluriannuels/flexibles),
-                en soulignant que la crise est transfrontalière et durable, donc incompatible avec des approches annuelles et fragmentées.
-              </em></p>
-            </div>
-            <div>
-              <div class="imgSlot">
-                <div class="ph">
-                  <b>Image stratégique 2</b>
-                  <span>Carte “hotspots” / déplacements / tendance incidents</span>
-                </div>
-              </div>
-              <div class="imgHint">Chemin suggéré : <code>assets/img/section-2-map.jpg</code></div>
-            </div>
-          </div>
-        </div>
-      </details>
+          <div class="keyMessages" id="keyMessages"></div>
 
-      <!-- 3 -->
-      <details class="sec">
-        <summary>
-          <div class="sumLeft">
-            <div class="badge">3</div>
-            <div class="sumText">
-              <h3>Analyse des risques et hypothèses opérationnelles</h3>
-              <p>Risques systémiques • Sous-financement genre • Participation WLO • Hypothèses de réussite</p>
-            </div>
-          </div>
-          <div class="chev">▾</div>
-        </summary>
-        <div class="divider"></div>
-        <div class="content">
-          <div class="contentGrid">
-            <div class="block">
-              <h4>Contenu</h4>
-              <p>
-                Les risques incluent l’aggravation des crises, la persistance des normes discriminatoires, le faible financement dédié au genre,
-                la consultation limitée des organisations dirigées par des femmes, et l’augmentation des risques de VBG et d’exclusion.
-                Les hypothèses opérationnelles reposent sur des mécanismes régionaux adaptés, une participation inclusive,
-                un financement suffisant et une transformation progressive des normes sociales.
-              </p>
-              <p style="margin-top:10px"><em>
-                Commentaire stratégique : utilisez cette section comme “cadre de dialogue bailleurs” : le risque majeur est systémique.
-                Sans investissement dans la coordination et la redevabilité genre, la performance globale des HRP se dégrade.
-              </em></p>
-            </div>
-            <div>
-              <div class="imgSlot">
-                <div class="ph">
-                  <b>Image stratégique 3</b>
-                  <span>Matrice risques / hypothèses / signaux</span>
-                </div>
-              </div>
-              <div class="imgHint">Chemin suggéré : <code>assets/img/section-3-risk.jpg</code></div>
-            </div>
-          </div>
+          <details class="detailBlock">
+            <summary class="detailBlock__summary">
+              Détails
+              <span class="detailBlock__hint">texte complet</span>
+            </summary>
+            <div class="detailBlock__body longText" id="snapshotDetails"></div>
+          </details>
         </div>
-      </details>
 
-      <!-- 4 -->
-      <details class="sec">
-        <summary>
-          <div class="sumLeft">
-            <div class="badge">4</div>
-            <div class="sumText">
-              <h3>Vision stratégique et objectifs (2024–2027)</h3>
-              <p>Nexus HDP • Leadership des femmes • Redevabilité • Résilience économique</p>
-            </div>
+        <div class="panel">
+          <div class="panelHead">
+            <h3>Illustrations</h3>
+            <div class="panelMeta">Espaces prévus pour cartes, schémas, photos</div>
           </div>
-          <div class="chev">▾</div>
-        </summary>
-        <div class="divider"></div>
-        <div class="content">
-          <div class="contentGrid">
-            <div class="block">
-              <h4>Contenu</h4>
-              <p>
-                La stratégie vise à placer l’égalité de genre au centre des réponses humanitaires dans le nexus humanitaire-développement-paix.
-                Objectifs : renforcer la redevabilité genre, positionner les organisations dirigées par des femmes,
-                amplifier le leadership féminin, soutenir protection et résilience économique.
-              </p>
-              <p style="margin-top:10px"><em>
-                Commentaire stratégique : formulez la vision comme récit unificateur et “solution systémique” (stabilisation, cohésion sociale, paix),
-                plutôt qu’une approche sectorielle. C’est le langage attendu en dialogue politique et mobilisation de ressources.
-              </em></p>
-            </div>
-            <div>
-              <div class="imgSlot">
-                <div class="ph">
-                  <b>Image stratégique 4</b>
-                  <span>Schéma “nexus HDP” / théorie du changement</span>
-                </div>
-              </div>
-              <div class="imgHint">Chemin suggéré : <code>assets/img/section-4-toc.jpg</code></div>
-            </div>
-          </div>
-        </div>
-      </details>
-
-      <!-- 5 -->
-      <details class="sec">
-        <summary>
-          <div class="sumLeft">
-            <div class="badge">5</div>
-            <div class="sumText">
-              <h3>Cadre stratégique : deux piliers complémentaires</h3>
-              <p>GiHA (système) • LEAP (terrain) • Cohérence “systems → impact”</p>
-            </div>
-          </div>
-          <div class="chev">▾</div>
-        </summary>
-        <div class="divider"></div>
-        <div class="content">
-          <div class="contentGrid">
-            <div class="block">
-              <h4>Contenu</h4>
-              <p>
-                Pilier 1 — GiHA : intégration du genre dans la coordination humanitaire et redevabilité institutionnelle.
-                Pilier 2 — LEAP : protection, autonomisation économique et soutien aux moyens de subsistance.
-              </p>
-              <p style="margin-top:10px"><em>
-                Commentaire stratégique : présentez GiHA-LEAP comme proposition de valeur unique : influencer les volumes HRP (GiHA)
-                tout en démontrant l’impact tangible (LEAP). C’est un argument direct de financement et de différenciation.
-              </em></p>
-            </div>
-            <div>
-              <div class="imgSlot">
-                <div class="ph">
-                  <b>Image stratégique 5</b>
-                  <span>Infographie “GiHA ↔ LEAP”</span>
-                </div>
-              </div>
-              <div class="imgHint">Chemin suggéré : <code>assets/img/section-5-pillars.jpg</code></div>
-            </div>
-          </div>
-        </div>
-      </details>
-
-      <!-- 6 -->
-      <details class="sec">
-        <summary>
-          <div class="sumLeft">
-            <div class="badge">6</div>
-            <div class="sumText">
-              <h3>Mise en œuvre opérationnelle</h3>
-              <p>WCARO hub • Équipes dédiées • Bureaux pays • Partenariats • Localisation</p>
-            </div>
-          </div>
-          <div class="chev">▾</div>
-        </summary>
-        <div class="divider"></div>
-        <div class="content">
-          <div class="contentGrid">
-            <div class="block">
-              <h4>Contenu</h4>
-              <p>
-                La mise en œuvre repose sur le leadership régional WCARO, des équipes humanitaires spécialisées, les bureaux pays
-                et des partenariats avec agences ONU, institutions régionales et organisations dirigées par des femmes.
-                Priorités : localisation, coordination inter-agences et mobilisation de ressources.
-              </p>
-              <p style="margin-top:10px"><em>
-                Commentaire stratégique : affirmez WCARO comme hub régional (cohérence/qualité/innovation) plutôt qu’un acteur parallèle.
-                L’argument bailleurs : “effet multiplicateur” via influence des mécanismes existants.
-              </em></p>
-            </div>
-            <div>
-              <div class="imgSlot">
-                <div class="ph">
-                  <b>Image stratégique 6</b>
-                  <span>Organigramme opérationnel / écosystème partenaires</span>
-                </div>
-              </div>
-              <div class="imgHint">Chemin suggéré : <code>assets/img/section-6-ops.jpg</code></div>
-            </div>
-          </div>
-        </div>
-      </details>
-
-      <!-- 7 -->
-      <details class="sec">
-        <summary>
-          <div class="sumLeft">
-            <div class="badge">7</div>
-            <div class="sumText">
-              <h3>Suivi, redevabilité et apprentissage</h3>
-              <p>UNCT-SWAP • Marqueur genre • Reporting • Apprentissage • Influence</p>
-            </div>
-          </div>
-          <div class="chev">▾</div>
-        </summary>
-        <div class="divider"></div>
-        <div class="content">
-          <div class="contentGrid">
-            <div class="block">
-              <h4>Contenu</h4>
-              <p>
-                Le suivi utilise UNCT-SWAP, le marqueur égalité de genre et des mécanismes réguliers d’apprentissage et d’évaluation.
-              </p>
-              <p style="margin-top:10px"><em>
-                Commentaire stratégique : faites du M&E un outil d’influence : démontrer la valeur ajoutée des investissements genre,
-                orienter les décisions et renforcer la crédibilité institutionnelle auprès des bailleurs.
-              </em></p>
-            </div>
-            <div>
-              <div class="imgSlot">
-                <div class="ph">
-                  <b>Image stratégique 7</b>
-                  <span>Tableau de bord redevabilité / indicateurs</span>
-                </div>
-              </div>
-              <div class="imgHint">Chemin suggéré : <code>assets/img/section-7-mel.jpg</code></div>
-            </div>
-          </div>
-        </div>
-      </details>
-
-      <!-- 8 -->
-      <details class="sec">
-        <summary>
-          <div class="sumLeft">
-            <div class="badge">8</div>
-            <div class="sumText">
-              <h3>Contraintes et limites</h3>
-              <p>Sous-financement • Accès • Données • Dépendance partenaires • Volatilité</p>
-            </div>
-          </div>
-          <div class="chev">▾</div>
-        </summary>
-        <div class="divider"></div>
-        <div class="content">
-          <div class="contentGrid">
-            <div class="block">
-              <h4>Contenu</h4>
-              <p>
-                Les limites concernent le sous-financement, l’accès humanitaire restreint, la dépendance aux partenariats,
-                les lacunes de données et des contextes sécuritaires volatils. La stratégie privilégie la localisation
-                et le renforcement des données pour atténuer ces contraintes.
-              </p>
-              <p style="margin-top:10px"><em>
-                Commentaire stratégique : utilisez ces contraintes comme “plateforme de plaidoyer” : l’écart ambition/ressources est le frein principal.
-                Investir dans le genre = réduire coûts humains/financiers à moyen terme (efficacité + durabilité).
-              </em></p>
-            </div>
-            <div>
-              <div class="imgSlot">
-                <div class="ph">
-                  <b>Image stratégique 8</b>
-                  <span>Graph “gap financement” / carte accès</span>
-                </div>
-              </div>
-              <div class="imgHint">Chemin suggéré : <code>assets/img/section-8-gap.jpg</code></div>
-            </div>
-          </div>
-        </div>
-      </details>
-
-      <!-- 9 -->
-      <details class="sec">
-        <summary>
-          <div class="sumLeft">
-            <div class="badge">9</div>
-            <div class="sumText">
-              <h3>Vision finale</h3>
-              <p>Gouvernance humanitaire • Leadership des femmes • Réponse inclusive • Stabilité durable</p>
-            </div>
-          </div>
-          <div class="chev">▾</div>
-        </summary>
-        <div class="divider"></div>
-        <div class="content">
-          <div class="contentGrid">
-            <div class="block">
-              <h4>Contenu</h4>
-              <p>
-                La stratégie vise à positionner ONU Femmes comme acteur central de la gouvernance humanitaire régionale,
-                capable de promouvoir une action inclusive, équitable et durable, et de renforcer le leadership des femmes dans les réponses aux crises.
-              </p>
-              <p style="margin-top:10px"><em>
-                Commentaire stratégique : ancrez la vision dans un narratif “stabilité durable” : les femmes comme leviers de résilience et de paix.
-                C’est un message haut niveau, utile pour dialogues politiques et financements pluriannuels.
-              </em></p>
-            </div>
-            <div>
-              <div class="imgSlot">
-                <div class="ph">
-                  <b>Image stratégique 9</b>
-                  <span>Photo impact / leadership féminin / relèvement</span>
-                </div>
-              </div>
-              <div class="imgHint">Chemin suggéré : <code>assets/img/section-9-impact.jpg</code></div>
-            </div>
-          </div>
-        </div>
-      </details>
-    </section>
-
-    <footer>
-      <div class="footgrid">
-        <div class="card">
-          <h3>Arborescence recommandée (GitHub Pages)</h3>
-          <div class="block" style="margin:0">
-            <p>
-              <code>/index.html</code><br/>
-              <code>/assets/img/hero.jpg</code><br/>
-              <code>/assets/img/section-1.jpg</code> … <code>section-9-impact.jpg</code><br/>
-              <code>/assets/docs/</code> (optionnel : PDF/annexes)
-            </p>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Conseil “effet WOW” (sans complexifier)</h3>
-          <div class="block" style="margin:0">
-            <p>
-              Ajoutez 6–8 visuels maximum : 1 carte régionale + 1 matrice risques + 1 schéma GiHA/LEAP + 1 tableau redevabilité + 1 gap financement + 1 photo impact.
-              Cela suffit pour un rendu Executive.
-            </p>
-          </div>
+          <div class="illustrationStack" id="snapshotIllustrations"></div>
         </div>
       </div>
-      <p style="margin-top:14px">© ONU Femmes — Prototype HTML narratif. Personnalisez logos, visuels et chiffres selon les sources validées.</p>
-    </footer>
 
+      <div class="grid3">
+        <div class="chartWrap panel">
+          <div class="panelHead">
+            <h3>Répartition</h3>
+            <div class="panelMeta">Vue d’ensemble</div>
+          </div>
+          <canvas id="chartDonut" aria-label="Graphique répartition"></canvas>
+        </div>
+
+        <div class="chartWrap panel">
+          <div class="panelHead">
+            <h3>Priorités</h3>
+            <div class="panelMeta">Barres horizontales</div>
+          </div>
+          <canvas id="chartBars" aria-label="Graphique priorités"></canvas>
+        </div>
+
+        <div class="chartWrap panel">
+          <div class="panelHead">
+            <h3>Tendance</h3>
+            <div class="panelMeta">Évolution</div>
+          </div>
+          <canvas id="chartTrend" aria-label="Graphique tendance"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTEXTE -->
+  <section class="section" id="context">
+    <div class="container">
+      <div class="sectionHead">
+        <h2>Contexte régional</h2>
+        <p class="sectionSub">Lecture rapide + éléments pays/zonaux.</p>
+      </div>
+
+      <div class="grid2">
+        <div class="panel">
+          <div class="panelHead">
+            <h3>Résumé</h3>
+            <div class="panelMeta">3–6 points essentiels</div>
+          </div>
+          <ul class="bullets" id="contextSummary"></ul>
+
+          <details class="detailBlock">
+            <summary class="detailBlock__summary">
+              Détails Afrique de l’Ouest
+              <span class="detailBlock__hint">texte</span>
+            </summary>
+            <div class="detailBlock__body longText" id="westAfricaText"></div>
+          </details>
+
+          <details class="detailBlock">
+            <summary class="detailBlock__summary">
+              Détails Afrique centrale
+              <span class="detailBlock__hint">texte</span>
+            </summary>
+            <div class="detailBlock__body longText" id="centralAfricaText"></div>
+          </details>
+        </div>
+
+        <div class="panel">
+          <div class="panelHead">
+            <h3>Carte et zones d’attention</h3>
+            <div class="panelMeta">Cliquer sur une zone pour voir les informations</div>
+          </div>
+          <div class="map" id="map" role="region" aria-label="Carte"></div>
+          <div style="margin-top:10px" class="chips" id="hotspotChips"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GENRE -->
+  <section class="section" id="gender">
+    <div class="container">
+      <div class="sectionHead">
+        <h2>Genre dans l’action humanitaire</h2>
+        <p class="sectionSub">Synthèses et éléments contextuels par sous-région.</p>
+      </div>
+
+      <div class="grid2">
+        <div class="panel">
+          <div class="panelHead">
+            <h3>Afrique de l’Ouest</h3>
+            <div class="panelMeta">Principaux constats</div>
+          </div>
+          <ul class="bullets" id="genderWestSummary"></ul>
+
+          <details class="detailBlock">
+            <summary class="detailBlock__summary">
+              Détails
+              <span class="detailBlock__hint">texte</span>
+            </summary>
+            <div class="detailBlock__body longText" id="genderWestDetails"></div>
+          </details>
+        </div>
+
+        <div class="panel">
+          <div class="panelHead">
+            <h3>Afrique centrale</h3>
+            <div class="panelMeta">Principaux constats</div>
+          </div>
+          <ul class="bullets" id="genderCentralSummary"></ul>
+
+          <details class="detailBlock">
+            <summary class="detailBlock__summary">
+              Détails
+              <span class="detailBlock__hint">texte</span>
+            </summary>
+            <div class="detailBlock__body longText" id="genderCentralDetails"></div>
+          </details>
+        </div>
+      </div>
+
+      <div class="panel" style="margin-top:14px">
+        <div class="panelHead">
+          <h3>Illustrations</h3>
+          <div class="panelMeta">Graphiques, infographies, photos</div>
+        </div>
+        <div class="imageRow" id="genderIllustrations"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RISQUES -->
+  <section class="section" id="risks">
+    <div class="container">
+      <div class="sectionHead">
+        <h2>Risques et hypothèses</h2>
+        <p class="sectionSub">Matrice des risques, mesures d’atténuation et hypothèses opérationnelles.</p>
+      </div>
+
+      <div class="grid2">
+        <div class="panel">
+          <div class="panelHead">
+            <h3>Matrice des risques</h3>
+            <div class="panelMeta">Lecture synthétique</div>
+          </div>
+          <div class="riskMatrix" id="riskMatrix"></div>
+
+          <details class="detailBlock">
+            <summary class="detailBlock__summary">
+              Mesures d’atténuation
+              <span class="detailBlock__hint">texte</span>
+            </summary>
+            <div class="detailBlock__body longText" id="riskMitigation"></div>
+          </details>
+        </div>
+
+        <div class="panel">
+          <div class="panelHead">
+            <h3>Hypothèses clés</h3>
+            <div class="panelMeta">Conditions de réussite</div>
+          </div>
+          <div class="assumptions" id="assumptionsGrid"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRATEGIE -->
+  <section class="section" id="strategy">
+    <div class="container">
+      <div class="sectionHead">
+        <h2>Stratégie</h2>
+        <p class="sectionSub">Objectifs, portée, limites et piliers GiHA / LEAP.</p>
+      </div>
+
+      <div class="panel">
+        <div class="threeCols">
+          <div>
+            <p class="miniTitle">Objectifs</p>
+            <ul class="bullets" id="objectivesList"></ul>
+          </div>
+          <div>
+            <p class="miniTitle">Portée</p>
+            <p class="resultBox longText" id="scopeText"></p>
+          </div>
+          <div>
+            <p class="miniTitle">Limites</p>
+            <ul class="bullets" id="limitsList"></ul>
+          </div>
+        </div>
+
+        <details class="detailBlock">
+          <summary class="detailBlock__summary">
+            Mesures d’atténuation des limites
+            <span class="detailBlock__hint">texte</span>
+          </summary>
+          <div class="detailBlock__body longText" id="limitsMitigation"></div>
+        </details>
+      </div>
+
+      <div class="pillars">
+        <!-- PILIER 1 -->
+        <div class="panel">
+          <div class="pillarTop">
+            <div class="icon icon--blue">Gi</div>
+            <div>
+              <div class="miniTitle" style="margin:0">Pilier 1 — GiHA</div>
+              <div class="pillarObj" id="p1Objective"></div>
+            </div>
+          </div>
+
+          <div class="pillarGrid">
+            <div class="callout callout--blue">
+              <p class="miniTitle">Approche</p>
+              <div class="longText" id="p1Approach"></div>
+            </div>
+            <div class="callout callout--blue">
+              <p class="miniTitle">Résultat attendu</p>
+              <div class="longText" id="p1Result"></div>
+            </div>
+          </div>
+
+          <details class="detailBlock">
+            <summary class="detailBlock__summary">
+              Actions prioritaires
+              <span class="detailBlock__hint">liste</span>
+            </summary>
+            <div class="detailBlock__body">
+              <ul class="bullets" id="p1Actions"></ul>
+            </div>
+          </details>
+        </div>
+
+        <!-- PILIER 2 -->
+        <div class="panel">
+          <div class="pillarTop">
+            <div class="icon icon--orange">Le</div>
+            <div>
+              <div class="miniTitle" style="margin:0">Pilier 2 — LEAP</div>
+              <div class="pillarObj" id="p2Objective"></div>
+            </div>
+          </div>
+
+          <div class="pillarGrid">
+            <div class="callout callout--orange">
+              <p class="miniTitle">Approche</p>
+              <div class="longText" id="p2Approach"></div>
+            </div>
+            <div class="callout callout--orange">
+              <p class="miniTitle">Résultat attendu</p>
+              <div class="longText" id="p2Result"></div>
+            </div>
+          </div>
+
+          <details class="detailBlock">
+            <summary class="detailBlock__summary">
+              Actions prioritaires
+              <span class="detailBlock__hint">liste</span>
+            </summary>
+            <div class="detailBlock__body">
+              <ul class="bullets" id="p2Actions"></ul>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <div class="grid2" style="margin-top:14px">
+        <div class="panel">
+          <div class="panelHead">
+            <h3>Capacités et ressources</h3>
+            <div class="panelMeta">Éléments à suivre / à confirmer</div>
+          </div>
+          <div class="staffTable" id="staffTable"></div>
+        </div>
+
+        <div class="panel">
+          <div class="panelHead">
+            <h3>Suivi et redevabilité</h3>
+            <div class="panelMeta">Points essentiels</div>
+          </div>
+          <ul class="bullets" id="meList"></ul>
+          <details class="detailBlock">
+            <summary class="detailBlock__summary">
+              Exemples d’indicateurs
+              <span class="detailBlock__hint">texte</span>
+            </summary>
+            <div class="detailBlock__body longText" id="indicatorExamples"></div>
+          </details>
+        </div>
+      </div>
+
+      <div class="grid2" style="margin-top:14px">
+        <div class="panel">
+          <div class="panelHead">
+            <h3>Mobilisation des ressources</h3>
+            <div class="panelMeta">Axes de travail</div>
+          </div>
+          <ul class="bullets" id="rmList"></ul>
+          <details class="detailBlock">
+            <summary class="detailBlock__summary">
+              Message clé
+              <span class="detailBlock__hint">texte</span>
+            </summary>
+            <div class="detailBlock__body longText" id="rmCall"></div>
+          </details>
+        </div>
+
+        <div class="panel">
+          <div class="panelHead">
+            <h3>Calendrier indicatif</h3>
+            <div class="panelMeta">2024–2027</div>
+          </div>
+          <div class="timeline" id="timeline"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOBILISATION (DONORS) -->
+  <section class="section donorSection" id="investment">
+    <div class="donorBg" aria-hidden="true"></div>
+    <div class="container">
+      <div class="sectionHead">
+        <h2>Mobilisation et priorités bailleurs</h2>
+        <p class="sectionSub">Proposition de valeur, retour attendu et appel à l’action.</p>
+      </div>
+
+      <div class="donorGrid">
+        <div class="panel">
+          <div class="panelHead">
+            <h3>Priorités</h3>
+            <div class="panelMeta">Angles utiles en dialogue bailleurs</div>
+          </div>
+          <div class="donorCards" id="donorCards"></div>
+
+          <p class="miniTitle">Valeur ajoutée</p>
+          <ul class="bullets" id="roiList"></ul>
+
+          <details class="detailBlock">
+            <summary class="detailBlock__summary">
+              Appel à l’action
+              <span class="detailBlock__hint">texte</span>
+            </summary>
+            <div class="detailBlock__body longText" id="finalCall"></div>
+          </details>
+
+          <div class="callout callout--blue" style="margin-top:12px">
+            <b>Contact :</b> <span id="contactLine"></span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panelHead">
+            <h3>Visuel</h3>
+            <div class="panelMeta" id="donorIllustrationCap"></div>
+          </div>
+          <div class="illustrationCard__frame" id="donorIllustration">Illustration (à remplacer)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dock (pills) -->
+  <div class="intelDock" aria-hidden="false">
+    <div class="intelDock__inner" id="intelDock"></div>
   </div>
 
-  <script>
-    // Déplier / replier tout
-    const details = () => Array.from(document.querySelectorAll("details.sec"));
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        ONU Femmes — Brief régional (AOC) • Usage interne / partenaires
+      </div>
+      <div class="footer__right">
+        Mis à jour : <span id="lastUpdated"></span>
+      </div>
+    </div>
+  </footer>
 
-    document.getElementById("btnOpenAll").addEventListener("click", () => {
-      details().forEach(d => d.open = true);
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-
-    document.getElementById("btnCloseAll").addEventListener("click", () => {
-      details().forEach(d => d.open = false);
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-
-    // Optionnel : charger automatiquement une image si elle existe (sans casser si absente)
-    // Remarque: GitHub Pages renvoie 404; on évite fetch pour rester simple.
-    // Vous pouvez remplacer les placeholders en mettant directement <img src="assets/img/..." />
-    // Exemple : document.getElementById("imgHeroSlot").innerHTML = '<img src="assets/img/hero.jpg" alt="Hero"/>';
-  </script>
 </body>
 </html>
