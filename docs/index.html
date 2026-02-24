@@ -1,201 +1,296 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Stratégie opérationnelle humanitaire — ONU Femmes (AOC) 2024–2027</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Stratégie opérationnelle humanitaire — ONU Femmes (AOC) 2024–2027</title>
 
-  <!-- OpenGraph -->
-  <meta property="og:title" content="Stratégie opérationnelle humanitaire — ONU Femmes (AOC) 2024–2027" />
-  <meta property="og:description" content="Version digitale structurée : lecture Directeur régional, sections repliables, espaces visuels stratégiques." />
-
-  <!-- Styles (UN look) -->
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- Optional: Leaflet (si tu utilises une carte) -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
-
-  <!-- Optional: Chart.js (si tu utilises des graphiques) -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
-
-  <!-- Main -->
-  <script src="main.js" defer></script>
+<link rel="stylesheet" href="style.css"/>
 </head>
 
 <body>
-  <!-- Header band -->
-  <header class="uwHeaderBand" role="banner">
-    <div class="uwHeaderBand__inner">
-      <div class="uwHeaderBand__brand">
-        <!-- Option: ajoute un logo (sinon il se masque) -->
-        <img class="uwHeaderBand__logo" src="assets/img/logo.png" alt="ONU Femmes" onerror="this.style.display='none'">
-        <div class="uwHeaderBand__meta">
-          <div class="uwHeaderBand__kicker">ONU Femmes — Afrique de l’Ouest et du Centre</div>
-          <div class="uwHeaderBand__title">Stratégie opérationnelle humanitaire (AOC) 2024–2027</div>
-        </div>
-      </div>
 
-      <nav class="uwHeaderBand__nav" aria-label="Navigation">
-        <a class="uwNav__link" href="#snapshot">Synthèse</a>
-        <a class="uwNav__link" href="#structure">Structure (9 points)</a>
-        <a class="uwNav__link" href="#annexes">Annexes</a>
+<div class="wrap">
 
-        <!-- Actions -->
-        <a class="uwNav__btn uwNav__btn--orange" href="#" data-open="allDetails">Tout déplier</a>
-        <a class="uwNav__btn" href="#" data-close="allDetails">Tout replier</a>
-        <a class="uwNav__btn" href="#" onclick="window.print(); return false;">Imprimer / PDF</a>
-      </nav>
+<!-- ================= TOPBAR ================= -->
+<div class="topbar">
+  <div class="brand">
+    <div class="logo"></div>
+    <div class="titlebox">
+      <h1>Stratégie opérationnelle humanitaire — ONU Femmes (AOC) 2024–2027</h1>
+      <p>Lecture Directeur régional • Vision stratégique consolidée</p>
     </div>
-  </header>
-
-  <!-- HERO -->
-  <section class="hero2" id="top">
-    <div class="hero2__bg" aria-hidden="true"></div>
-
-    <div class="hero2__inner">
-      <div>
-        <h1 class="hero2__h1">Document stratégique narratif</h1>
-
-        <p class="hero2__lead" id="heroLead">
-          Cette page présente une version digitale structurée pour le positionnement politique, la coordination inter-agences
-          et la mobilisation de ressources, en cohérence avec les cadres humanitaires et l’approche nexus humanitaire-développement-paix.
-        </p>
-
-        <div class="hero2__ctaRow">
-          <a class="btnPrimary" href="#structure">Lire la structure en 9 points</a>
-          <button class="btnGhost" type="button" data-open="allDetails">Déplier tout</button>
-          <button class="btnGhost" type="button" data-close="allDetails">Replier tout</button>
-        </div>
-
-        <div class="callout callout--blue" style="margin-top:10px">
-          <b>Référence normative</b><br/>
-          « Intégrer l’équité entre les sexes consiste à évaluer les incidences pour les femmes et les hommes de toute action envisagée afin de garantir que l’inégalité ne puisse se perpétuer. »
-          <br/><span style="opacity:.92">— Déclaration et Programme d’action de Pékin, 1995</span>
-        </div>
-
-        <div class="hero2__signals" id="heroSignals" aria-label="Repères clés">
-          <!-- alimenté par main.js -->
-        </div>
-      </div>
-
-      <aside>
-        <div class="panel">
-          <div class="panelHead">
-            <h2 style="margin:0">Repères clés</h2>
-            <div class="panelMeta">À compléter avec des chiffres validés (OCHA, UNHCR, IPC, etc.)</div>
-          </div>
-
-          <div class="microKpiGrid" id="microKpis">
-            <!-- alimenté par main.js -->
-          </div>
-
-          <div style="margin-top:12px" class="illustrationCard">
-            <div class="illustrationCard__frame" id="heroIllustration">Illustration (à remplacer)</div>
-            <div class="illustrationCard__cap" id="heroIllustrationCap"></div>
-          </div>
-        </div>
-      </aside>
-    </div>
-  </section>
-
-  <!-- SNAPSHOT -->
-  <section class="section" id="snapshot">
-    <div class="container">
-      <div class="sectionHead">
-        <h2>Synthèse exécutive</h2>
-        <p class="sectionSub">Messages clés, éléments de décision et espaces visuels stratégiques.</p>
-      </div>
-
-      <div class="panel">
-        <div class="kpiRow" id="kpiGrid">
-          <!-- alimenté par main.js (kpi.json optionnel) -->
-        </div>
-
-        <div class="grid2">
-          <div>
-            <div class="miniTitle">Messages clés</div>
-            <div class="keyMessages" id="keyMessages"></div>
-
-            <details class="detailBlock" open>
-              <summary class="detailBlock__summary">
-                <span>Éléments de lecture</span>
-                <span class="detailBlock__hint">Cliquer pour afficher</span>
-              </summary>
-              <div class="detailBlock__body longText" id="snapshotDetails"></div>
-            </details>
-          </div>
-
-          <div>
-            <div class="miniTitle">Visuels stratégiques</div>
-            <div class="illustrationStack" id="snapshotIllustrations"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- STRUCTURE 9 POINTS -->
-  <section class="section" id="structure">
-    <div class="container">
-      <div class="sectionHead">
-        <h2>Structure en 9 points</h2>
-        <p class="sectionSub">
-          Chaque point est repliable et contient : contenu + commentaire stratégique (en italique) + espace visuel.
-        </p>
-      </div>
-
-      <!-- Injecté par main.js depuis assets/data/content.json -->
-      <div id="points9"></div>
-    </div>
-  </section>
-
-  <!-- ANNEXES -->
-  <section class="section" id="annexes">
-    <div class="container">
-      <div class="sectionHead">
-        <h2>Annexes</h2>
-        <p class="sectionSub">Arborescence recommandée, documents complémentaires et ressources à joindre.</p>
-      </div>
-
-      <div class="panel">
-        <div class="threeCols">
-          <div class="callout callout--blue">
-            <b>Arborescence (GitHub Pages)</b><br/>
-            <span class="longText">/index.html
-/style.css
-/main.js
-/assets/data/content.json
-/assets/data/kpi.json (optionnel)
-/assets/img/hero.jpg (optionnel)
-/assets/img/section-1.jpg … section-9.jpg (optionnel)
-/assets/docs/ (optionnel : annexes PDF)</span>
-          </div>
-
-          <div class="callout callout--orange">
-            <b>Visuels (effet Executive)</b><br/>
-            <span class="longText">6–8 visuels maximum : carte régionale, matrice risques, schéma GiHA/LEAP, tableau de redevabilité, gap financement, photo impact.</span>
-          </div>
-
-          <div class="callout">
-            <b>Dernière mise à jour</b><br/>
-            <span id="lastUpdated"></span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Dock (optionnel) -->
-  <div class="intelDock" aria-hidden="false">
-    <div class="intelDock__inner" id="intelDock"></div>
   </div>
 
-  <footer class="footer">
-    <div class="container footer__inner">
-      <div>© ONU Femmes — Version digitale (AOC 2024–2027)</div>
-      <div class="footer__right">Personnaliser logos, visuels et chiffres selon les validations</div>
-    </div>
-  </footer>
+  <div class="actions">
+    <button class="btn primary" id="btnOpenAll">Tout déplier</button>
+    <button class="btn" id="btnCloseAll">Tout replier</button>
+    <button class="btn orange" onclick="window.print()">Imprimer / PDF</button>
+  </div>
+</div>
+
+<!-- ================= HERO ================= -->
+<div class="grid">
+
+<div class="hero">
+<h2>Document stratégique narratif</h2>
+
+<p class="subtitle">
+Cette stratégie opérationnelle humanitaire 2024–2027 positionne ONU Femmes comme acteur central de la gouvernance humanitaire régionale, en intégrant l’égalité de genre comme levier d’efficacité, de redevabilité et de stabilité durable.
+</p>
+
+<div class="quote">
+<strong>« Intégrer l’équité entre les sexes consiste à évaluer les incidences pour les femmes et les hommes de toute action envisagée afin de garantir que l’inégalité ne puisse se perpétuer. »</strong>
+<em>— Déclaration et Programme d’action de Pékin, 1995</em>
+</div>
+
+<div class="tagrow">
+<span class="tag blue">GiHA</span>
+<span class="tag orange">LEAP</span>
+<span class="tag">Nexus HDP</span>
+<span class="tag">Localisation</span>
+<span class="tag">Redevabilité</span>
+</div>
+</div>
+
+<aside class="side">
+<div class="card">
+<h3>Chiffres clés</h3>
+<div class="kpis">
+<div class="kpi"><div class="v">50M</div><div class="l">Insécurité alimentaire (région)</div></div>
+<div class="kpi"><div class="v">14.3M</div><div class="l">Afrique de l’Ouest</div></div>
+<div class="kpi"><div class="v">10.2M</div><div class="l">Bassin Lac Tchad</div></div>
+<div class="kpi"><div class="v">25.4M</div><div class="l">RDC</div></div>
+</div>
+</div>
+</aside>
+
+</div>
+
+<!-- ================= STRUCTURE 9 POINTS ================= -->
+
+<section>
+
+<div class="sectionHeader">
+<h2>Structure stratégique en 9 points</h2>
+<p>Contenu consolidé et commentaires stratégiques</p>
+</div>
+
+<!-- ================= POINT 1 ================= -->
+<details class="sec" open>
+<summary>
+<div class="sumLeft"><div class="badge">1</div>
+<div class="sumText">
+<h3>Introduction et justification stratégique</h3>
+<p>Mandat ONU Femmes • Triple mandat • Positionnement IASC</p>
+</div></div>
+<div class="chev">▾</div>
+</summary>
+<div class="divider"></div>
+<div class="content">
+<div class="block">
+<p>
+La création d’ONU Femmes via la résolution A/RES/64/289 répond à la nécessité d’un leadership mondial en matière d’égalité de genre.
+Son triple mandat — normatif, coordination et opérationnel — lui permet d’influencer les politiques et pratiques humanitaires.
+Depuis son entrée dans l’IASC en 2023 comme co-présidente GiHA, ONU Femmes renforce son rôle stratégique global.
+</p>
+<p><em>
+Commentaire stratégique : ce point constitue le socle politique du document et doit appuyer le positionnement institutionnel auprès des RC/HC et bailleurs.
+</em></p>
+</div>
+</div>
+</details>
+
+<!-- ================= POINT 2 ================= -->
+<details class="sec">
+<summary>
+<div class="sumLeft"><div class="badge">2</div>
+<div class="sumText">
+<h3>Contexte régional</h3>
+<p>Polycrise • Déplacements • Fragilité régionale</p>
+</div></div>
+<div class="chev">▾</div>
+</summary>
+<div class="divider"></div>
+<div class="content">
+<div class="block">
+<p>
+La région connaît une polycrise mêlant conflits, déplacements forcés, changements climatiques et insécurité alimentaire.
+Les dynamiques de violence s’étendent aux zones côtières et les impacts humanitaires persistent en Afrique centrale.
+</p>
+<p><em>
+Commentaire stratégique : cette section justifie une approche régionale et des financements pluriannuels.
+</em></p>
+</div>
+</div>
+</details>
+
+<!-- ================= POINT 3 ================= -->
+<details class="sec">
+<summary>
+<div class="sumLeft"><div class="badge">3</div>
+<div class="sumText"><h3>Analyse des risques</h3>
+<p>Sous-financement • Normes sociales • Exclusion</p></div></div>
+<div class="chev">▾</div>
+</summary>
+<div class="divider"></div>
+<div class="content">
+<div class="block">
+<p>
+Les principaux risques concernent l’aggravation des crises, la faible participation des organisations dirigées par des femmes,
+et le financement insuffisant des actions genre.
+</p>
+<p><em>
+Commentaire stratégique : sans coordination et financement genre, la performance globale des HRP est compromise.
+</em></p>
+</div>
+</div>
+</details>
+
+<!-- ================= POINT 4 ================= -->
+<details class="sec">
+<summary>
+<div class="sumLeft"><div class="badge">4</div>
+<div class="sumText"><h3>Vision stratégique 2024–2027</h3>
+<p>Nexus HDP • Leadership féminin</p></div></div>
+<div class="chev">▾</div>
+</summary>
+<div class="divider"></div>
+<div class="content">
+<div class="block">
+<p>
+La stratégie place l’égalité de genre au centre du nexus humanitaire-développement-paix,
+en renforçant la participation des femmes et la résilience économique.
+</p>
+<p><em>
+Commentaire stratégique : positionner cette vision comme solution systémique augmente son attractivité politique.
+</em></p>
+</div>
+</div>
+</details>
+
+<!-- ================= POINT 5 ================= -->
+<details class="sec">
+<summary>
+<div class="sumLeft"><div class="badge">5</div>
+<div class="sumText"><h3>Cadre GiHA & LEAP</h3>
+<p>Influence système + impact terrain</p></div></div>
+<div class="chev">▾</div>
+</summary>
+<div class="divider"></div>
+<div class="content">
+<div class="block">
+<p>
+GiHA agit sur la coordination et la redevabilité institutionnelle.
+LEAP soutient protection, autonomisation économique et moyens de subsistance.
+</p>
+<p><em>
+Commentaire stratégique : combinaison unique permettant d’influencer le système tout en démontrant des résultats tangibles.
+</em></p>
+</div>
+</div>
+</details>
+
+<!-- ================= POINT 6 ================= -->
+<details class="sec">
+<summary>
+<div class="sumLeft"><div class="badge">6</div>
+<div class="sumText"><h3>Mise en œuvre opérationnelle</h3>
+<p>WCARO hub • Localisation • Partenariats</p></div></div>
+<div class="chev">▾</div>
+</summary>
+<div class="divider"></div>
+<div class="content">
+<div class="block">
+<p>
+La mise en œuvre repose sur WCARO, les bureaux pays et les partenariats inter-agences.
+Priorité donnée à la localisation et au renforcement des capacités nationales.
+</p>
+<p><em>
+Commentaire stratégique : présenter WCARO comme hub régional catalyseur avec effet multiplicateur.
+</em></p>
+</div>
+</div>
+</details>
+
+<!-- ================= POINT 7 ================= -->
+<details class="sec">
+<summary>
+<div class="sumLeft"><div class="badge">7</div>
+<div class="sumText"><h3>Suivi et redevabilité</h3>
+<p>UNCT-SWAP • Marqueur genre</p></div></div>
+<div class="chev">▾</div>
+</summary>
+<div class="divider"></div>
+<div class="content">
+<div class="block">
+<p>
+Le suivi repose sur UNCT-SWAP et le marqueur genre afin d’assurer apprentissage et redevabilité.
+</p>
+<p><em>
+Commentaire stratégique : transformer le M&E en outil d’influence stratégique auprès des bailleurs.
+</em></p>
+</div>
+</div>
+</details>
+
+<!-- ================= POINT 8 ================= -->
+<details class="sec">
+<summary>
+<div class="sumLeft"><div class="badge">8</div>
+<div class="sumText"><h3>Contraintes et limites</h3>
+<p>Financement • Accès • Données</p></div></div>
+<div class="chev">▾</div>
+</summary>
+<div class="divider"></div>
+<div class="content">
+<div class="block">
+<p>
+Les limites majeures concernent le sous-financement, l’accès humanitaire restreint et les lacunes de données.
+</p>
+<p><em>
+Commentaire stratégique : investir dans le genre réduit les coûts humanitaires futurs.
+</em></p>
+</div>
+</div>
+</details>
+
+<!-- ================= POINT 9 ================= -->
+<details class="sec">
+<summary>
+<div class="sumLeft"><div class="badge">9</div>
+<div class="sumText"><h3>Vision finale</h3>
+<p>Leadership des femmes • Stabilité durable</p></div></div>
+<div class="chev">▾</div>
+</summary>
+<div class="divider"></div>
+<div class="content">
+<div class="block">
+<p>
+La stratégie vise à positionner ONU Femmes comme acteur central d’une gouvernance humanitaire inclusive,
+renforçant le leadership des femmes comme moteur de résilience et de paix.
+</p>
+<p><em>
+Commentaire stratégique : message de haut niveau pour dialogue politique et financements pluriannuels.
+</em></p>
+</div>
+</div>
+</details>
+
+</section>
+
+</div>
+
+<!-- ================= SCRIPT ================= -->
+<script>
+const details = () => Array.from(document.querySelectorAll("details.sec"));
+
+document.getElementById("btnOpenAll").onclick = () =>
+  details().forEach(d => d.open = true);
+
+document.getElementById("btnCloseAll").onclick = () =>
+  details().forEach(d => d.open = false);
+</script>
+
 </body>
 </html>
