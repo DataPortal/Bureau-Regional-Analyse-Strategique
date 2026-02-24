@@ -29,7 +29,6 @@
       --safe: clamp(16px, 2vw, 22px);
       --focus: 0 0 0 4px rgba(31,95,168,.20);
 
-      /* Background slider timing */
       --bgFadeMs: 1200ms;
     }
 
@@ -47,8 +46,7 @@
     code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
 
     /* ============================
-       FULLSCREEN BACKGROUND SLIDER
-       - fixed behind everything
+       FOND (images)
     ============================ */
     .bgStage{
       position:fixed;
@@ -74,10 +72,9 @@
     }
     .bgSlide.is-active{
       opacity:1;
-      transform: scale(1.07); /* léger mouvement (Ken Burns) */
+      transform: scale(1.07);
     }
 
-    /* Voiles pour lisibilité (UN look) */
     .bgOverlay{
       position:absolute;
       inset:0;
@@ -393,6 +390,49 @@
     .block p + p{margin-top:10px;}
     .padL{padding-left:6px;}
 
+    /* ====== Mise en valeur (points clés) ====== */
+    .key{
+      font-weight:900;
+      color: var(--un-blue);
+      letter-spacing:.1px;
+    }
+    .kBlue{
+      font-weight:900;
+      color: var(--un-blue);
+    }
+    .kOrange{
+      font-weight:900;
+      color: var(--uw-orange);
+    }
+    .kTag{
+      display:inline-block;
+      padding:2px 8px;
+      border-radius:999px;
+      border:1px solid rgba(31,95,168,.20);
+      background: rgba(31,95,168,.08);
+      color: var(--un-blue);
+      font-weight:900;
+      margin:0 2px;
+      white-space:nowrap;
+    }
+    .callout{
+      margin-top:10px;
+      border:1px solid rgba(245,130,32,.22);
+      background: rgba(245,130,32,.08);
+      border-radius:14px;
+      padding:10px 12px;
+      box-shadow: var(--shadow2);
+      color: var(--ink2);
+    }
+    .callout em{color: var(--ink2); font-style:italic;}
+    .callout .label{
+      display:inline-block;
+      margin-bottom:6px;
+      font-weight:950;
+      color: var(--uw-orange);
+      letter-spacing:.2px;
+    }
+
     footer{
       margin-top:18px;
       border-top:1px solid var(--line);
@@ -405,20 +445,6 @@
       line-height:1.6;
       backdrop-filter: blur(10px);
     }
-    .footgrid{display:grid; grid-template-columns: 1fr 1fr; gap:12px;}
-    @media (max-width: 920px){ .footgrid{grid-template-columns: 1fr} }
-
-    .miniCard{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.90);
-      border-radius:16px;
-      padding:12px;
-      box-shadow: var(--shadow2);
-      color: var(--ink2);
-      backdrop-filter: blur(10px);
-    }
-    .miniCard h3{margin:0 0 8px; font-size:13px; color:var(--ink2);}
-    .miniCard p{margin:0; color:var(--ink2); font-size:12.5px; line-height:1.6;}
     .copy{margin-top:12px; color:var(--muted);}
 
     :focus-visible{ outline:none; box-shadow: var(--focus); border-radius:12px; }
@@ -433,7 +459,6 @@
       .imgSlot{border:1px solid #bbb}
     }
 
-    /* Respect reduced motion */
     @media (prefers-reduced-motion: reduce){
       .bgSlide{transition:none !important; transform:none !important;}
       .bgSlide.is-active{transform:none !important;}
@@ -478,8 +503,9 @@
       <div class="hero__inner">
         <h1>Document stratégique narratif</h1>
         <p>
-          Cette page présente une version digitale structurée pour le positionnement politique, la coordination inter-agences et la mobilisation de ressources,
-          en cohérence avec les cadres humanitaires et l’approche nexus humanitaire-développement-paix.
+          Cette page présente une version digitale structurée pour le <span class="kBlue">positionnement politique</span>,
+          la <span class="kBlue">coordination inter-agences</span> et la <span class="kOrange">mobilisation de ressources</span>,
+          en cohérence avec les cadres humanitaires et l’approche <span class="kTag">nexus HDP</span>.
         </p>
 
         <div class="quote">
@@ -501,25 +527,25 @@
     <!-- KPI + VISUEL -->
     <div class="grid" aria-label="Aperçu">
       <div class="panel">
-        <h2>Chiffres clés (à confirmer / alimenter)</h2>
+        <h2>Chiffres clés</h2>
         <div class="kpis">
           <div class="kpi"><div class="v">50M</div><div class="l">Exposés à l’insécurité alimentaire (région)</div></div>
           <div class="kpi"><div class="v">14.3M</div><div class="l">Dans le besoin (Afrique de l’Ouest)</div></div>
           <div class="kpi"><div class="v">10.2M</div><div class="l">Dans le besoin (Bassin du Lac Tchad)</div></div>
           <div class="kpi"><div class="v">25.4M</div><div class="l">Dans le besoin (RDC)</div></div>
         </div>
-        <p class="hint">Astuce : remplacez ces chiffres par des sources OCHA/UNHCR/IPC au moment de la publication.</p>
+        <p class="hint">Remplacez ces chiffres par des sources validées lors de la publication.</p>
       </div>
 
       <aside class="panel">
-        <h2>Visuel stratégique (emplacement)</h2>
+        <h2>Visuel stratégique</h2>
         <div class="imgSlot" id="imgHeroSlot">
           <div class="ph">
             <b>Image “Hero”</b>
             <span>Carte régionale / photo contextuelle / visuel institutionnel</span>
           </div>
         </div>
-        <div class="imgHint">Chemin suggéré : <code>assets/img/hero.jpg</code> (optionnel)</div>
+        <div class="imgHint">Chemin suggéré : <code>assets/img/hero.jpg</code></div>
       </aside>
     </div>
 
@@ -527,13 +553,12 @@
     <section id="pages" aria-label="Contenu principal" class="hPager">
       <div class="sectionHeader">
         <h2>Structure en 9 points</h2>
-        <p>Défilement horizontal page par page • Navigation Précédent/Suivant</p>
+        <p>Lecture page par page</p>
       </div>
 
       <div class="hPager__bar">
         <div class="hPager__barLeft">
           <span class="pill"><b>Page</b> <span id="pageNow">1</span>/<span id="pageTotal">9</span></span>
-          <span class="pill"><b>Navigation</b> glisser / flèches ← →</span>
         </div>
         <div class="hPager__barRight">
           <button class="hBtn" id="btnPrev" type="button">◀ Précédent</button>
@@ -541,7 +566,7 @@
         </div>
       </div>
 
-      <div class="hScroll" id="hScroll" aria-label="Pages (défilement horizontal)">
+      <div class="hScroll" id="hScroll" aria-label="Pages">
         <!-- 1 -->
         <article class="hPage" data-index="1">
           <div class="hPage__head">
@@ -549,7 +574,7 @@
               <div class="hIndex">1</div>
               <div class="hTitle">
                 <h3>Introduction et justification stratégique</h3>
-                <p>Mandat ONU Femmes • Triple mandat • Positionnement IASC • Objectif d’opérationnalisation régionale</p>
+                <p><span class="kBlue">Mandat ONU Femmes</span> • Triple mandat • Positionnement IASC • Opérationnalisation régionale</p>
               </div>
             </div>
           </div>
@@ -558,16 +583,20 @@
               <div class="block">
                 <h4>Contenu</h4>
                 <p class="padL">
-                  La création d’ONU Femmes, à travers la résolution A/RES/64/289, répond à la nécessité d’un leadership mondial en matière d’égalité de genre.
-                  Son triple mandat — normatif, coordination et opérationnel — lui confère une position unique pour influencer les politiques et les réponses humanitaires.
-                  Depuis son entrée au sein de l’IASC en 2023 comme co-présidente du Groupe de Référence sur l’Égalité de Genre dans l’Action Humanitaire,
+                  La création d’ONU Femmes, à travers la résolution <span class="key">A/RES/64/289</span>, répond à la nécessité d’un leadership mondial en matière d’égalité de genre.
+                  Son <span class="kBlue">triple mandat</span> — normatif, coordination et opérationnel — lui confère une position unique pour influencer les politiques et les réponses humanitaires.
+                  Depuis son entrée au sein de l’IASC en <span class="key">2023</span> comme co-présidente du <span class="kTag">Groupe de Référence sur l’Égalité de Genre dans l’Action Humanitaire</span>,
                   ONU Femmes joue un rôle stratégique dans l’intégration du genre au cœur des mécanismes humanitaires globaux.
                   Cette stratégie régionale vise à traduire les engagements globaux dans les contextes spécifiques de l’Afrique de l’Ouest et du Centre.
                 </p>
-                <p class="padL"><em>
-                  Commentaire stratégique : utilisez cette section comme socle politique dans les échanges RC/HC, HCT et bailleurs.
-                  Le message à porter : l’égalité de genre est un facteur d’efficacité humanitaire mesurable et un levier de redevabilité du système.
-                </em></p>
+
+                <div class="callout">
+                  <div class="label">Commentaire stratégique</div>
+                  <em>
+                    utilisez cette section comme “socle politique” dans les échanges RC/HC, HCT et bailleurs.
+                    Le message à porter : l’égalité de genre est un facteur d’efficacité humanitaire mesurable et un levier de redevabilité du système.
+                  </em>
+                </div>
               </div>
               <div>
                 <div class="imgSlot"><div class="ph"><b>Image stratégique 1</b><span>Visuel institutionnel / schéma “triple mandat”</span></div></div>
@@ -584,7 +613,7 @@
               <div class="hIndex">2</div>
               <div class="hTitle">
                 <h3>Contexte régional : crises, fragilité et dynamiques humanitaires</h3>
-                <p>Polycrise • Déplacements • Insécurité alimentaire • Expansion vers zones côtières • Foyers Afrique centrale</p>
+                <p><span class="kOrange">Polycrise</span> • Déplacements • Insécurité alimentaire • Expansion zones côtières</p>
               </div>
             </div>
           </div>
@@ -594,17 +623,22 @@
                 <h4>Contenu</h4>
                 <p class="padL">
                   La région fait face à des crises prolongées combinant conflits armés, déplacements massifs, insécurité alimentaire,
-                  fragilité institutionnelle et impacts climatiques. En 2024 : près de 50M exposés à l’insécurité alimentaire,
-                  14.3M dans le besoin en Afrique de l’Ouest, 10.2M dans le bassin du Lac Tchad, 25.4M en RDC.
+                  fragilité institutionnelle et impacts climatiques. En 2024 : près de <span class="key">50M</span> exposés à l’insécurité alimentaire,
+                  <span class="key">14.3M</span> dans le besoin en Afrique de l’Ouest, <span class="key">10.2M</span> dans le bassin du Lac Tchad,
+                  <span class="key">25.4M</span> en RDC.
                   L’expansion des violences vers les zones côtières et la persistance de foyers en Afrique centrale démontrent une régionalisation des risques.
                 </p>
-                <p class="padL"><em>
-                  Commentaire stratégique : transformez cette section en argument d’investissement régional (financements pluriannuels et flexibles),
-                  en soulignant que la crise est transfrontalière et durable.
-                </em></p>
+
+                <div class="callout">
+                  <div class="label">Commentaire stratégique</div>
+                  <em>
+                    transformez cette section en argument d’investissement régional (financements pluriannuels/flexibles),
+                    en soulignant que la crise est transfrontalière et durable, donc incompatible avec des approches annuelles et fragmentées.
+                  </em>
+                </div>
               </div>
               <div>
-                <div class="imgSlot"><div class="ph"><b>Image stratégique 2</b><span>Carte “hotspots” / déplacements / tendances</span></div></div>
+                <div class="imgSlot"><div class="ph"><b>Image stratégique 2</b><span>Carte “hotspots” / déplacements / tendance incidents</span></div></div>
                 <div class="imgHint">Chemin suggéré : <code>assets/img/section-2-map.jpg</code></div>
               </div>
             </div>
@@ -618,7 +652,7 @@
               <div class="hIndex">3</div>
               <div class="hTitle">
                 <h3>Analyse des risques et hypothèses opérationnelles</h3>
-                <p>Risques systémiques • Sous-financement genre • Participation WLO • Hypothèses de réussite</p>
+                <p>Risques systémiques • <span class="kOrange">Sous-financement</span> • Participation WLO • Hypothèses</p>
               </div>
             </div>
           </div>
@@ -632,9 +666,14 @@
                   Les hypothèses opérationnelles reposent sur des mécanismes régionaux adaptés, une participation inclusive,
                   un financement suffisant et une transformation progressive des normes sociales.
                 </p>
-                <p class="padL"><em>
-                  Commentaire stratégique : utilisez cette section comme cadre de dialogue bailleurs : le risque majeur est systémique.
-                </em></p>
+
+                <div class="callout">
+                  <div class="label">Commentaire stratégique</div>
+                  <em>
+                    utilisez cette section comme “cadre de dialogue bailleurs” : le risque majeur est systémique.
+                    Sans investissement dans la coordination et la redevabilité genre, la performance globale des HRP se dégrade.
+                  </em>
+                </div>
               </div>
               <div>
                 <div class="imgSlot"><div class="ph"><b>Image stratégique 3</b><span>Matrice risques / hypothèses / signaux</span></div></div>
@@ -651,7 +690,7 @@
               <div class="hIndex">4</div>
               <div class="hTitle">
                 <h3>Vision stratégique et objectifs (2024–2027)</h3>
-                <p>Nexus HDP • Leadership des femmes • Redevabilité • Résilience économique</p>
+                <p><span class="kTag">Nexus HDP</span> • Leadership • Redevabilité • Résilience économique</p>
               </div>
             </div>
           </div>
@@ -664,9 +703,14 @@
                   Objectifs : renforcer la redevabilité genre, positionner les organisations dirigées par des femmes,
                   amplifier le leadership féminin, soutenir protection et résilience économique.
                 </p>
-                <p class="padL"><em>
-                  Commentaire stratégique : formulez la vision comme récit unificateur et solution systémique.
-                </em></p>
+
+                <div class="callout">
+                  <div class="label">Commentaire stratégique</div>
+                  <em>
+                    formulez la vision comme récit unificateur et “solution systémique” (stabilisation, cohésion sociale, paix),
+                    plutôt qu’une approche sectorielle. C’est le langage attendu en dialogue politique et mobilisation de ressources.
+                  </em>
+                </div>
               </div>
               <div>
                 <div class="imgSlot"><div class="ph"><b>Image stratégique 4</b><span>Schéma “nexus HDP” / théorie du changement</span></div></div>
@@ -683,7 +727,7 @@
               <div class="hIndex">5</div>
               <div class="hTitle">
                 <h3>Cadre stratégique : deux piliers complémentaires</h3>
-                <p>GiHA (système) • LEAP (terrain) • Cohérence “systems → impact”</p>
+                <p><span class="kBlue">GiHA</span> • <span class="kOrange">LEAP</span> • Cohérence “systems → impact”</p>
               </div>
             </div>
           </div>
@@ -692,12 +736,17 @@
               <div class="block">
                 <h4>Contenu</h4>
                 <p class="padL">
-                  Pilier 1 — GiHA : intégration du genre dans la coordination humanitaire et redevabilité institutionnelle.
-                  Pilier 2 — LEAP : protection, autonomisation économique et soutien aux moyens de subsistance.
+                  Pilier 1 — <span class="kBlue">GiHA</span> : intégration du genre dans la coordination humanitaire et redevabilité institutionnelle.
+                  Pilier 2 — <span class="kOrange">LEAP</span> : protection, autonomisation économique et soutien aux moyens de subsistance.
                 </p>
-                <p class="padL"><em>
-                  Commentaire stratégique : proposition de valeur unique : influence + impact tangible.
-                </em></p>
+
+                <div class="callout">
+                  <div class="label">Commentaire stratégique</div>
+                  <em>
+                    présentez GiHA-LEAP comme proposition de valeur unique : influencer les volumes HRP (GiHA)
+                    tout en démontrant l’impact tangible (LEAP). C’est un argument direct de financement et de différenciation.
+                  </em>
+                </div>
               </div>
               <div>
                 <div class="imgSlot"><div class="ph"><b>Image stratégique 5</b><span>Infographie “GiHA ↔ LEAP”</span></div></div>
@@ -714,7 +763,7 @@
               <div class="hIndex">6</div>
               <div class="hTitle">
                 <h3>Mise en œuvre opérationnelle</h3>
-                <p>WCARO hub • Équipes dédiées • Bureaux pays • Partenariats • Localisation</p>
+                <p><span class="kBlue">WCARO</span> • Bureaux pays • Partenariats • Localisation</p>
               </div>
             </div>
           </div>
@@ -727,9 +776,14 @@
                   et des partenariats avec agences ONU, institutions régionales et organisations dirigées par des femmes.
                   Priorités : localisation, coordination inter-agences et mobilisation de ressources.
                 </p>
-                <p class="padL"><em>
-                  Commentaire stratégique : positionner WCARO comme hub régional d’alignement et de qualité.
-                </em></p>
+
+                <div class="callout">
+                  <div class="label">Commentaire stratégique</div>
+                  <em>
+                    affirmez WCARO comme hub régional (cohérence/qualité/innovation) plutôt qu’un acteur parallèle.
+                    L’argument bailleurs : “effet multiplicateur” via influence des mécanismes existants.
+                  </em>
+                </div>
               </div>
               <div>
                 <div class="imgSlot"><div class="ph"><b>Image stratégique 6</b><span>Organigramme opérationnel / écosystème partenaires</span></div></div>
@@ -746,7 +800,7 @@
               <div class="hIndex">7</div>
               <div class="hTitle">
                 <h3>Suivi, redevabilité et apprentissage</h3>
-                <p>UNCT-SWAP • Marqueur genre • Reporting • Apprentissage • Influence</p>
+                <p><span class="kTag">UNCT-SWAP</span> • Marqueur genre • Reporting • Apprentissage</p>
               </div>
             </div>
           </div>
@@ -757,9 +811,14 @@
                 <p class="padL">
                   Le suivi utilise UNCT-SWAP, le marqueur égalité de genre et des mécanismes réguliers d’apprentissage et d’évaluation.
                 </p>
-                <p class="padL"><em>
-                  Commentaire stratégique : faire du suivi un levier de crédibilité et de financement durable.
-                </em></p>
+
+                <div class="callout">
+                  <div class="label">Commentaire stratégique</div>
+                  <em>
+                    faites du M&E un outil d’influence : démontrer la valeur ajoutée des investissements genre,
+                    orienter les décisions et renforcer la crédibilité institutionnelle auprès des bailleurs.
+                  </em>
+                </div>
               </div>
               <div>
                 <div class="imgSlot"><div class="ph"><b>Image stratégique 7</b><span>Tableau de bord redevabilité / indicateurs</span></div></div>
@@ -776,7 +835,7 @@
               <div class="hIndex">8</div>
               <div class="hTitle">
                 <h3>Contraintes et limites</h3>
-                <p>Sous-financement • Accès • Données • Dépendance partenaires • Volatilité</p>
+                <p><span class="kOrange">Sous-financement</span> • Accès • Données • Volatilité</p>
               </div>
             </div>
           </div>
@@ -789,9 +848,14 @@
                   les lacunes de données et des contextes sécuritaires volatils. La stratégie privilégie la localisation
                   et le renforcement des données pour atténuer ces contraintes.
                 </p>
-                <p class="padL"><em>
-                  Commentaire stratégique : transformer les contraintes en messages de plaidoyer et d’investissement.
-                </em></p>
+
+                <div class="callout">
+                  <div class="label">Commentaire stratégique</div>
+                  <em>
+                    utilisez ces contraintes comme “plateforme de plaidoyer” : l’écart ambition/ressources est le frein principal.
+                    Investir dans le genre = réduire coûts humains/financiers à moyen terme (efficacité + durabilité).
+                  </em>
+                </div>
               </div>
               <div>
                 <div class="imgSlot"><div class="ph"><b>Image stratégique 8</b><span>Graph “gap financement” / carte accès</span></div></div>
@@ -808,7 +872,7 @@
               <div class="hIndex">9</div>
               <div class="hTitle">
                 <h3>Vision finale</h3>
-                <p>Gouvernance humanitaire • Leadership des femmes • Réponse inclusive • Stabilité durable</p>
+                <p><span class="kBlue">Gouvernance humanitaire</span> • Leadership • Réponse inclusive</p>
               </div>
             </div>
           </div>
@@ -820,9 +884,14 @@
                   La stratégie vise à positionner ONU Femmes comme acteur central de la gouvernance humanitaire régionale,
                   capable de promouvoir une action inclusive, équitable et durable, et de renforcer le leadership des femmes dans les réponses aux crises.
                 </p>
-                <p class="padL"><em>
-                  Commentaire stratégique : ancrer la vision dans la stabilité durable et le leadership féminin.
-                </em></p>
+
+                <div class="callout">
+                  <div class="label">Commentaire stratégique</div>
+                  <em>
+                    ancrez la vision dans un narratif “stabilité durable” : les femmes comme leviers de résilience et de paix.
+                    C’est un message haut niveau, utile pour dialogues politiques et financements pluriannuels.
+                  </em>
+                </div>
               </div>
               <div>
                 <div class="imgSlot"><div class="ph"><b>Image stratégique 9</b><span>Photo impact / leadership féminin / relèvement</span></div></div>
@@ -836,15 +905,12 @@
 
     <!-- FOOTER -->
     <footer id="footer">
-         <div class="copy">© ONU Femmes — Prototype HTML narratif. Personnalisez logos, visuels et chiffres selon les sources validées.</div>
+      <div class="copy">© ONU Femmes — Version digitale. Logos, visuels et chiffres à adapter selon les sources validées.</div>
     </footer>
 
   </div>
 
   <script>
-    /* ============================
-       Horizontal pager
-    ============================ */
     const scroller = document.getElementById("hScroll");
     const pages = Array.from(scroller.querySelectorAll(".hPage"));
     const pageNowEl = document.getElementById("pageNow");
@@ -887,10 +953,6 @@
 
     syncUI();
 
-    /* ============================
-       Background slider (fullscreen)
-       - crossfade between two layers
-    ============================ */
     const BG_IMAGES = [
       "assets/img/bg/01.jpg",
       "assets/img/bg/02.jpg",
@@ -905,20 +967,12 @@
     let bgIdx = 0;
     let onA = true;
 
-    function setBg(el, url){
-      el.style.backgroundImage = `url("${url}")`;
-    }
-
-    function show(el){
-      el.classList.add("is-active");
-    }
-    function hide(el){
-      el.classList.remove("is-active");
-    }
+    function setBg(el, url){ el.style.backgroundImage = `url("${url}")`; }
+    function show(el){ el.classList.add("is-active"); }
+    function hide(el){ el.classList.remove("is-active"); }
 
     function nextBg(){
       if (!BG_IMAGES.length) return;
-
       const nextUrl = BG_IMAGES[bgIdx % BG_IMAGES.length];
       bgIdx++;
 
@@ -932,22 +986,18 @@
       onA = !onA;
     }
 
-    // Précharge simple
     function preload(urls){
       urls.forEach(u => { const i = new Image(); i.src = u; });
     }
     preload(BG_IMAGES);
 
-    // Init : mettre la 1ère image
     if (BG_IMAGES.length){
       setBg(bgA, BG_IMAGES[0]);
       show(bgA);
       bgIdx = 1;
     }
 
-    // Auto-rotation (tu peux ajuster)
-    const BG_INTERVAL_MS = 9000;
-    setInterval(nextBg, BG_INTERVAL_MS);
+    setInterval(nextBg, 9000);
   </script>
 </body>
 </html>
