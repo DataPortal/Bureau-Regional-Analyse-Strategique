@@ -102,56 +102,25 @@
     .wrap{max-width:var(--max); margin:0 auto; padding:16px var(--safe) 80px}
 
     /* Header band */
-    .uwHeaderBand{
-      position:sticky;
-      top:0;
-      z-index:50;
-      background: linear-gradient(135deg, rgba(31,95,168,1), rgba(31,95,168,.92));
-      border-bottom: 1px solid rgba(255,255,255,.18);
-      box-shadow: 0 12px 30px rgba(2,6,23,.16);
-    }
-    .uwHeaderBand__inner{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:12px var(--safe);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-    }
-    .uwHeaderBand__brand{display:flex; align-items:center; gap:10px; min-width:280px;}
-    .uwHeaderBand__logo{
-      width:40px; height:40px; border-radius:14px;
-      background:
-        conic-gradient(from 180deg, rgba(31,95,168,1), rgba(31,95,168,.25), rgba(245,130,32,1), rgba(245,130,32,.22), rgba(31,95,168,1));
-      border:1px solid rgba(255,255,255,.22);
-      box-shadow: 0 18px 40px rgba(0,0,0,.18);
-    }
-    .uwHeaderBand__meta{display:flex; flex-direction:column; gap:2px;}
-    .uwHeaderBand__kicker{font-size:11px; color:rgba(255,255,255,.86); letter-spacing:.2px;}
-    .uwHeaderBand__title{font-size:12px; font-weight:950; color:#fff; letter-spacing:.2px;}
-    .uwHeaderBand__nav{display:flex; align-items:center; gap:8px; flex-wrap:wrap; justify-content:flex-end;}
-    .uwNav__link{
-      text-decoration:none; color:rgba(255,255,255,.92);
-      font-size:12px; padding:7px 10px; border-radius:999px;
-      border:1px solid transparent; transition: background .15s ease, border-color .15s ease, transform .12s ease;
-    }
-    .uwNav__link:hover{background:rgba(255,255,255,.10); border-color:rgba(255,255,255,.18); transform:translateY(-1px);}
-    .uwNav__btn{
-      text-decoration:none; color:var(--ink);
-      font-size:12px; font-weight:950;
-      padding:8px 12px; border-radius:999px;
-      background: linear-gradient(135deg, rgba(245,130,32,1), rgba(245,130,32,.86));
-      box-shadow: 0 12px 26px rgba(245,130,32,.26);
-      border:1px solid rgba(255,255,255,.20);
-      cursor:pointer;
-      transition: transform .12s ease, filter .12s ease;
-    }
-    .uwNav__btn:hover{transform:translateY(-1px); filter:brightness(.98);}
-    @media(max-width:900px){
-      .uwHeaderBand__inner{flex-direction:column; align-items:flex-start;}
-      .uwHeaderBand__nav{justify-content:flex-start;}
-    }
+    .uwHeaderBand__brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-width:280px;
+}
+
+.uwHeaderBand__logoImg{
+  height:44px;          /* ajuste 36–52px selon ton rendu */
+  width:auto;
+  display:block;
+  object-fit:contain;
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,.18));
+}
+
+/* Sur mobile : on réduit légèrement */
+@media(max-width: 520px){
+  .uwHeaderBand__logoImg{ height:38px; }
+}
 
     /* Hero */
     .hero{
